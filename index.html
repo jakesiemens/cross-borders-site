@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon | Cross Borders Ministries</title>
+    
+    <!-- Premium Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            orange: '#EF5A24',
+                            green: '#1A4331',
+                            cream: '#FAF8F5',
+                            dark: '#111111'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Lora', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="min-h-screen bg-brand-cream flex flex-col items-center justify-center font-sans selection:bg-brand-orange selection:text-white p-4">
+
+    <!-- Background decorative element -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <div class="absolute -top-1/2 -right-1/4 w-[1000px] h-[1000px] rounded-full bg-brand-orange/5 blur-3xl"></div>
+        <div class="absolute -bottom-1/2 -left-1/4 w-[800px] h-[800px] rounded-full bg-brand-green/5 blur-3xl"></div>
+    </div>
+
+    <div class="relative z-10 max-w-2xl w-full text-center bg-white p-10 md:p-16 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-gray-100">
+        
+        <!-- Logo (Actual Image) -->
+        <div class="flex justify-center mb-12">
+            <img src="logo.jpg" alt="Cross Borders Ministries" class="h-24 md:h-32 w-auto object-contain mx-auto mix-blend-multiply" onerror="this.onerror=null; this.outerHTML='<div class=\'text-center leading-none\'><h2 class=\'font-sans font-black text-5xl tracking-tight text-[#333]\'>CROSS<br><span class=\'text-[#EF5A24]\'>BORDERS</span></h2><p class=\'font-sans font-bold text-sm tracking-[0.34em] text-[#333] mt-2\'>MINISTRIES</p></div>';">
+        </div>
+
+        <h1 class="font-serif text-4xl md:text-5xl text-gray-900 mb-6 tracking-tight">Our new online home is coming soon.</h1>
+        
+        <div class="w-16 h-1 bg-brand-orange mx-auto mb-8"></div>
+        
+        <p class="text-lg md:text-xl text-gray-600 font-light leading-relaxed mb-10">
+            We are currently building a new digital presence to share how God is moving in Southeast Asia. Thank you for your continued prayers and partnership.
+        </p>
+
+        <div class="bg-gray-50 rounded-xl p-6 border border-gray-100 inline-block">
+            <p class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">For immediate inquiries or giving</p>
+            <a href="mailto:info@cbministries.ca" class="text-brand-green font-serif text-xl hover:text-brand-orange transition-colors">
+                info@cbministries.ca
+            </a>
+        </div>
+    </div>
+
+    <div class="relative z-10 mt-12 text-center text-sm font-semibold tracking-widest text-gray-400 uppercase">
+        <p>Carrying the Gospel across every border.</p>
+    </div>
+
+</body>
+</html>
