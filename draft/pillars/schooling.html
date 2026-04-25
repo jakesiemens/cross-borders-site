@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cross Borders Ministries - Draft Site</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#" class="logo" onclick="window.location.href='../index.html'">
+        <img src="./images/logo.png" alt="Cross Borders Ministries Logo" />
+      </a>
+      <nav class="desktop">
+        <a href="../index.html" id="nav-home" class="active">Home</a>
+        <a href="../borders.html" id="nav-borders">BORDERS</a>
+        <a href="../field-updates.html" id="nav-field-updates">Field Updates</a>
+        <a href="../donate.html" class="btn btn-primary btn-sm">Give Now</a>
+      </nav>
+      <button class="hamburger" onclick="toggleMobile()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+<div class="mobile-nav" id="mobile-nav">
+  <a href="../index.html">Home</a>
+  <a href="../borders.html">BORDERS</a>
+  <a href="../field-updates.html">Field Updates</a>
+  <a href="../donate.html" class="btn btn-primary">Give Now</a>
+</div>
+
+<main><div id="pillar-content-container"></div></main><footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo-bg">
+          <img src="./images/logo.png" alt="Cross Borders Ministries Logo" style="height: 125px; width: auto;" />
+        </div>
+        <p>Reaching the unreached across every border. Dedicated to the BORDERS pillars in Southeast Asia.</p>
+        <div class="location">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Headquarters in Thailand<br/>Serving Southeast Asia</span>
+        </div>
+      </div>
+      <div>
+        <h4>Our Pillars</h4>
+        <ul>
+          <li><span class="letter">B</span>ible Distribution</li>
+          <li><span class="letter">O</span>rphans</li>
+          <li><span class="letter">R</span>efugees <span style="font-size:0.7rem;opacity:0.6;">(Vision)</span></li>
+          <li><span class="letter">D</span>iscipleship</li>
+          <li><span class="letter">E</span>vangelism <span style="font-size:0.7rem;opacity:0.6;">(Vision)</span></li>
+          <li><span class="letter">R</span>elief <span style="font-size:0.7rem;opacity:0.6;">(Vision)</span></li>
+          <li><span class="letter">S</span>chooling <span style="font-size:0.7rem;opacity:0.6;">(Vision)</span></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../borders.html">Our Mission</a></li>
+          <li><a href="../field-updates.html">Field Updates</a></li>
+          <li><a href="../donate.html">Donate</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Join Our Prayer Team</h4>
+        <p style="font-size:.85rem;margin-bottom:16px;">Receive urgent updates and prayer requests from the field.</p>
+        <form class="footer-form" onsubmit="handleSubscribe(event)">
+          <div class="row">
+            <input type="text" placeholder="First Name" required />
+            <input type="text" placeholder="Last Name" />
+          </div>
+          <input type="email" placeholder="Email Address" required />
+          <button type="submit" class="btn btn-primary">Join the Team</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 <span>Cross Borders Ministries</span>. All rights reserved.</p>
+      <p>Made with ♥ for the Kingdom.</p>
+    </div>
+  </div>
+</footer>
+<div id="lightbox-modal" class="lightbox" onclick="closeLightbox(event)">
+  <span class="lightbox-close" onclick="closeLightbox(event)">&times;</span>
+  <img class="lightbox-content" id="lightbox-img" />
+</div>
+<script src="../js/data.js"></script>
+<script src="../js/main.js"></script>
+<script>document.addEventListener("DOMContentLoaded", () => renderPillarHTML("schooling"));</script></body>
+</html>
