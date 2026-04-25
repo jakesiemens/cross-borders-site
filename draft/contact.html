@@ -18,8 +18,10 @@
       </a>
       <nav class="desktop">
         <a href="index.html" id="nav-home" class="active">Home</a>
+        <a href="about.html" id="nav-about">About Us</a>
         <a href="borders.html" id="nav-borders">BORDERS</a>
         <a href="field-updates.html" id="nav-field-updates">Field Updates</a>
+        <a href="contact.html" id="nav-contact">Contact Us</a>
         <a href="donate.html" class="btn btn-primary btn-sm">Give Now</a>
       </nav>
       <button class="hamburger" onclick="toggleMobile()" aria-label="Menu">
@@ -30,13 +32,60 @@
 </header>
 <div class="mobile-nav" id="mobile-nav">
   <a href="index.html">Home</a>
+  <a href="about.html">About Us</a>
   <a href="borders.html">BORDERS</a>
   <a href="field-updates.html">Field Updates</a>
+  <a href="contact.html">Contact Us</a>
   <a href="donate.html" class="btn btn-primary">Give Now</a>
 </div>
 
 <main>
+<div class="hero" style="height: 40vh; min-height: 350px;">
+    <img class="hero-img" src="images/Scenic/IMG_7404.jpg" alt="Contact Us Hero" />
+    <div class="hero-overlay"></div>
+    <div class="container" style="display:flex; height: 100%; align-items:center; justify-content:center; text-align:center;">
+      <h1 class="text-white" style="font-size: 3rem; position:relative; z-index:2; text-shadow: 0 4px 20px rgba(0,0,0,0.4);">Get In Touch</h1>
+    </div>
+  </div>
+  <section class="donate-content" style="padding-top: 64px;">
+    <div class="container-sm">
+      <div class="contact-layout">
+        <div class="contact-info">
+          <h2 style="margin-bottom: 24px;">Contact Info</h2>
+          <p style="margin-bottom: 24px; color: var(--muted); line-height:1.6;">Whether you have a question about our pillars, want to join our prayer list, or want to partner with us financially, we'd love to hear from you.</p>
+          
+          <div style="margin-bottom: 24px; display:flex; align-items:flex-start; gap:16px;">
+            <svg style="color:var(--primary); margin-top:4px;" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+            <div>
+              <strong style="display:block; color:var(--text);">Email</strong>
+              <a href="mailto:info@crossbordersministries.org" style="color:var(--muted); text-decoration:none;">info@crossbordersministries.org</a>
+            </div>
+          </div>
 
+          <div style="margin-bottom: 24px; display:flex; align-items:flex-start; gap:16px;">
+            <svg style="color:var(--primary); margin-top:4px;" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div>
+              <strong style="display:block; color:var(--text);">Field Headquarters</strong>
+              <span style="color:var(--muted);">Thailand</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-form-wrap" style="background:#fff; padding:32px; border-radius:12px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); border: 1px solid var(--border);">
+          <h3 style="margin-bottom: 24px;">Send a Message</h3>
+          <form onsubmit="handleSubscribe(event)" style="display:flex; flex-direction:column; gap:16px;">
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px;">
+              <input type="text" placeholder="First Name" required style="padding:14px 16px; border:1px solid var(--border); border-radius:8px; width:100%; font-family:inherit; outline:none;"/>
+              <input type="text" placeholder="Last Name" style="padding:14px 16px; border:1px solid var(--border); border-radius:8px; width:100%; font-family:inherit; outline:none;"/>
+            </div>
+            <input type="email" placeholder="Email Address" required style="padding:14px 16px; border:1px solid var(--border); border-radius:8px; width:100%; font-family:inherit; outline:none;"/>
+            <textarea placeholder="Your Message" required rows="5" style="padding:14px 16px; border:1px solid var(--border); border-radius:8px; width:100%; font-family:inherit; resize:vertical; outline:none;"></textarea>
+            <button type="submit" class="btn btn-primary" style="margin-top:8px;">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
 </main><footer>
   <div class="container">
     <div class="footer-grid">
@@ -55,9 +104,9 @@
         <ul>
           <li><span class="letter">B</span>ible Distribution</li>
           <li><span class="letter">O</span>rphans</li>
-          <li><span class="letter">R</span>efugees <span style="font-size:0.7rem;opacity:0.6;">(Vision)</span></li>
+          <li><span class="letter">R</span>efugees</li>
           <li><span class="letter">D</span>iscipleship</li>
-          <li><span class="letter">E</span>vangelism <span style="font-size:0.7rem;opacity:0.6;">(Vision)</span></li>
+          <li><span class="letter">E</span>vangelism</li>
           <li><span class="letter">R</span>elief <span style="font-size:0.7rem;opacity:0.6;">(Vision)</span></li>
           <li><span class="letter">S</span>chooling <span style="font-size:0.7rem;opacity:0.6;">(Vision)</span></li>
         </ul>
@@ -66,8 +115,10 @@
         <h4>Quick Links</h4>
         <ul>
           <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
           <li><a href="borders.html">Our Mission</a></li>
           <li><a href="field-updates.html">Field Updates</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
           <li><a href="donate.html">Donate</a></li>
         </ul>
       </div>

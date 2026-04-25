@@ -462,15 +462,52 @@ footer ul li .letter { color: var(--primary); font-weight: 700; margin-right: 4p
 .giving-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
 .giving-card p { font-size: .85rem; color: var(--muted); line-height: 1.5; }
 
+/* ─── RICH TEXT & INLINE IMAGES ──────────────────────────────────── */
+.rich-content strong, .post-body strong, .rich-content b, .post-body b { font-weight: 700; color: var(--fg); }
+.rich-content em, .post-body em, .rich-content i, .post-body i { font-style: italic; color: #5a5a5a; }
+img.inline-img { width: 100%; border-radius: 16px; margin: 32px 0; box-shadow: var(--shadow); object-fit: cover; }
+
+/* ─── SLIDESHOW COMPONENT ────────────────────────────────────────── */
+.slideshow-wrapper { position: relative; max-width: 900px; margin: 48px auto; }
+.slideshow-container { position: relative; overflow: hidden; border-radius: 24px; box-shadow: var(--shadow-lg); aspect-ratio: 16/9; background: #000; }
+.slide { display: none; width: 100%; height: 100%; }
+.slide img { width: 100%; height: 100%; object-fit: contain; }
+.slide.active { display: block; animation: fade .6s cubic-bezier(0.25, 1, 0.5, 1); }
+@keyframes fade { from {opacity: .3} to {opacity: 1} }
+.prev, .next {
+  cursor: pointer; position: absolute; top: 50%; width: auto; padding: 18px; transform: translateY(-50%);
+  color: white; font-weight: bold; font-size: 24px; transition: 0.3s;
+  border-radius: 0 4px 4px 0; user-select: none; background: rgba(0,0,0,0.25);
+}
+.next { right: 0; border-radius: 4px 0 0 4px; }
+.prev:hover, .next:hover { background-color: rgba(0,0,0,0.8); }
+.dot-container { text-align: center; margin-top: 20px; }
+.slide-dot {
+  cursor: pointer; height: 10px; width: 10px; margin: 0 5px; background-color: #ddd;
+  border-radius: 50%; display: inline-block; transition: background-color 0.3s;
+}
+.slide-dot.active, .slide-dot:hover { background-color: var(--primary); }
+
+/* ─── LIGHTBOX ───────────────────────────────────────────────────── */
+.lightbox { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.9); backdrop-filter: blur(5px); }
+.lightbox-content { margin: auto; display: block; max-width: 90%; max-height: 90vh; top: 50%; position: relative; transform: translateY(-50%); animation: zoom 0.3s; box-shadow: 0 10px 40px rgba(0,0,0,0.5); border-radius: 8px;}
+@keyframes zoom { from {transform: translateY(-50%) scale(0.95); opacity: 0; } to {transform: translateY(-50%) scale(1); opacity: 1;} }
+.lightbox-close { position: absolute; top: 20px; right: 40px; color: #fff; font-size: 40px; font-weight: bold; transition: 0.3s; cursor: pointer; z-index: 10000; }
+.lightbox-close:hover { color: var(--primary); }
+
 /* ─── RESPONSIVE ─────────────────────────────────────────────────── */
 @media (max-width: 1024px) {
   .pillar-grid-4 { grid-template-columns: repeat(2, 1fr); }
   .pillar-grid-3 { grid-template-columns: repeat(2, 1fr); max-width: 100%; }
   .impact-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-grid { grid-template-columns: repeat(2, 1fr); }
+  .pillar-hero { height: 40vh; min-height: 350px; }
+  .contact-layout { display: grid; grid-template-columns: 1fr 1.5fr; gap: 48px; }
+  .related-updates { margin-top: 64px; padding-top: 48px; border-top: 1px solid var(--border); }
   .pillar-row { gap: 48px; }
 }
 @media (max-width: 768px) {
+  .contact-layout { grid-template-columns: 1fr; gap: 32px; }
   nav.desktop { display: none; }
   .hamburger { display: block; }
   .hero-content h1 { font-size: 2.2rem; }
@@ -506,8 +543,10 @@ footer ul li .letter { color: var(--primary); font-weight: 700; margin-right: 4p
       </a>
       <nav class="desktop">
         <a href="#" onclick="showPage('home')" id="nav-home" class="active">Home</a>
+        <a href="#" onclick="showPage('about')" id="nav-about">About Us</a>
         <a href="#" onclick="showPage('borders')" id="nav-borders">BORDERS</a>
         <a href="#" onclick="showPage('field-updates')" id="nav-field-updates">Field Updates</a>
+        <a href="#" onclick="showPage('contact')" id="nav-contact">Contact Us</a>
         <a href="#" onclick="showPage('donate')" class="btn btn-primary btn-sm">Give Now</a>
       </nav>
       <button class="hamburger" onclick="toggleMobile()" aria-label="Menu">
@@ -518,17 +557,18 @@ footer ul li .letter { color: var(--primary); font-weight: 700; margin-right: 4p
 </header>
 <div class="mobile-nav" id="mobile-nav">
   <a href="#" onclick="showPage('home');closeMobile()">Home</a>
+  <a href="#" onclick="showPage('about');closeMobile()">About Us</a>
   <a href="#" onclick="showPage('borders');closeMobile()">BORDERS</a>
   <a href="#" onclick="showPage('field-updates');closeMobile()">Field Updates</a>
+  <a href="#" onclick="showPage('contact');closeMobile()">Contact Us</a>
   <a href="#" onclick="showPage('donate');closeMobile()" class="btn btn-primary">Give Now</a>
 </div>
 
 <!-- ═══════════════════════════════════════════════════ PAGE: HOME -->
 <div class="page active" id="page-home">
 
-  <!-- HERO -->
   <section class="hero">
-    <img class="hero-img" src="./images/Hero.jpg" alt="Cross Borders Ministries Hero" />
+    <img class="hero-img" src="./images/Scenic/IMG_7404.jpg" alt="Cross Borders Ministries Hero" />
     <div class="hero-overlay"></div>
     <div class="container">
       <div class="hero-content">
@@ -563,7 +603,7 @@ footer ul li .letter { color: var(--primary); font-weight: 700; margin-right: 4p
 
       <div class="pillar-grid-4">
         <div class="pillar-card" onclick="showDetail('bible')">
-          <img src="./images/bible-distribution.jpg" alt="Bible Distribution" />
+          <img src="./images/Bible%20Distribution/IMG-20260214-WA0041.jpg" alt="Bible Distribution" />
           <div class="gradient"></div>
           <div class="hover-tint"></div>
           <div class="content">
@@ -576,7 +616,7 @@ footer ul li .letter { color: var(--primary); font-weight: 700; margin-right: 4p
           </div>
         </div>
         <div class="pillar-card" onclick="showDetail('orphans')">
-          <img src="./images/orphan-care.jpg" alt="Orphan Care" />
+          <img src="./images/Orphans/IMG_0011.jpeg" alt="Orphan Care" />
           <div class="gradient"></div>
           <div class="hover-tint"></div>
           <div class="content">
@@ -589,20 +629,20 @@ footer ul li .letter { color: var(--primary); font-weight: 700; margin-right: 4p
           </div>
         </div>
         <div class="pillar-card" onclick="showDetail('refugees')">
-          <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=800&q=80" alt="Refugee Ministry" />
+          <img src="./images/Refugees/IMG_2982.jpeg" alt="Refugees" />
           <div class="gradient"></div>
           <div class="hover-tint"></div>
           <div class="content">
-            <div class="badge-letter vision">R</div>
+            <div class="badge-letter green">R</div>
             <div>
-              <h3>Refugee Ministry</h3>
-              <p class="desc">A future vision to help families fleeing war-torn areas in the name of Jesus.</p>
-              <span class="stat-badge vision">In Prayer</span>
+              <h3>Refugees</h3>
+              <p class="desc">Helping refugees both physically and spiritually.</p>
+              <span class="stat-badge">Active Ministry</span>
             </div>
           </div>
         </div>
         <div class="pillar-card" onclick="showDetail('discipleship')">
-          <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80" alt="Discipleship" />
+          <img src="./images/Discipleship/IMG-20251211-WA0012.jpg" alt="Discipleship" />
           <div class="gradient"></div>
           <div class="hover-tint"></div>
           <div class="content">
@@ -618,20 +658,20 @@ footer ul li .letter { color: var(--primary); font-weight: 700; margin-right: 4p
 
       <div class="pillar-grid-3">
         <div class="pillar-card" onclick="showDetail('evangelism')">
-          <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=800&q=80" alt="Evangelism" />
+          <img src="./images/Evangelism/IMG_2016.jpeg" alt="Evangelism" />
           <div class="gradient"></div>
           <div class="hover-tint"></div>
           <div class="content">
-            <div class="badge-letter vision">E</div>
+            <div class="badge-letter green">E</div>
             <div>
               <h3>Evangelism</h3>
-              <p class="desc">A vision for boldy taking the Gospel to unreached people groups who have never heard.</p>
-              <span class="stat-badge vision">Future Vision</span>
+              <p class="desc">Partnering with local missionaries in gospel outreach.</p>
+              <span class="stat-badge">Active Ministry</span>
             </div>
           </div>
         </div>
         <div class="pillar-card" onclick="showDetail('relief')">
-          <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=800&q=80" alt="Emergency Relief" />
+          <img src="./images/Scenic/IMG_7404.jpg" alt="Emergency Relief" />
           <div class="gradient"></div>
           <div class="hover-tint"></div>
           <div class="content">
@@ -644,14 +684,14 @@ footer ul li .letter { color: var(--primary); font-weight: 700; margin-right: 4p
           </div>
         </div>
         <div class="pillar-card" onclick="showDetail('schooling')">
-          <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&q=80" alt="Schooling" />
+          <img src="./images/IMG-20250610-WA0020.jpg" alt="Schooling" />
           <div class="gradient"></div>
           <div class="hover-tint"></div>
           <div class="content">
             <div class="badge-letter vision">S</div>
             <div>
               <h3>Schooling</h3>
-              <p class="desc">A future plan to break the cycle of poverty through education rooted in biblical values.</p>
+              <p class="desc">A vision to supply books and education for those without access.</p>
               <span class="stat-badge vision">Future Vision</span>
             </div>
           </div>
@@ -667,11 +707,9 @@ footer ul li .letter { color: var(--primary); font-weight: 700; margin-right: 4p
   <!-- IMPACT NUMBERS -->
   <section class="impact-strip">
     <div class="container">
-      <div class="impact-grid">
+      <div class="impact-grid" style="display: flex; justify-content: space-around; max-width: 800px; margin: 0 auto; flex-wrap: wrap; gap: 32px;">
         <div><div class="number">4,000+</div><div class="label">Scriptures Distributed</div></div>
         <div><div class="number">600+</div><div class="label">Children in Care</div></div>
-        <div><div class="number">30+</div><div class="label">Local Leaders Trained</div></div>
-        <div><div class="number">15+</div><div class="label">House Churches Planted</div></div>
       </div>
     </div>
   </section>
@@ -688,7 +726,31 @@ footer ul li .letter { color: var(--primary); font-weight: 700; margin-right: 4p
         <a href="#" onclick="showPage('field-updates')" class="btn btn-outline">View All Updates</a>
       </div>
       <div class="updates-grid">
-        <div class="post-card" onclick="showPost('bibles-village')">
+        <div class="post-card" onclick="window.location.href='field-updates.html?post=evangelism-outreach'">
+          <div class="thumb">
+            <img src="./images/Evangelism/IMG_2109.jpeg" alt="Evangelism Update" />
+            <span class="cat-tag">Evangelism</span>
+          </div>
+          <div class="body">
+            <div class="meta">Outreach Team &nbsp;•&nbsp; April 10, 2026</div>
+            <h3>A New Light: First Gospel Preached</h3>
+            <p>After treacherous travel, our team arrived in a village that had never heard the name of Jesus.</p>
+            <div class="read-link">Read Full Update →</div>
+          </div>
+        </div>
+        <div class="post-card" onclick="window.location.href='field-updates.html?post=refugee-update'">
+          <div class="thumb">
+            <img src="./images/Refugees/DSC02244.jpg" alt="Refugees Update" />
+            <span class="cat-tag">Refugees</span>
+          </div>
+          <div class="body">
+            <div class="meta">Border Team &nbsp;•&nbsp; April 25, 2026</div>
+            <h3>Hope at the Border: New Families Arriving</h3>
+            <p>Our team provided emergency food, clean water, and safe shelter to displaced families fleeing conflict.</p>
+            <div class="read-link">Read Full Update →</div>
+          </div>
+        </div>
+        <div class="post-card" onclick="window.location.href='field-updates.html?post=bibles-village'">
           <div class="thumb">
             <img src="./images/bible-distribution.jpg" alt="Bibles Village" />
             <span class="cat-tag">Bible</span>
@@ -700,9 +762,9 @@ footer ul li .letter { color: var(--primary); font-weight: 700; margin-right: 4p
             <div class="read-link">Read Full Update →</div>
           </div>
         </div>
-        <div class="post-card" onclick="showPost('discipleship-training')">
+        <div class="post-card" onclick="window.location.href='field-updates.html?post=discipleship-training'">
           <div class="thumb">
-            <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80" alt="Discipleship Training" />
+            <img src="./images/Discipleship/IMG-20251211-WA0012.jpg" alt="Discipleship Training" />
             <span class="cat-tag">Discipleship</span>
           </div>
           <div class="body">
@@ -712,15 +774,15 @@ footer ul li .letter { color: var(--primary); font-weight: 700; margin-right: 4p
             <div class="read-link">Read Full Update →</div>
           </div>
         </div>
-        <div class="post-card" onclick="showPost('orphan-care-growth')">
+        <div class="post-card" onclick="window.location.href='field-updates.html?post=orphan-care-growth'">
           <div class="thumb">
-            <img src="./images/orphan-care.jpg" alt="Orphan Care Update" />
+            <img src="./images/Orphans/IMG_0011.jpeg" alt="Orphan Care Update" />
             <span class="cat-tag">Orphans</span>
           </div>
           <div class="body">
-            <div class="meta">Field Team C &nbsp;•&nbsp; March 10, 2026</div>
-            <h3>Safe Haven: Expanding Our Second House</h3>
-            <p>Thanks to your generosity, we are adding capacity to welcome 15 more children into a loving, family environment this month.</p>
+            <div class="meta">Charity and Josiah Driedger &nbsp;•&nbsp; April 1, 2026</div>
+            <h3>Our time at the orphanage was life changing</h3>
+            <p>Last year the Lord called my husband and I to serve at New Vision For Life. We spent 3 beautiful months there. We walked through some very challenging times...</p>
             <div class="read-link">Read Full Update →</div>
           </div>
         </div>
@@ -753,7 +815,7 @@ footer ul li .letter { color: var(--primary); font-weight: 700; margin-right: 4p
     <div class="container">
       <div class="pillar-row" onclick="showDetail('bible')">
         <div class="img-wrap">
-          <img src="./images/bible-distribution.jpg" alt="Bible Distribution" />
+          <img src="./images/Bible Distribution/f907f119-12a0-4a88-94c2-283e310a5ebc.jpg" alt="Bible Distribution" />
         </div>
         <div class="info">
           <div class="letter-badge primary">B</div>
@@ -764,7 +826,7 @@ footer ul li .letter { color: var(--primary); font-weight: 700; margin-right: 4p
       </div>
       <div class="pillar-row reverse" onclick="showDetail('orphans')">
         <div class="img-wrap">
-          <img src="./images/orphan-care.jpg" alt="Orphan Care" />
+          <img src="./images/Orphans/IMG_0011.jpeg" alt="Orphan Care" />
         </div>
         <div class="info">
           <div class="letter-badge green">O</div>
@@ -775,18 +837,18 @@ footer ul li .letter { color: var(--primary); font-weight: 700; margin-right: 4p
       </div>
       <div class="pillar-row" onclick="showDetail('refugees')">
         <div class="img-wrap">
-          <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=900&q=80" alt="Refugees" />
+          <img src="./images/Refugees/IMG_2982.jpeg" alt="Refugees" />
         </div>
         <div class="info">
-          <div class="letter-badge vision">R</div>
-          <h2>Refugees <span style="font-size: 1rem; font-weight: 500; color: var(--muted); background: var(--border); padding: 4px 10px; border-radius: 20px; vertical-align: middle; margin-left: 10px;">Future Vision</span></h2>
-          <p>Our prayerful vision to eventually meet displaced families at the crossing points with emergency relief and trauma counseling.</p>
-          <span class="read-more">Read More About Our Refugee Vision →</span>
+          <div class="letter-badge green">R</div>
+          <h2>Refugees <span style="font-size: 1rem; font-weight: 500; color: var(--secondary); background: rgba(45,80,22,.1); padding: 4px 10px; border-radius: 20px; vertical-align: middle; margin-left: 10px;">Active Ministry</span></h2>
+          <p>We are actively meeting displaced families at border crossing points with emergency relief, trauma counseling, and the hope of Christ.</p>
+          <span class="read-more">Read More About Refugees →</span>
         </div>
       </div>
       <div class="pillar-row reverse" onclick="showDetail('discipleship')">
         <div class="img-wrap">
-          <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=900&q=80" alt="Discipleship" />
+          <img src="./images/Discipleship/IMG_1974.jpeg" alt="Discipleship" />
         </div>
         <div class="info">
           <div class="letter-badge primary">D</div>
@@ -797,18 +859,18 @@ footer ul li .letter { color: var(--primary); font-weight: 700; margin-right: 4p
       </div>
       <div class="pillar-row" onclick="showDetail('evangelism')">
         <div class="img-wrap">
-          <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=900&q=80" alt="Evangelism" />
+          <img src="./images/Evangelism/IMG_2016.jpeg" alt="Evangelism" />
         </div>
         <div class="info">
-          <div class="letter-badge vision">E</div>
-          <h2>Evangelism <span style="font-size: 1rem; font-weight: 500; color: var(--muted); background: var(--border); padding: 4px 10px; border-radius: 20px; vertical-align: middle; margin-left: 10px;">Future Vision</span></h2>
-          <p>Our vision to deploy dedicated teams to boldly and compassionately share the Gospel message where the name of Jesus is unknown.</p>
-          <span class="read-more">Read More About Our Evangelism Vision →</span>
+          <div class="letter-badge primary">E</div>
+          <h2>Evangelism <span style="font-size: 1rem; font-weight: 500; color: var(--primary); background: rgba(211,87,34,.1); padding: 4px 10px; border-radius: 20px; vertical-align: middle; margin-left: 10px;">Active Ministry</span></h2>
+          <p>Deploying dedicated teams to boldly and compassionately share the Gospel message where the name of Jesus is unknown.</p>
+          <span class="read-more">Read More About Evangelism →</span>
         </div>
       </div>
       <div class="pillar-row reverse" onclick="showDetail('relief')">
         <div class="img-wrap">
-          <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=900&q=80" alt="Emergency Relief" />
+          <img src="./images/Scenic/IMG_7404.jpg" alt="Emergency Relief" />
         </div>
         <div class="info">
           <div class="letter-badge vision">R</div>
@@ -819,7 +881,7 @@ footer ul li .letter { color: var(--primary); font-weight: 700; margin-right: 4p
       </div>
       <div class="pillar-row" onclick="showDetail('schooling')">
         <div class="img-wrap">
-          <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=900&q=80" alt="Schooling" />
+          <img src="./images/IMG-20250610-WA0020.jpg" alt="Schooling" />
         </div>
         <div class="info">
           <div class="letter-badge vision">S</div>
@@ -845,6 +907,8 @@ footer ul li .letter { color: var(--primary); font-weight: 700; margin-right: 4p
       <button class="cat-btn" onclick="filterCat(this,'Bible')">Bible</button>
       <button class="cat-btn" onclick="filterCat(this,'Orphans')">Orphans</button>
       <button class="cat-btn" onclick="filterCat(this,'Discipleship')">Discipleship</button>
+      <button class="cat-btn" onclick="filterCat(this,'Refugees')">Refugees</button>
+      <button class="cat-btn" onclick="filterCat(this,'Evangelism')">Evangelism</button>
     </div>
   </div>
   <section class="fu-content">
@@ -861,6 +925,130 @@ footer ul li .letter { color: var(--primary); font-weight: 700; margin-right: 4p
 <!-- ════════════════════════════════════════ PAGE: POST DETAIL -->
 <div class="page" id="page-post"></div>
 
+<!-- ════════════════════════════════════════ PAGE: ABOUT -->
+<div class="page" id="page-about">
+  <div class="hero" style="height: 40vh; min-height: 350px;">
+    <img class="hero-img" src="./images/Evangelism/27e07085-7973-4151-8e31-35dbeb5959e4.jpg" alt="About Us Hero" />
+    <div class="hero-overlay"></div>
+    <div class="container" style="display:flex; height: 100%; align-items:center; justify-content:center; text-align:center;">
+      <h1 class="text-white" style="font-size: 3rem; position:relative; z-index:2; text-shadow: 0 4px 20px rgba(0,0,0,0.4);">About Us</h1>
+    </div>
+  </div>
+  <section class="fu-content" style="padding-top: 64px;">
+    <div class="container-sm">
+      <div class="rich-content">
+        <h2 style="color: var(--primary);">Our Mission</h2>
+        <p>Cross Borders Ministries exists to reach the unreached. Our heart is to travel deep into restricted and remote areas across Southeast Asia, boldly delivering the message of Christ to tribes and villages where the Gospel has never been heard.</p>
+        <p>Driven by the pressing need physically and spiritually, we operate out of our headquarters in Thailand. Over the years, we have seen God's incredible hand move to establish safe houses for orphans, plant deep seeds of discipleship, resupply those experiencing sudden disaster, and spark movements of faith in the high mountains.</p>
+        <h2 style="color: var(--secondary); margin-top:40px;">The BORDERS Vision</h2>
+        <p>We approach ministry holistically. Our seven pillars under the acronym BORDERS guide our daily work and our future prayers:</p>
+        <div class="vision-list" style="display: flex; flex-direction: column; gap: 24px; margin: 32px 0;">
+          <div style="display: flex; gap: 16px; align-items: flex-start;">
+            <div style="background: var(--primary); color: #fff; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; flex-shrink: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">B</div>
+            <div>
+              <h4 style="margin: 0 0 6px; font-size: 1.15rem; color: var(--text);">Bible Distribution</h4>
+              <p style="margin: 0; color: var(--muted); line-height: 1.5;">Getting Bibles to those who need them the most.</p>
+            </div>
+          </div>
+          <div style="display: flex; gap: 16px; align-items: flex-start;">
+            <div style="background: var(--primary); color: #fff; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; flex-shrink: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">O</div>
+            <div>
+              <h4 style="margin: 0 0 6px; font-size: 1.15rem; color: var(--text);">Orphan Care</h4>
+              <p style="margin: 0; color: var(--muted); line-height: 1.5;">Caring for the fatherless, as God commanded us.</p>
+            </div>
+          </div>
+          <div style="display: flex; gap: 16px; align-items: flex-start;">
+            <div style="background: var(--primary); color: #fff; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; flex-shrink: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">R</div>
+            <div>
+              <h4 style="margin: 0 0 6px; font-size: 1.15rem; color: var(--text);">Refugees</h4>
+              <p style="margin: 0; color: var(--muted); line-height: 1.5;">Helping refugees both physically and spiritually.</p>
+            </div>
+          </div>
+          <div style="display: flex; gap: 16px; align-items: flex-start;">
+            <div style="background: var(--primary); color: #fff; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; flex-shrink: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">D</div>
+            <div>
+              <h4 style="margin: 0 0 6px; font-size: 1.15rem; color: var(--text);">Discipleship</h4>
+              <p style="margin: 0; color: var(--muted); line-height: 1.5;">Helping Local Church leaders grow into Men and Women of God.</p>
+            </div>
+          </div>
+          <div style="display: flex; gap: 16px; align-items: flex-start;">
+            <div style="background: var(--primary); color: #fff; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; flex-shrink: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">E</div>
+            <div>
+              <h4 style="margin: 0 0 6px; font-size: 1.15rem; color: var(--text);">Evangelism</h4>
+              <p style="margin: 0; color: var(--muted); line-height: 1.5;">Partnering with local missionaries in gospel outreach.</p>
+            </div>
+          </div>
+          <div style="display: flex; gap: 16px; align-items: flex-start;">
+            <div style="background: var(--secondary); color: #fff; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; flex-shrink: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">R</div>
+            <div>
+              <h4 style="margin: 0 0 6px; font-size: 1.15rem; color: var(--text);">Emergency Relief</h4>
+              <p style="margin: 0; color: var(--muted); line-height: 1.5;">Our goal to respond to crises as the hands and feet of Christ.</p>
+            </div>
+          </div>
+          <div style="display: flex; gap: 16px; align-items: flex-start;">
+            <div style="background: var(--secondary); color: #fff; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; flex-shrink: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">S</div>
+            <div>
+              <h4 style="margin: 0 0 6px; font-size: 1.15rem; color: var(--text);">Schooling</h4>
+              <p style="margin: 0; color: var(--muted); line-height: 1.5;">A vision to supply books and education for those without access.</p>
+            </div>
+          </div>
+        </div>
+        <p>As you explore the stories from the field, we ask for your prayers. We are constantly seeking God’s guidance as we cross borders to further His Kingdom.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ════════════════════════════════════════ PAGE: CONTACT -->
+<div class="page" id="page-contact">
+  <div class="hero" style="height: 40vh; min-height: 350px;">
+    <img class="hero-img" src="./images/Scenic/IMG_7404.jpg" alt="Contact Us Hero" />
+    <div class="hero-overlay"></div>
+    <div class="container" style="display:flex; height: 100%; align-items:center; justify-content:center; text-align:center;">
+      <h1 class="text-white" style="font-size: 3rem; position:relative; z-index:2; text-shadow: 0 4px 20px rgba(0,0,0,0.4);">Get In Touch</h1>
+    </div>
+  </div>
+  <section class="donate-content" style="padding-top: 64px;">
+    <div class="container-sm">
+      <div class="contact-layout">
+        <div class="contact-info">
+          <h2 style="margin-bottom: 24px;">Contact Info</h2>
+          <p style="margin-bottom: 24px; color: var(--muted); line-height:1.6;">Whether you have a question about our pillars, want to join our prayer list, or want to partner with us financially, we'd love to hear from you.</p>
+          
+          <div style="margin-bottom: 24px; display:flex; align-items:flex-start; gap:16px;">
+            <svg style="color:var(--primary); margin-top:4px;" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+            <div>
+              <strong style="display:block; color:var(--text);">Email</strong>
+              <a href="mailto:info@crossbordersministries.org" style="color:var(--muted); text-decoration:none;">info@crossbordersministries.org</a>
+            </div>
+          </div>
+
+          <div style="margin-bottom: 24px; display:flex; align-items:flex-start; gap:16px;">
+            <svg style="color:var(--primary); margin-top:4px;" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div>
+              <strong style="display:block; color:var(--text);">Field Headquarters</strong>
+              <span style="color:var(--muted);">Thailand</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-form-wrap" style="background:#fff; padding:32px; border-radius:12px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); border: 1px solid var(--border);">
+          <h3 style="margin-bottom: 24px;">Send a Message</h3>
+          <form onsubmit="handleSubscribe(event)" style="display:flex; flex-direction:column; gap:16px;">
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px;">
+              <input type="text" placeholder="First Name" required style="padding:14px 16px; border:1px solid var(--border); border-radius:8px; width:100%; font-family:inherit; outline:none;"/>
+              <input type="text" placeholder="Last Name" style="padding:14px 16px; border:1px solid var(--border); border-radius:8px; width:100%; font-family:inherit; outline:none;"/>
+            </div>
+            <input type="email" placeholder="Email Address" required style="padding:14px 16px; border:1px solid var(--border); border-radius:8px; width:100%; font-family:inherit; outline:none;"/>
+            <textarea placeholder="Your Message" required rows="5" style="padding:14px 16px; border:1px solid var(--border); border-radius:8px; width:100%; font-family:inherit; resize:vertical; outline:none;"></textarea>
+            <button type="submit" class="btn btn-primary" style="margin-top:8px;">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
 <!-- ════════════════════════════════════════ PAGE: DONATE -->
 <div class="page" id="page-donate">
   <div class="donate-hero">
@@ -873,41 +1061,12 @@ footer ul li .letter { color: var(--primary); font-weight: 700; margin-right: 4p
         <h2>Partner in the Gospel</h2>
         <p>"For where your treasure is, there your heart will be also." (Matthew 6:21). Your secure online gift directly resources the frontlines.</p>
       </div>
-      <div class="donorbox-wrapper">
-        <iframe src="https://donorbox.org/embed/cross-borders-ministries?default_interval=m&amount=30" name="donorbox" allowpaymentrequest="allowpaymentrequest" seamless="seamless" frameborder="0" scrolling="no" height="900px" width="100%" style="max-width: 500px; min-width: 250px;"></iframe>
+      <div class="donorbox-wrapper" style="text-align: center;">
+        <iframe src="https://donorbox.org/embed/cross-borders-ministries?default_interval=m&amount=30" name="donorbox" allowpaymentrequest="allowpaymentrequest" seamless="seamless" frameborder="0" scrolling="no" height="650px" width="100%" style="max-width: 500px; min-width: 250px; margin: 0 auto; display: block;"></iframe>
       </div>
-      <div class="where-needed">
-        <h3>Where Most Needed</h3>
-        <div class="giving-grid">
-          <div class="giving-card">
-            <span class="icon">🌍</span>
-            <div>
-              <h4>General Fund</h4>
-              <p>Supports our missionaries and operational needs where required most urgently.</p>
-            </div>
-          </div>
-          <div class="giving-card">
-            <span class="icon">📖</span>
-            <div>
-              <h4>Bible Distribution</h4>
-              <p>Funds the printing and delivery of Bibles to restricted regions.</p>
-            </div>
-          </div>
-          <div class="giving-card">
-            <span class="icon">♥</span>
-            <div>
-              <h4>Orphan Care</h4>
-              <p>Provides housing and education for displaced children in our safe houses.</p>
-            </div>
-          </div>
-          <div class="giving-card">
-            <span class="icon">🌱</span>
-            <div>
-              <h4>Discipleship</h4>
-              <p>Resourcing the training and mentorship of local pastors and house church leaders.</p>
-            </div>
-          </div>
-        </div>
+      <div class="where-needed" style="text-align: center; max-width: 650px; margin: 56px auto 0;">
+        <h3 style="margin-bottom: 16px;">Where Most Needed</h3>
+        <p style="color: var(--muted); line-height: 1.7; font-size: 1.05rem;">Currently, all giving goes into a central location and is distributed to the areas of greatest need across our active pillars. We will be providing the opportunity to partner with specific ministries in the future.</p>
       </div>
     </div>
   </section>
@@ -932,9 +1091,9 @@ footer ul li .letter { color: var(--primary); font-weight: 700; margin-right: 4p
         <ul>
           <li><span class="letter">B</span>ible Distribution</li>
           <li><span class="letter">O</span>rphans</li>
-          <li><span class="letter">R</span>efugees <span style="font-size:0.7rem;opacity:0.6;">(Vision)</span></li>
+          <li><span class="letter">R</span>efugees</li>
           <li><span class="letter">D</span>iscipleship</li>
-          <li><span class="letter">E</span>vangelism <span style="font-size:0.7rem;opacity:0.6;">(Vision)</span></li>
+          <li><span class="letter">E</span>vangelism</li>
           <li><span class="letter">R</span>elief <span style="font-size:0.7rem;opacity:0.6;">(Vision)</span></li>
           <li><span class="letter">S</span>chooling <span style="font-size:0.7rem;opacity:0.6;">(Vision)</span></li>
         </ul>
@@ -943,8 +1102,10 @@ footer ul li .letter { color: var(--primary); font-weight: 700; margin-right: 4p
         <h4>Quick Links</h4>
         <ul>
           <li><a href="#" onclick="showPage('home')">Home</a></li>
+          <li><a href="#" onclick="showPage('about')">About Us</a></li>
           <li><a href="#" onclick="showPage('borders')">Our Mission</a></li>
           <li><a href="#" onclick="showPage('field-updates')">Field Updates</a></li>
+          <li><a href="#" onclick="showPage('contact')">Contact Us</a></li>
           <li><a href="#" onclick="showPage('donate')">Donate</a></li>
         </ul>
       </div>
@@ -968,12 +1129,39 @@ footer ul li .letter { color: var(--primary); font-weight: 700; margin-right: 4p
   </div>
 </footer>
 
+<!-- ════════════════════════════════════════ LIGHTBOX OVERLAY -->
+<div id="lightbox-modal" class="lightbox" onclick="closeLightbox(event)">
+  <span class="lightbox-close" onclick="closeLightbox(event)">&times;</span>
+  <img class="lightbox-content" id="lightbox-img" />
+</div>
+
 <script>
 const pillars = {
   bible: {
     title: "Bible Distribution",
     subtitle: "We go to the hard places so people can hold the Word of God in their own language — many for the very first time.",
-    image: "https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=1600&q=80",
+    image: "./images/Bible Distribution/DSC02278.jpg",
+    images: [
+      "./images/Bible Distribution/352368DA-18F9-475F-B6E3-AB9BBC878261.jpg",
+      "./images/Bible Distribution/3e85b6aa-c533-444d-90f6-bcbfadf06c71.jpg",
+      "./images/Bible Distribution/4d782d0e-1770-4e2c-8088-7025ee2b17ab.jpg",
+      "./images/Bible Distribution/62AB9B15-E635-4088-B603-9C6444ACBDF5 (1).jpg",
+      "./images/Bible Distribution/62AB9B15-E635-4088-B603-9C6444ACBDF5.jpg",
+      "./images/Bible Distribution/688e1582-095d-47a8-8977-b986f341c82a.jpg",
+      "./images/Bible Distribution/9fb527d2-b33e-4faa-a23c-6acfa948aeb4.jpg",
+      "./images/Bible Distribution/DSC02278.jpg",
+      "./images/Bible Distribution/IMG-20250916-WA0000.jpg",
+      "./images/Bible Distribution/IMG-20260214-WA0035.jpg",
+      "./images/Bible Distribution/IMG-20260214-WA0037.jpg",
+      "./images/Bible Distribution/IMG-20260214-WA0041.jpg",
+      "./images/Bible Distribution/IMG-20260214-WA0046.jpg",
+      "./images/Bible Distribution/IMG_5025.jpg",
+      "./images/Bible Distribution/IMG_7434.jpeg",
+      "./images/Bible Distribution/IMG_8690.jpeg",
+      "./images/Bible Distribution/IMG_8708.jpeg",
+      "./images/Bible Distribution/c35edbd1-d116-401b-8b0e-f3baeb282691.jpg",
+      "./images/Bible Distribution/f907f119-12a0-4a88-94c2-283e310a5ebc.jpg"
+    ],
     stat1: "12+", stat1Label: "Language groups reached",
     stat2: "4,000+", stat2Label: "Scriptures distributed",
     content: [
@@ -985,7 +1173,29 @@ const pillars = {
   orphans: {
     title: "Orphan Care",
     subtitle: "Children without parents shouldn't be without hope.",
-    image: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1600&q=80",
+    image: "./images/Orphans/IMG_9960.jpg",
+    images: [
+      "./images/Orphans/11f61044-7b9c-44b1-bc96-4ada04dda2bb.JPG",
+      "./images/Orphans/IMG-20250909-WA0021.jpg",
+      "./images/Orphans/IMG_0011.jpeg",
+      "./images/Orphans/IMG_0304.jpeg",
+      "./images/Orphans/IMG_0835.jpeg",
+      "./images/Orphans/IMG_0898.jpeg",
+      "./images/Orphans/IMG_0899.jpeg",
+      "./images/Orphans/IMG_6969(1).jpg",
+      "./images/Orphans/IMG_6969.jpg",
+      "./images/Orphans/IMG_7072.jpg",
+      "./images/Orphans/IMG_7585(1).jpg",
+      "./images/Orphans/IMG_7585.jpg",
+      "./images/Orphans/IMG_7610.jpg",
+      "./images/Orphans/IMG_7888.jpg",
+      "./images/Orphans/IMG_8283.jpg",
+      "./images/Orphans/IMG_8441.jpg",
+      "./images/Orphans/IMG_9491.jpeg",
+      "./images/Orphans/IMG_9938.jpg",
+      "./images/Orphans/IMG_9940.jpg",
+      "./images/Orphans/IMG_9960.jpg"
+    ],
     stat1: "600+", stat1Label: "Children in care",
     stat2: "3", stat2Label: "Safe houses operating",
     content: [
@@ -995,21 +1205,139 @@ const pillars = {
     ]
   },
   refugees: {
-    title: "Refugee Ministry",
-    subtitle: "A future vision to meet displaced families with the hope of Christ.",
-    image: "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1600&q=80",
-    stat1: "Pray", stat1Label: "For Open Doors",
-    stat2: "Vision", stat2Label: "Future Pillar",
+    title: "Refugees",
+    subtitle: "Meeting displaced families at the borders with the hope of Christ.",
+    image: "./images/Refugees/IMG_2982.jpeg",
+    images: [
+      "./images/Refugees/2024-01-24-11-08-59-217.PNG",
+      "./images/Refugees/2024-01-24-11-14-05-518.PNG",
+      "./images/Refugees/DSC02243.jpg",
+      "./images/Refugees/DSC02244.jpg",
+      "./images/Refugees/DSC02248.jpg",
+      "./images/Refugees/DSC02249.jpg",
+      "./images/Refugees/DSC02256.jpg",
+      "./images/Refugees/DSC02258.jpg",
+      "./images/Refugees/DSC02261.jpg",
+      "./images/Refugees/DSC02266.jpg",
+      "./images/Refugees/DSC02269.jpg",
+      "./images/Refugees/DSC02272.jpg",
+      "./images/Refugees/DSC02275.jpg",
+      "./images/Refugees/DSC02276.jpg",
+      "./images/Refugees/IMG-20250630-WA0010.jpg",
+      "./images/Refugees/IMG-20250630-WA0011.jpg",
+      "./images/Refugees/IMG_0046.JPG",
+      "./images/Refugees/IMG_0047.JPG",
+      "./images/Refugees/IMG_0048.JPG",
+      "./images/Refugees/IMG_0367.jpeg",
+      "./images/Refugees/IMG_0369.jpeg",
+      "./images/Refugees/IMG_0370.jpeg",
+      "./images/Refugees/IMG_0371.jpeg",
+      "./images/Refugees/IMG_0372.jpeg",
+      "./images/Refugees/IMG_0373.jpeg",
+      "./images/Refugees/IMG_0374.jpeg",
+      "./images/Refugees/IMG_2296.jpeg",
+      "./images/Refugees/IMG_2433.JPG",
+      "./images/Refugees/IMG_2434.jpg",
+      "./images/Refugees/IMG_2435.JPG",
+      "./images/Refugees/IMG_2443.JPG",
+      "./images/Refugees/IMG_2446.JPG",
+      "./images/Refugees/IMG_2787.jpeg",
+      "./images/Refugees/IMG_2966.jpeg",
+      "./images/Refugees/IMG_2970.jpeg",
+      "./images/Refugees/IMG_2978.jpeg",
+      "./images/Refugees/IMG_2982.jpeg",
+      "./images/Refugees/IMG_6075.jpeg",
+      "./images/Refugees/IMG_6076.jpeg",
+      "./images/Refugees/IMG_6078.jpeg",
+      "./images/Refugees/IMG_6079.jpeg",
+      "./images/Refugees/IMG_6084.jpeg",
+      "./images/Refugees/IMG_6087.jpeg",
+      "./images/Refugees/IMG_6088.jpeg",
+      "./images/Refugees/IMG_7141 (1).jpeg",
+      "./images/Refugees/IMG_7141.jpeg",
+      "./images/Refugees/IMG_7142 (1).jpeg",
+      "./images/Refugees/IMG_7142.jpeg",
+      "./images/Refugees/IMG_7143 (1).jpeg",
+      "./images/Refugees/IMG_7143.jpeg",
+      "./images/Refugees/IMG_7148 (1).jpeg",
+      "./images/Refugees/IMG_7148.jpeg",
+      "./images/Refugees/IMG_7177 (1).JPG",
+      "./images/Refugees/IMG_7177.JPG",
+      "./images/Refugees/IMG_7532.jpeg",
+      "./images/Refugees/IMG_7533.jpeg",
+      "./images/Refugees/IMG_7537.jpeg",
+      "./images/Refugees/IMG_7544.jpeg",
+      "./images/Refugees/IMG_7545.jpeg",
+      "./images/Refugees/IMG_8264.jpeg",
+      "./images/Refugees/IMG_8266.jpeg",
+      "./images/Refugees/IMG_8268.jpeg",
+      "./images/Refugees/IMG_8275.jpeg",
+      "./images/Refugees/IMG_8276.jpeg",
+      "./images/Refugees/IMG_8278.jpeg",
+      "./images/Refugees/IMG_8291.jpeg",
+      "./images/Refugees/IMG_9241.jpeg",
+      "./images/Refugees/IMG_9242.jpeg",
+      "./images/Refugees/IMG_9243.jpeg",
+      "./images/Refugees/IMG_9261.jpeg",
+      "./images/Refugees/IMG_9287.jpeg"
+    ],
+    stat1: "Active", stat1Label: "Border Deployments",
+    stat2: "Relief", stat2Label: "Food & Shelter",
     content: [
-      "Currently, our primary focus is on Bible distribution, orphan care, and discipleship. However, it is our deep prayer to eventually meet displaced families at border crossing points.",
-      "We envision a day when our teams can provide emergency food, water, and shelter materials while sharing the peace of Christ with those fleeing conflict.",
-      "Please pray with us as we seek God's timing and provision to launch this vital pillar of the BORDERS mission."
+      "As families flee conflict and cross into safe territory, many arrive with absolutely nothing but the clothes on their backs.",
+      "Our teams are actively deployed along the border to meet them. We distribute emergency food rations, clean water, blankets, and essential medical supplies.",
+      "Beyond physical relief, we take the time to listen, sit with them in their pain, and gently share the peace and love of Christ. Please partner with us so we can multiply these life-saving interventions."
     ]
   },
   discipleship: {
     title: "Discipleship",
     subtitle: "Building deep roots for lasting fruit in the local church.",
-    image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1600&q=80",
+    image: "./images/Discipleship/IMG-20250721-WA0007.jpg",
+    images: [
+      "./images/Discipleship/IMG-20250721-WA0007.jpg",
+      "./images/Discipleship/IMG-20250722-WA0002.jpg",
+      "./images/Discipleship/IMG-20250722-WA0003.jpg",
+      "./images/Discipleship/IMG-20250725-WA0020.jpg",
+      "./images/Discipleship/IMG-20250725-WA0021.jpg",
+      "./images/Discipleship/IMG-20250725-WA0022.jpg",
+      "./images/Discipleship/IMG-20251211-WA0012.jpg",
+      "./images/Discipleship/IMG_1225.jpeg",
+      "./images/Discipleship/IMG_1620.jpeg",
+      "./images/Discipleship/IMG_1954.jpeg",
+      "./images/Discipleship/IMG_1958.jpeg",
+      "./images/Discipleship/IMG_1969.jpeg",
+      "./images/Discipleship/IMG_1974.jpeg",
+      "./images/Discipleship/IMG_2250.jpeg",
+      "./images/Discipleship/IMG_2257.jpeg",
+      "./images/Discipleship/IMG_2260.jpeg",
+      "./images/Discipleship/IMG_3080.jpeg",
+      "./images/Discipleship/IMG_3087.jpeg",
+      "./images/Discipleship/IMG_3092.jpeg",
+      "./images/Discipleship/IMG_3110.jpeg",
+      "./images/Discipleship/IMG_3116.jpeg",
+      "./images/Discipleship/IMG_5967.jpeg",
+      "./images/Discipleship/IMG_5970.jpeg",
+      "./images/Discipleship/IMG_5978.JPG",
+      "./images/Discipleship/IMG_6012.JPG",
+      "./images/Discipleship/IMG_6075.jpeg",
+      "./images/Discipleship/IMG_6687.jpeg",
+      "./images/Discipleship/IMG_6697.jpeg",
+      "./images/Discipleship/IMG_6750.jpeg",
+      "./images/Discipleship/IMG_6751.jpeg",
+      "./images/Discipleship/IMG_6754.jpeg",
+      "./images/Discipleship/IMG_6755.jpeg",
+      "./images/Discipleship/IMG_6757.jpeg",
+      "./images/Discipleship/IMG_7864.JPG",
+      "./images/Discipleship/IMG_8992.jpeg",
+      "./images/Discipleship/IMG_8993.jpeg",
+      "./images/Discipleship/IMG_9811.jpeg",
+      "./images/Discipleship/IMG_9813.jpeg",
+      "./images/Discipleship/IMG_9881.jpeg",
+      "./images/Discipleship/IMG_9925.jpeg",
+      "./images/Discipleship/IMG_9930.jpeg",
+      "./images/Discipleship/IMG_9931.jpeg",
+      "./images/Discipleship/IMG_9947.jpeg"
+    ],
     stat1: "30+", stat1Label: "Local leaders trained",
     stat2: "15+", stat2Label: "House churches planted",
     content: [
@@ -1020,20 +1348,34 @@ const pillars = {
   },
   evangelism: {
     title: "Evangelism",
-    subtitle: "A vision for taking the Gospel to unreached villages.",
-    image: "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=1600&q=80",
-    stat1: "Pray", stat1Label: "For Boldness",
-    stat2: "Vision", stat2Label: "Future Teams",
+    subtitle: "Taking the Gospel to unreached villages.",
+    image: "./images/Evangelism/IMG_2016.jpeg",
+    images: [
+      "./images/Evangelism/27e07085-7973-4151-8e31-35dbeb5959e4.jpg",
+      "./images/Evangelism/984a04bd-e25b-46aa-9d95-7202732bdb40.jpg",
+      "./images/Evangelism/IMG_2016.jpeg",
+      "./images/Evangelism/IMG_2045.jpeg",
+      "./images/Evangelism/IMG_2048.jpeg",
+      "./images/Evangelism/IMG_2053.jpeg",
+      "./images/Evangelism/IMG_2073.jpeg",
+      "./images/Evangelism/IMG_2109.jpeg",
+      "./images/Evangelism/IMG_2111.jpeg",
+      "./images/Evangelism/IMG_2302.jpeg",
+      "./images/Evangelism/IMG_2926.jpeg",
+      "./images/Evangelism/c22ea961-df37-439c-ab6f-4355bb0d988e.jpg"
+    ],
+    stat1: "Active", stat1Label: "Fields of Harvest",
+    stat2: "Sending", stat2Label: "Local Evangelists",
     content: [
-      "While we currently reach many through our active pillars, our heart burns to deploy dedicated teams to boldly take the Gospel to groups who have never heard the name of Jesus.",
-      "We are laying the groundwork and praying for the resources and personnel to launch dedicated evangelism teams into restricted areas in the future.",
-      "Partner with us in prayer that doors would open to reach the unreached."
+      "Our heart burns to deploy dedicated teams to boldly take the Gospel to groups who have never heard the name of Jesus.",
+      "We are actively reaching into restricted and remote areas, engaging unreached people groups with the transformative message of Christ.",
+      "Partner with us as we boldly step through open doors to reach the unreached."
     ]
   },
   relief: {
     title: "Emergency Relief",
     subtitle: "Our prayerful goal to respond to crises with God's love.",
-    image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=1600&q=80",
+    image: "./images/Scenic/IMG_7404.jpg",
     stat1: "Pray", stat1Label: "For Provision",
     stat2: "Vision", stat2Label: "Future Capability",
     content: [
@@ -1045,7 +1387,7 @@ const pillars = {
   schooling: {
     title: "Schooling & Education",
     subtitle: "A future vision to break the cycle through truth and literacy.",
-    image: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1600&q=80",
+    image: "./images/IMG-20250610-WA0021.jpg",
     stat1: "Pray", stat1Label: "For Teachers",
     stat2: "Vision", stat2Label: "Future Schools",
     content: [
@@ -1065,7 +1407,29 @@ const posts = [
     category: "Bible",
     author: "Missionary A",
     date: "March 19, 2026",
-    image: "https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=1200&q=80"
+    image: "./images/Bible Distribution/DSC02278.jpg",
+    images: [
+      "./images/Bible Distribution/IMG-20250916-WA0000.jpg",
+      "./images/Bible Distribution/IMG-20260214-WA0037.jpg",
+      "./images/Bible Distribution/IMG-20260214-WA0041.jpg",
+      "./images/Bible Distribution/IMG-20260214-WA0046.jpg"
+    ]
+  },
+  {
+    id: "evangelism-outreach",
+    title: "A New Light: First Gospel Preached in Remote Village",
+    excerpt: "After treacherous travel, our team finally arrived in a village that had never heard the name of Jesus.",
+    content: "<p>We trekked for days to reach a highland village completely isolated from the outside world.</p><p>As we sat around the fire and shared the story of Jesus, you could see the light of understanding dawn in their eyes. Many stayed up late into the night asking questions. We left Scripture portions in their language and promised to return. God is moving in the high places!</p>",
+    category: "Evangelism",
+    author: "Outreach Team",
+    date: "April 10, 2026",
+    image: "./images/Evangelism/IMG_2109.jpeg",
+    images: [
+      "./images/Evangelism/IMG_2109.jpeg",
+      "./images/Evangelism/IMG_2045.jpeg",
+      "./images/Evangelism/IMG_2302.jpeg",
+      "./images/Evangelism/c22ea961-df37-439c-ab6f-4355bb0d988e.jpg"
+    ]
   },
   {
     id: "discipleship-training",
@@ -1075,17 +1439,47 @@ const posts = [
     category: "Discipleship",
     author: "Missionary B",
     date: "March 16, 2026",
-    image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200&q=80"
+    image: "./images/Discipleship/IMG-20251211-WA0012.jpg",
+    images: [
+      "./images/Discipleship/IMG-20251211-WA0012.jpg",
+      "./images/Discipleship/IMG-20250721-WA0007.jpg",
+      "./images/Discipleship/IMG-20250722-WA0003.jpg",
+      "./images/Discipleship/IMG-20250725-WA0021.jpg"
+    ]
+  },
+  {
+    id: "refugee-update",
+    title: "Hope at the Border: New Families Arriving",
+    excerpt: "Our team provided emergency food and shelter to displaced families fleeing conflict.",
+    content: "<p>We recently welcomed several displaced families who fled across the border seeking safety.</p><p>Our team provided emergency food, clean water, and safe shelter. While their stories are heartbreaking, we see God moving powerfully to bring them hope and healing. Please continue to pray for our workers as they minister on the front lines.</p>",
+    category: "Refugees",
+    author: "Border Team",
+    date: "April 25, 2026",
+    image: "./images/Refugees/DSC02244.jpg",
+    images: [
+      "./images/Refugees/DSC02244.jpg",
+      "./images/Refugees/IMG_0367.jpeg",
+      "./images/Refugees/IMG_0369.jpeg",
+      "./images/Refugees/IMG_2434.jpg",
+      "./images/Refugees/IMG_7141.jpeg"
+    ]
   },
   {
     id: "orphan-care-growth",
-    title: "Safe Haven: Expanding Our Second House",
-    excerpt: "We are adding capacity to welcome 15 more children into a loving, family environment this month.",
-    content: "<p>The Lord has provided the funds to finish the new wing of our second safe house. This means 15 children who are currently without families will have a warm bed, meals, and the loving care of Christian house parents next week.</p>",
+    title: "Our time at the orphanage was life changing",
+    excerpt: "Last year the Lord called my husband and I to serve at New Vision For Life. We spent 3 beautiful months there. We walked through some very challenging times...",
+    content: "<p><strong>Last year the Lord called my husband and I to serve at New Vision For Life.</strong> We spent 3 beautiful months there. We walked through some very challenging times, yet <em>God's hand led us in powerful ways</em>. Seeing the children's eyes light up that were darkened. Sad, lonely and quiet children gaining character and joy, being able to teach them things that they were never taught, and seeing little bodies covered in sores being completely healed, was a clear reminder that only God in us can make a difference.</p><img src="./images/Orphans/IMG_7072.jpg" class="inline-img" alt="Orphan Care Details" /><p>Eating rice 3 times a day almost all the time was stretching. Having no space of our own to relax where no one could distract us was also challenging. Cleaning poop, diarrhea, and maggots off of the bathroom floors many many times was very gross. Dealing with lice in my hair for almost the whole time was not easy.</p><p>Having said all these things, we would do this all over again in a heartbeat. When we left yesterday, seeing the children weep and sharing love to us in such sweet ways made me realize that our work here was NOT in vain. Jesus, thank you. May I never forget what it is to love, sweat, cry, laugh, give, and hug these beautiful children that have been abandoned. We leave here richer than when we came. Not in money, but in seeing that love is truly the best gift of all.</p>",
     category: "Orphans",
-    author: "Field Team C",
-    date: "March 10, 2026",
-    image: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1200&q=80"
+    author: "Charity and Josiah Driedger",
+    date: "April 1, 2026",
+    image: "./images/Orphans/IMG_6969.jpg",
+    images: [
+      "./images/Orphans/IMG_6969.jpg",
+      "./images/Orphans/IMG_0011.jpeg",
+      "./images/Orphans/IMG_7888.jpg",
+      "./images/Orphans/IMG_8441.jpg",
+      "./images/Orphans/IMG_9491.jpeg"
+    ]
   }
 ];
 
@@ -1099,12 +1493,103 @@ function showPage(page) {
   if (page === 'field-updates') renderFuGrid('All');
 }
 
+let slideIndices = {};
+
+function initSlideshow(id) {
+  slideIndices[id] = 1;
+  showSlides(slideIndices[id], id);
+}
+
+function plusSlides(n, id) {
+  showSlides(slideIndices[id] += n, id);
+}
+
+function currentSlide(n, id) {
+  showSlides(slideIndices[id] = n, id);
+}
+
+function showSlides(n, id) {
+  let i;
+  let slides = document.querySelectorAll('#slideshow-' + id + ' .slide');
+  let dots = document.querySelectorAll('#slideshow-' + id + ' .slide-dot');
+  if (!slides || slides.length === 0) return;
+  if (n > slides.length) {slideIndices[id] = 1}    
+  if (n < 1) {slideIndices[id] = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+    slides[i].classList.remove('active');
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", ");
+  }
+  slides[slideIndices[id]-1].style.display = "block";  
+  slides[slideIndices[id]-1].classList.add("active");
+  dots[slideIndices[id]-1].className += " active";
+}
+
+function renderSlideshowHTML(images, id) {
+  if (!images || images.length === 0) return '';
+  let slides = images.map((img, idx) => `
+    <div class="slide">
+      <img src="${img}" alt="Gallery Image ${idx + 1}" onclick="openLightbox('${img}')" style="cursor: zoom-in;" />
+    </div>
+  `).join('');
+  let dots = images.map((_, idx) => `
+    <span class="slide-dot" onclick="currentSlide(${idx+1}, '${id}')"></span>
+  `).join('');
+
+  return `
+    <div class="slideshow-wrapper" id="slideshow-${id}">
+      <div class="slideshow-container">
+        ${slides}
+        <a class="prev" onclick="plusSlides(-1, '${id}')">&#10094;</a>
+        <a class="next" onclick="plusSlides(1, '${id}')">&#10095;</a>
+      </div>
+      <div class="dot-container">
+        ${dots}
+      </div>
+    </div>
+  `;
+}
+
 function showDetail(slug) {
   const d = pillars[slug];
   if (!d) return;
   
   let ctaText = d.stat1 === 'Pray' ? `Partner with Us in Prayer for ${d.title}` : `Partner with Us in ${d.title}`;
   let btnText = d.stat1 === 'Pray' ? `Give to the General Fund` : `Give to ${d.title}`;
+  
+  const slugToCat = {
+    'bible': 'Bible',
+    'orphans': 'Orphans',
+    'refugees': 'Refugees',
+    'discipleship': 'Discipleship',
+    'evangelism': 'Evangelism',
+    'relief': 'Relief',
+    'schooling': 'Schooling'
+  };
+  const currentCat = slugToCat[slug];
+  const relatedPosts = posts.filter(p => p.category === currentCat);
+  let relatedHtml = '';
+  if (relatedPosts.length > 0) {
+    relatedHtml = `
+      <div class="related-updates">
+        <h3 style="margin-bottom: 24px; color: var(--primary);">Stories from this Pillar</h3>
+        <div class="updates-grid">
+          ${relatedPosts.map(p => `
+            <div class="post-card" onclick="window.location.href='field-updates.html?post=${p.id}'">
+              <div class="thumb"><img src="${p.image}" alt="${p.title}" /><span class="cat-tag">${p.category}</span></div>
+              <div class="body">
+                <div class="meta">${p.date} &nbsp;•&nbsp; ${p.author}</div>
+                <h4 style="margin: 8px 0; font-size: 1.1rem; color: var(--text);">${p.title}</h4>
+                <div class="read-link">Read Update →</div>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  }
   
   const html = `
     <div class="pillar-hero">
@@ -1119,16 +1604,18 @@ function showDetail(slug) {
       <div class="container-sm">
         <a href="#" class="back-link" onclick="showPage('borders')">← Back to All Pillars</a>
         <div class="stats-grid">
-          <div class="stat-box primary-tint"><div class=\"num\">${d.stat1}</div><div class=\"lbl\">${d.stat1Label}</div></div>
-          <div class=\"stat-box green-tint\"><div class=\"num\">${d.stat2}</div><div class=\"lbl\">${d.stat2Label}</div></div>
+          <div class="stat-box primary-tint"><div class="num">${d.stat1}</div><div class="lbl">${d.stat1Label}</div></div>
+          <div class="stat-box green-tint"><div class="num">${d.stat2}</div><div class="lbl">${d.stat2Label}</div></div>
         </div>
-        <div class=\"rich-content\">${d.content.map(p => `<p>${p}</p>`).join('')}</div>
-        <div class=\"pillar-cta\">
-          <div class=\"cta-box\">
+        <div class="rich-content">${d.content.map(p => `<p>${p}</p>`).join('')}</div>
+        ${d.images ? renderSlideshowHTML(d.images, slug) : ''}
+        ${relatedHtml}
+        <div class="pillar-cta">
+          <div class="cta-box">
             <h3>${ctaText}</h3>
             <p>Every dollar goes directly to the field to support the BORDERS mission.</p>
-            <div class=\"cta-btns\">
-              <a href=\"#\" onclick=\"showPage('donate')\" class=\"btn btn-primary btn-lg\">${btnText}</a>
+            <div class="cta-btns">
+              <a href="#" onclick="showPage('donate')" class="btn btn-primary btn-lg">${btnText}</a>
             </div>
           </div>
         </div>
@@ -1138,6 +1625,7 @@ function showDetail(slug) {
   document.getElementById('page-detail').innerHTML = html;
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById('page-detail').classList.add('active');
+  if (d.images && d.images.length > 0) initSlideshow(slug);
   window.scrollTo(0, 0);
 }
 
@@ -1145,25 +1633,27 @@ function showPost(id) {
   const p = posts.find(x => x.id === id);
   if (!p) return;
   const html = `
-    <div class=\"post-hero\">
-      <img src=\"${p.image}\" alt=\"${p.title}\" />
-      <div class=\"overlay\"></div>
-      <div class=\"meta-block\">
-        <span class=\"cat-label\">${p.category}</span>
+    <div class="post-hero">
+      <img src="${p.image}" alt="${p.title}" />
+      <div class="overlay"></div>
+      <div class="meta-block">
+        <span class="cat-label">${p.category}</span>
         <h1>${p.title}</h1>
-        <div class=\"author-line\">${p.author} &nbsp;•&nbsp; ${p.date}</div>
+        <div class="author-line">${p.author} &nbsp;•&nbsp; ${p.date}</div>
       </div>
     </div>
-    <section class=\"post-detail\">
-      <div class=\"container-sm\">
-        <a href=\"#\" class=\"back-link\" onclick=\"showPage('field-updates')\">← Back to Updates</a>
-        <div class=\"post-body\">${p.content}</div>
+    <section class="post-detail">
+      <div class="container-sm">
+        <a href="#" class="back-link" onclick="showPage('field-updates')">← Back to Updates</a>
+        <div class="post-body">${p.content}</div>
+        ${p.images ? renderSlideshowHTML(p.images, id) : ''}
       </div>
     </section>
   `;
   document.getElementById('page-post').innerHTML = html;
   document.querySelectorAll('.page').forEach(x => x.classList.remove('active'));
   document.getElementById('page-post').classList.add('active');
+  if (p.images && p.images.length > 0) initSlideshow(id);
   window.scrollTo(0, 0);
 }
 
@@ -1171,13 +1661,13 @@ function renderFuGrid(cat) {
   const filtered = cat === 'All' ? posts : posts.filter(p => p.category === cat);
   const grid = document.getElementById('fu-grid');
   grid.innerHTML = filtered.map(p => `
-    <div class=\"post-card\" onclick=\"showPost('${p.id}')\">
-      <div class=\"thumb\"><img src=\"${p.image}\" alt=\"${p.title}\" /><span class=\"cat-tag\">${p.category}</span></div>
-      <div class=\"body\">
-        <div class=\"meta\">${p.date} &nbsp;•&nbsp; ${p.author}</div>
+    <div class="post-card" onclick="window.location.href='field-updates.html?post=${p.id}'">
+      <div class="thumb"><img src="${p.image}" alt="${p.title}" /><span class="cat-tag">${p.category}</span></div>
+      <div class="body">
+        <div class="meta">${p.date} &nbsp;•&nbsp; ${p.author}</div>
         <h3>${p.title}</h3>
         <p>${p.excerpt}</p>
-        <div class=\"read-link\">Read Story →</div>
+        <div class="read-link">Read Story →</div>
       </div>
     </div>
   `).join('');
@@ -1192,6 +1682,20 @@ function filterCat(btn, cat) {
 function toggleMobile() { document.getElementById('mobile-nav').classList.toggle('open'); }
 function closeMobile() { document.getElementById('mobile-nav').classList.remove('open'); }
 function handleSubscribe(e) { e.preventDefault(); e.target.reset(); }
+
+function openLightbox(src) {
+  const modal = document.getElementById('lightbox-modal');
+  const modalImg = document.getElementById('lightbox-img');
+  modal.style.display = "block";
+  modalImg.src = src;
+}
+function closeLightbox(e) {
+  if (e) {
+    if (e.target.id === 'lightbox-img') return; // clicked the image itself
+  }
+  document.getElementById('lightbox-modal').style.display = "none";
+}
+
 renderFuGrid('All');
 </script>
 </body>
