@@ -26,11 +26,15 @@ function showSlides(n, id) {
     slides[i].classList.remove('active');
   }
   for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", ");
+    dots[i].className = dots[i].className.replace(" active", "");
   }
-  slides[slideIndices[id]-1].style.display = "block";  
-  slides[slideIndices[id]-1].classList.add("active");
-  dots[slideIndices[id]-1].className += " active";
+  if (slides[slideIndices[id]-1]) {
+    slides[slideIndices[id]-1].style.display = "block";  
+    slides[slideIndices[id]-1].classList.add("active");
+  }
+  if (dots[slideIndices[id]-1]) {
+    dots[slideIndices[id]-1].className += " active";
+  }
 }
 
 function renderSlideshowHTML(images, id) {
@@ -83,7 +87,7 @@ function renderPillarHTML(slug) {
         <h3 style="margin-bottom: 24px; color: var(--primary);">Stories from this Pillar</h3>
         <div class="updates-grid">
           ${relatedPosts.map(p => `
-            <div class="post-card" onclick="window.location.href='field-updates.html?post=${p.id}'">
+            <div class="post-card" onclick="window.location.href=basePath + 'field-updates.html?post=${p.id}'">
               <div class="thumb"><img src="${p.image.replace('./', basePath)}" alt="${p.title}" /><span class="cat-tag">${p.category}</span></div>
               <div class="body">
                 <div class="meta">${p.date} &nbsp;•&nbsp; ${p.author}</div>
@@ -108,7 +112,7 @@ function renderPillarHTML(slug) {
     </div>
     <section class="pillar-content">
       <div class="container-sm">
-        <a href="#" class="back-link" onclick="showPage('borders')">← Back to All Pillars</a>
+        <a href="#" class="back-link" onclick="window.location.href=basePath + 'borders.html'">← Back to All Pillars</a>
         <div class="stats-grid">
           <div class="stat-box primary-tint"><div class="num">${d.stat1}</div><div class="lbl">${d.stat1Label}</div></div>
           <div class="stat-box green-tint"><div class="num">${d.stat2}</div><div class="lbl">${d.stat2Label}</div></div>
@@ -121,15 +125,17 @@ function renderPillarHTML(slug) {
             <h3>${ctaText}</h3>
             <p>Every dollar goes directly to the field to support the BORDERS mission.</p>
             <div class="cta-btns">
-              <a href="#" onclick="showPage('donate')" class="btn btn-primary btn-lg">${btnText}</a>
+              <a href="#" onclick="window.location.href=basePath + 'donate.html'" class="btn btn-primary btn-lg">${btnText}</a>
             </div>
           </div>
         </div>
       </div>
     </section>
   `;
-  document.getElementById('pillar-content-container').innerHTML = html;
-  
+  const container = document.getElementById('pillar-content-container');
+  if (container) {
+     container.innerHTML = html;
+  }
   
   if (d.images && d.images.length > 0) initSlideshow(slug);
   window.scrollTo(0, 0);
@@ -150,14 +156,16 @@ function renderPostHTML(id) {
     </div>
     <section class="post-detail">
       <div class="container-sm">
-        <a href="#" class="back-link" onclick="showPage('field-updates')">← Back to Updates</a>
+        <a href="#" class="back-link" onclick="window.location.href=basePath + 'field-updates.html'">← Back to Updates</a>
         <div class="post-body">${p.content}</div>
         ${p.images ? renderSlideshowHTML(p.images, id) : ''}
       </div>
     </section>
   `;
-  document.getElementById('fu-grid').parentElement.innerHTML = html;
-  
+  const grid = document.getElementById('fu-grid');
+  if (grid) {
+     grid.parentElement.innerHTML = html;
+  }
   
   if (p.images && p.images.length > 0) initSlideshow(id);
   window.scrollTo(0, 0);
@@ -166,8 +174,9 @@ function renderPostHTML(id) {
 function renderFuGrid(cat) {
   const filtered = cat === 'All' ? posts : posts.filter(p => p.category === cat);
   const grid = document.getElementById('fu-grid');
+  if (!grid) return;
   grid.innerHTML = filtered.map(p => `
-    <div class="post-card" onclick="window.location.href='field-updates.html?post=${p.id}'">
+    <div class="post-card" onclick="window.location.href=basePath + 'field-updates.html?post=${p.id}'">
       <div class="thumb"><img src="${p.image.replace('./', basePath)}" alt="${p.title}" /><span class="cat-tag">${p.category}</span></div>
       <div class="body">
         <div class="meta">${p.date} &nbsp;•&nbsp; ${p.author}</div>
@@ -197,20 +206,17 @@ function openLightbox(src) {
 }
 function closeLightbox(e) {
   if (e) {
-    if (e.target.id === 'lightbox-img') return; // clicked the image itself
+    if (e.target.id === 'lightbox-img') return;
   }
   document.getElementById('lightbox-modal').style.display = "none";
 }
-
-
 
 document.addEventListener('DOMContentLoaded', () => {
   const urlParams = new URLSearchParams(window.location.search);
   const post_id = urlParams.get('post');
   if (post_id) {
-    if (document.querySelector('.fu-hero')) {
-       document.querySelector('.fu-hero').style.display = 'none';
-    }
+    const hero = document.querySelector('.fu-hero');
+    if (hero) hero.style.display = 'none';
     renderPostHTML(post_id);
   } else if (document.getElementById('fu-grid')) {
     renderFuGrid('All');
