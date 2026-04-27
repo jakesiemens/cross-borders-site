@@ -260,6 +260,20 @@ const pillars = {
   }
 };
 
+const missionaryUpdates = [
+  {
+    id: "siemens-family-update",
+    title: "Siemens Family: Vision for the Future",
+    date: "April 2026",
+    content: [
+      "Our family has been serving in Thailand for several years now, and we are continually amazed at how God is opening doors for the BORDERS mission.",
+      "As we look ahead, our primary focus is on establishing stronger support networks for the local pastors in the restricted highland regions.",
+      "Pray for our children as they adapt to their new school year, and for wisdom as we manage the growing logistics of Bible distribution."
+    ],
+    image: "./images/Scenic/IMG_7404.jpg"
+  }
+];
+
 const posts = [
   {
     id: "bibles-village",

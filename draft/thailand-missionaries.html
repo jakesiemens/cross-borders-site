@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Cross Borders Ministries - Draft Site</title>
+<title>Missionary Updates - Cross Borders Ministries</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -14,15 +14,15 @@
   <div class="container">
     <div class="nav-inner">
       <a href="index.html" class="logo">
-        <img loading="lazy" src="images/logo.png" alt="Cross Borders Ministries Logo" />
+        <img src="images/logo.png" alt="Cross Borders Ministries Logo" />
       </a>
       <nav class="desktop">
-        <a href="index.html" id="nav-home" class="active">Home</a>
+        <a href="index.html" id="nav-home">Home</a>
         <a href="about.html" id="nav-about">About Us</a>
         <a href="borders.html" id="nav-borders">BORDERS</a>
         <a href="field-updates.html" id="nav-field-updates">Field Updates</a>
         <a href="thailand-missionaries.html" id="nav-thailand">Thailand Team</a>
-        <a href="thailand-missionaries.html" id="nav-thailand">Thailand Team</a>
+        <a href="thailand-missionaries.html" id="nav-thailand" class="active">Thailand Team</a>
         <a href="contact.html" id="nav-contact">Contact Us</a>
         <a href="donate.html" class="btn btn-primary btn-sm">Give Now</a>
       </nav>
@@ -38,38 +38,33 @@
   <a href="borders.html">BORDERS</a>
   <a href="field-updates.html">Field Updates</a>
   <a href="thailand-missionaries.html">Thailand Team</a>
+  <a href="thailand-missionaries.html">Thailand Team</a>
   <a href="contact.html">Contact Us</a>
   <a href="donate.html" class="btn btn-primary">Give Now</a>
 </div>
 
 <main>
-<div class="fu-hero">
-    <h1>Field Updates</h1>
-    <p>Read urgent news, prayer requests, and stories of transformation directly from our workers.</p>
-    <div class="cat-filters">
-      <button class="cat-btn active" onclick="filterCat(this,'All')">All</button>
-      <button class="cat-btn" onclick="filterCat(this,'Bible')">Bible</button>
-      <button class="cat-btn" onclick="filterCat(this,'Orphans')">Orphans</button>
-      <button class="cat-btn" onclick="filterCat(this,'Discipleship')">Discipleship</button>
-      <button class="cat-btn" onclick="filterCat(this,'Refugees')">Refugees</button>
-      <button class="cat-btn" onclick="filterCat(this,'Evangelism')">Evangelism</button>
-    </div>
+  <div class="page-hero">
+    <span class="section-tag">Directly from Thailand</span>
+    <h1>Missionary Family Updates</h1>
+    <p>Follow the journey of the Siemens family and the core team heading up the BORDERS mission on the ground in Southeast Asia.</p>
   </div>
+
   <section class="fu-content">
-    <div class="container">
-      <div class="security-notice">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        <p><strong>Security Notice:</strong> Names and locations have been generalized for the safety of our field workers.</p>
+    <div class="container-sm">
+      <div id="missionary-updates-container">
+        <!-- Will be populated by JS -->
       </div>
-      <div class="fu-grid" id="fu-grid"></div>
     </div>
   </section>
-</main><footer>
+</main>
+
+<footer>
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="footer-logo-bg">
-          <img loading="lazy" src="images/logo.png" alt="Cross Borders Ministries Logo" style="height: 125px; width: auto;" />
+          <img src="images/logo.png" alt="Cross Borders Ministries Logo" style="height: 125px; width: auto;" />
         </div>
         <p>Reaching the unreached across every border. Dedicated to the BORDERS pillars in Southeast Asia.</p>
         <div class="location">
@@ -85,8 +80,8 @@
           <li><span class="letter">R</span>efugees</li>
           <li><span class="letter">D</span>iscipleship</li>
           <li><span class="letter">E</span>vangelism</li>
-          <li><span class="letter">R</span>elief <span style="font-size:0.7rem;opacity:0.6;">(Vision)</span></li>
-          <li><span class="letter">S</span>chooling <span style="font-size:0.7rem;opacity:0.6;">(Vision)</span></li>
+          <li><span class="letter">R</span>elief</li>
+          <li><span class="letter">S</span>chooling</li>
         </ul>
       </div>
       <div>
@@ -97,6 +92,7 @@
           <li><a href="borders.html">Our Mission</a></li>
           <li><a href="field-updates.html">Field Updates</a>
   <a href="thailand-missionaries.html">Thailand Team</a></li>
+          <li><a href="thailand-missionaries.html">Thailand Team</a></li>
           <li><a href="contact.html">Contact Us</a></li>
           <li><a href="donate.html">Donate</a></li>
         </ul>
@@ -120,11 +116,27 @@
     </div>
   </div>
 </footer>
-<div id="lightbox-modal" class="lightbox" onclick="closeLightbox(event)">
-  <span class="lightbox-close" onclick="closeLightbox(event)">&times;</span>
-  <img loading="lazy" class="lightbox-content" id="lightbox-img" />
-</div>
+
 <script src="js/data.js?v=1.1"></script>
 <script src="js/main.js?v=1.1"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const container = document.getElementById('missionary-updates-container');
+    if (container && typeof missionaryUpdates !== 'undefined') {
+      container.innerHTML = missionaryUpdates.map(u => `
+        <div class="missionary-card" style="background:#fff; border-radius:24px; overflow:hidden; box-shadow:var(--shadow); margin-bottom:48px;">
+          <img src="${u.image}" alt="${u.title}" style="width:100%; height:400px; object-fit:cover;" loading="lazy" />
+          <div style="padding:40px;">
+            <div style="color:var(--primary); font-weight:600; margin-bottom:8px;">${u.date}</div>
+            <h2 style="font-family:'Lora',serif; font-size:2rem; margin-bottom:20px;">${u.title}</h2>
+            <div class="rich-content">
+              ${u.content.map(p => `<p>${p}</p>`).join('')}
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+  });
+</script>
 </body>
 </html>

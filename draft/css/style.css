@@ -79,8 +79,14 @@ p { line-height: 1.7; }
 /* ─── HEADER / NAV ──────────────────────────────────────────────── */
 header {
   position: sticky; top: 0; z-index: 100;
-  background: rgba(255, 255, 255, 0.96); backdrop-filter: blur(14px);
+  background: rgba(255, 255, 255, 0.96);
   border-bottom: 1px solid var(--border);
+}
+@supports (backdrop-filter: blur(1px)) {
+  header {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
 }
 .nav-inner {
   display: flex; align-items: center; justify-content: space-between;
@@ -213,11 +219,14 @@ footer ul li .letter { color: var(--primary); font-weight: 700; margin-right: 4p
   position: relative; height: 280px; border-radius: var(--radius);
   overflow: hidden; cursor: pointer; box-shadow: var(--shadow);
   transition: box-shadow .3s, transform .3s;
+  will-change: transform, box-shadow;
+  content-visibility: auto;
 }
 .pillar-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
 .pillar-card img {
   position: absolute; inset: 0; width: 100%; height: 100%;
-  object-fit: cover; transition: transform .5s;
+  object-fit: cover; transition: transform .5s ease-out;
+  will-change: transform;
 }
 .pillar-card:hover img { transform: scale(1.06); }
 .pillar-card .gradient {
@@ -244,7 +253,7 @@ footer ul li .letter { color: var(--primary); font-weight: 700; margin-right: 4p
 .pillar-card .desc { font-size: .82rem; color: rgba(255,255,255,.78); line-height: 1.4; margin-bottom: 10px; }
 .pillar-card .stat-badge {
   display: inline-block; background: rgba(255,255,255,.18);
-  backdrop-filter: blur(6px); color: #fff; font-size: .72rem; font-weight: 500;
+  color: #fff; font-size: .72rem; font-weight: 500;
   padding: 5px 12px; border-radius: var(--radius-full);
 }
 .pillar-card .stat-badge.vision { background: rgba(211,87,34,.3); }
@@ -264,12 +273,15 @@ footer ul li .letter { color: var(--primary); font-weight: 700; margin-right: 4p
   background: #fff; border-radius: var(--radius); overflow: hidden;
   box-shadow: var(--shadow); display: flex; flex-direction: column;
   cursor: pointer; transition: transform .3s, box-shadow .3s;
+  will-change: transform, box-shadow;
+  content-visibility: auto;
+  contain-intrinsic-size: 400px;
 }
 .post-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
 .post-card .thumb {
   height: 210px; overflow: hidden; position: relative; flex-shrink: 0;
 }
-.post-card .thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+.post-card .thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease-out; will-change: transform; }
 .post-card:hover .thumb img { transform: scale(1.06); }
 .post-card .cat-tag {
   position: absolute; top: 16px; left: 16px;
@@ -310,7 +322,7 @@ footer ul li .letter { color: var(--primary); font-weight: 700; margin-right: 4p
   flex: 1; border-radius: 24px; overflow: hidden; box-shadow: var(--shadow-lg);
   aspect-ratio: 4/3; position: relative;
 }
-.pillar-row .img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+.pillar-row .img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease-out; will-change: transform; }
 .pillar-row:hover .img-wrap img { transform: scale(1.04); }
 .pillar-row .img-wrap::after {
   content: ''; position: absolute; inset: 0;
