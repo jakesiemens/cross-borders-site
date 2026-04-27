@@ -262,15 +262,24 @@ const pillars = {
 
 const missionaryUpdates = [
   {
-    id: "siemens-family-update",
-    title: "Siemens Family: Vision for the Future",
-    date: "April 2026",
+    id: "knelsen-family",
+    title: "Henry and Lyna Knelsen",
+    date: "Core Team - Thailand",
     content: [
-      "Our family has been serving in Thailand for several years now, and we are continually amazed at how God is opening doors for the BORDERS mission.",
-      "As we look ahead, our primary focus is on establishing stronger support networks for the local pastors in the restricted highland regions.",
-      "Pray for our children as they adapt to their new school year, and for wisdom as we manage the growing logistics of Bible distribution."
+      "Henry and Lyna lead our core logistical operations on the ground in Thailand. Their hearts for the unreached and their dedication to the local community are the backbone of the BORDERS mission.",
+      "The Knelsen family has been instrumental in establishing safe routes for Bible distribution and building lasting relationships with highland village leaders."
     ],
-    image: "./images/Scenic/IMG_7404.jpg"
+    image: "./images/Missionaries/IMG-20250909-WA0013.jpg"
+  },
+  {
+    id: "neufeld-family",
+    title: "John and Susie Neufeld",
+    date: "Core Team - Thailand",
+    content: [
+      "John and Susie focus on our discipleship and pastoral training programs. They work closely with local believers to ensure that every new church plant has a solid biblical foundation.",
+      "Their ministry involves traveling to remote regions to encourage house church leaders and provide hands-on training for the next generation of evangelists."
+    ],
+    image: "./images/Scenic/IMG_7404.jpg" 
   }
 ];
 
