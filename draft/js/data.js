@@ -337,9 +337,9 @@ const posts = [
     category: "Discipleship",
     author: "Missionary B",
     date: "March 16, 2026",
-    image: "./images/Discipleship/IMG_1974.jpeg",
+    image: "./images/Discipleship/IMG_9930.jpeg",
     images: [
-      "./images/Discipleship/IMG_1974.jpeg",
+      "./images/Discipleship/IMG_9930.jpeg",
       "./images/Discipleship/IMG-20250721-WA0007.jpg",
       "./images/Discipleship/IMG-20250722-WA0003.jpg",
       "./images/Discipleship/IMG-20250725-WA0021.jpg"
