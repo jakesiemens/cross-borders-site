@@ -279,6 +279,7 @@ const missionaryFamilies = [
 
 const missionaryUpdates = [
   {
+    id: "knelsen-first-steps",
     familyId: "knelsen",
     title: "First Steps in the Field",
     date: "April 2026",
@@ -286,6 +287,7 @@ const missionaryUpdates = [
     image: "./images/Missionaries/IMG-20250909-WA0013.jpg"
   },
   {
+    id: "neufeld-foundations",
     familyId: "neufeld",
     title: "Building Foundations for Faith",
     date: "April 2026",
