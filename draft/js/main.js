@@ -1,5 +1,7 @@
 const basePath = window.location.pathname.includes('/pillars/') || window.location.pathname.includes('\\pillars\\') ? '../' : './';
 let slideIndices = {};
+let lightboxGallery = [];
+let lightboxIndex = 0;
 
 function initSlideshow(id) {
   slideIndices[id] = 1;
@@ -39,9 +41,12 @@ function showSlides(n, id) {
 
 function renderSlideshowHTML(images, id) {
   if (!images || images.length === 0) return '';
+  // Stringify the images array for the onclick handler
+  const imagesJson = JSON.stringify(images).replace(/"/g, '&quot;');
+  
   let slides = images.map((img, idx) => `
     <div class="slide">
-      <img src="${img.replace('./', basePath)}" alt="Gallery Image ${idx + 1}" onclick="openLightbox('${img.replace('./', basePath)}')" style="cursor: zoom-in;" />
+      <img src="${img.replace('./', basePath)}" alt="Gallery Image ${idx + 1}" onclick="openLightboxFromGallery(${imagesJson}, ${idx})" style="cursor: zoom-in;" />
     </div>
   `).join('');
   let dots = images.map((_, idx) => `
@@ -203,10 +208,44 @@ function openLightbox(src) {
   const modalImg = document.getElementById('lightbox-img');
   modal.style.display = "block";
   modalImg.src = src;
+  lightboxGallery = [src];
+  lightboxIndex = 0;
+  updateLightboxNav();
 }
+
+function openLightboxFromGallery(images, index) {
+  const modal = document.getElementById('lightbox-modal');
+  const modalImg = document.getElementById('lightbox-img');
+  modal.style.display = "block";
+  lightboxGallery = images.map(img => img.replace('./', basePath));
+  lightboxIndex = index;
+  modalImg.src = lightboxGallery[lightboxIndex];
+  updateLightboxNav();
+}
+
+function changeLightbox(n, e) {
+  if (e) e.stopPropagation();
+  lightboxIndex += n;
+  if (lightboxIndex >= lightboxGallery.length) lightboxIndex = 0;
+  if (lightboxIndex < 0) lightboxIndex = lightboxGallery.length - 1;
+  document.getElementById('lightbox-img').src = lightboxGallery[lightboxIndex];
+}
+
+function updateLightboxNav() {
+  const prev = document.querySelector('.lightbox-prev');
+  const next = document.querySelector('.lightbox-next');
+  if (lightboxGallery.length <= 1) {
+    if (prev) prev.style.display = 'none';
+    if (next) next.style.display = 'none';
+  } else {
+    if (prev) prev.style.display = 'block';
+    if (next) next.style.display = 'block';
+  }
+}
+
 function closeLightbox(e) {
   if (e) {
-    if (e.target.id === 'lightbox-img') return;
+    if (e.target.id === 'lightbox-img' || e.target.classList.contains('lightbox-prev') || e.target.classList.contains('lightbox-next')) return;
   }
   document.getElementById('lightbox-modal').style.display = "none";
 }
@@ -221,4 +260,14 @@ document.addEventListener('DOMContentLoaded', () => {
   } else if (document.getElementById('fu-grid')) {
     renderFuGrid('All');
   }
+  
+  // Keyboard support for lightbox
+  document.addEventListener('keydown', (e) => {
+    const modal = document.getElementById('lightbox-modal');
+    if (modal && modal.style.display === 'block') {
+      if (e.key === 'ArrowLeft') changeLightbox(-1);
+      if (e.key === 'ArrowRight') changeLightbox(1);
+      if (e.key === 'Escape') closeLightbox();
+    }
+  });
 });

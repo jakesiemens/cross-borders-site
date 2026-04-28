@@ -260,26 +260,37 @@ const pillars = {
   }
 };
 
-const missionaryUpdates = [
+const missionaryFamilies = [
   {
-    id: "knelsen-family",
-    title: "Henry and Lyna Knelsen",
-    date: "Core Team - Thailand",
-    content: [
-      "Henry and Lyna lead our core logistical operations on the ground in Thailand. Their hearts for the unreached and their dedication to the local community are the backbone of the BORDERS mission.",
-      "The Knelsen family has been instrumental in establishing safe routes for Bible distribution and building lasting relationships with highland village leaders."
-    ],
-    image: "./images/Missionaries/IMG-20250909-WA0013.jpg"
+    id: "knelsen",
+    name: "Henry and Lyna Knelsen",
+    role: "Core Team - Logistics & Outreach",
+    image: "./images/Missionaries/IMG-20250909-WA0013.jpg",
+    bio: "Henry and Lyna lead our core logistical operations on the ground in Thailand. Their hearts for the unreached and their dedication to the local community are the backbone of the BORDERS mission."
   },
   {
-    id: "neufeld-family",
-    title: "John and Susie Neufeld",
-    date: "Core Team - Thailand",
-    content: [
-      "John and Susie focus on our discipleship and pastoral training programs. They work closely with local believers to ensure that every new church plant has a solid biblical foundation.",
-      "Their ministry involves traveling to remote regions to encourage house church leaders and provide hands-on training for the next generation of evangelists."
-    ],
-    image: "./images/Scenic/IMG_7404.jpg" 
+    id: "neufeld",
+    name: "John and Susie Neufeld",
+    role: "Core Team - Discipleship & Training",
+    image: "./images/Scenic/IMG_7404.jpg",
+    bio: "John and Susie focus on our discipleship and pastoral training programs, working closely with local believers to ensure deep roots in the faith."
+  }
+];
+
+const missionaryUpdates = [
+  {
+    familyId: "knelsen",
+    title: "Breakthrough in the Highlands",
+    date: "April 24, 2026",
+    content: "We recently established a new route into a previously inaccessible village. The elders were incredibly welcoming, and we were able to deliver 50 Bibles in their native dialect.",
+    image: "./images/Bible Distribution/DSC02278.jpg"
+  },
+  {
+    familyId: "neufeld",
+    title: "Training Next Generation Leaders",
+    date: "April 15, 2026",
+    content: "Our latest pastoral training session saw 12 young leaders from three different provinces. Their hunger for the Word is inspiring.",
+    image: "./images/Discipleship/IMG_1974.jpeg"
   }
 ];
 

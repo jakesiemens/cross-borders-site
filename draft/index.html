@@ -337,7 +337,9 @@
 </footer>
 <div id="lightbox-modal" class="lightbox" onclick="closeLightbox(event)">
   <span class="lightbox-close" onclick="closeLightbox(event)">&times;</span>
+  <a class="lightbox-prev" onclick="changeLightbox(-1, event)">&#10094;</a>
   <img loading="lazy" class="lightbox-content" id="lightbox-img" />
+  <a class="lightbox-next" onclick="changeLightbox(1, event)">&#10095;</a>
 </div>
 <script src="js/data.js?v=1.5"></script>
 <script src="js/main.js?v=1.5"></script>

@@ -8,6 +8,26 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="css/style.css" />
+<style>
+  .family-profiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; margin-bottom: 64px; }
+  .family-card { background: #fff; border-radius: 24px; overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--border); transition: transform 0.3s; }
+  .family-card:hover { transform: translateY(-5px); }
+  .family-card img { width: 100%; height: 250px; object-fit: cover; }
+  .family-card .info { padding: 24px; }
+  .family-card h3 { margin-bottom: 4px; font-family: 'Lora', serif; }
+  .family-card .role { color: var(--primary); font-weight: 600; font-size: 0.9rem; margin-bottom: 12px; }
+  .family-card .bio { font-size: 0.9rem; color: var(--muted); line-height: 1.5; }
+
+  .update-feed { max-width: 800px; margin: 0 auto; }
+  .update-item { background: #fff; border-radius: 24px; overflow: hidden; box-shadow: var(--shadow); margin-bottom: 40px; border: 1px solid var(--border); display: flex; flex-direction: column; }
+  @media (min-width: 768px) { .update-item { flex-direction: row; } .update-item img { width: 300px; height: auto; } }
+  .update-item img { object-fit: cover; }
+  .update-item .content { padding: 32px; flex: 1; }
+  .update-item .family-tag { display: inline-block; background: rgba(211,87,34,0.1); color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; margin-bottom: 12px; }
+  .update-item .date { font-size: 0.8rem; color: var(--muted); margin-bottom: 8px; }
+  .update-item h2 { font-family: 'Lora', serif; font-size: 1.5rem; margin-bottom: 12px; }
+  .update-item p { color: var(--text); line-height: 1.6; }
+</style>
 </head>
 <body>
 <header>
@@ -45,13 +65,21 @@
   <div class="page-hero">
     <span class="section-tag">Directly from Thailand</span>
     <h1>Missionary Family Updates</h1>
-    <p>Follow the journey of the Siemens family and the core team heading up the BORDERS mission on the ground in Southeast Asia.</p>
+    <p>Reaching the unreached across every border. Meet our families heading up the mission on the ground.</p>
   </div>
 
-  <section class="fu-content">
-    <div class="container-sm">
-      <div id="missionary-updates-container">
-        <!-- Will be populated by JS -->
+  <section class="team-section">
+    <div class="container">
+      <h2 style="text-align: center; margin-bottom: 40px; font-family: 'Lora', serif;">Our Families</h2>
+      <div id="family-profiles-container" class="family-profiles">
+        <!-- Populated by JS -->
+      </div>
+
+      <hr style="border: 0; border-top: 1px solid var(--border); margin-bottom: 64px;" />
+
+      <h2 style="text-align: center; margin-bottom: 40px; font-family: 'Lora', serif;">Recent Updates</h2>
+      <div id="update-feed-container" class="update-feed">
+        <!-- Populated by JS -->
       </div>
     </div>
   </section>
@@ -114,24 +142,48 @@
   </div>
 </footer>
 
+<div id="lightbox-modal" class="lightbox" onclick="closeLightbox(event)">
+  <span class="lightbox-close" onclick="closeLightbox(event)">&times;</span>
+  <a class="lightbox-prev" onclick="changeLightbox(-1, event)">&#10094;</a>
+  <img loading="lazy" class="lightbox-content" id="lightbox-img" />
+  <a class="lightbox-next" onclick="changeLightbox(1, event)">&#10095;</a>
+</div>
+
 <script src="js/data.js?v=1.5"></script>
 <script src="js/main.js?v=1.5"></script>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const container = document.getElementById('missionary-updates-container');
-    if (container && typeof missionaryUpdates !== 'undefined') {
-      container.innerHTML = missionaryUpdates.map(u => `
-        <div class="missionary-card" style="background:#fff; border-radius:24px; overflow:hidden; box-shadow:var(--shadow); margin-bottom:48px;">
-          <img src="${u.image}" alt="${u.title}" style="width:100%; height:400px; object-fit:cover;" loading="lazy" />
-          <div style="padding:40px;">
-            <div style="color:var(--primary); font-weight:600; margin-bottom:8px;">${u.date}</div>
-            <h2 style="font-family:'Lora',serif; font-size:2rem; margin-bottom:20px;">${u.title}</h2>
-            <div class="rich-content">
-              ${u.content.map(p => `<p>${p}</p>`).join('')}
-            </div>
+    const familiesContainer = document.getElementById('family-profiles-container');
+    const updatesContainer = document.getElementById('update-feed-container');
+
+    if (familiesContainer && typeof missionaryFamilies !== 'undefined') {
+      familiesContainer.innerHTML = missionaryFamilies.map(f => `
+        <div class="family-card">
+          <img src="${f.image}" alt="${f.name}" loading="lazy" />
+          <div class="info">
+            <div class="role">${f.role}</div>
+            <h3>${f.name}</h3>
+            <p class="bio">${f.bio}</p>
           </div>
         </div>
       `).join('');
+    }
+
+    if (updatesContainer && typeof missionaryUpdates !== 'undefined') {
+      updatesContainer.innerHTML = missionaryUpdates.map(u => {
+        const family = missionaryFamilies.find(f => f.id === u.familyId);
+        return `
+          <div class="update-item">
+            <img src="${u.image}" alt="${u.title}" loading="lazy" />
+            <div class="content">
+              <div class="family-tag">From the ${family ? family.name.split(' ').pop() : 'Missionary'} Family</div>
+              <div class="date">${u.date}</div>
+              <h2>${u.title}</h2>
+              <p>${u.content}</p>
+            </div>
+          </div>
+        `;
+      }).join('');
     }
   });
 </script>
