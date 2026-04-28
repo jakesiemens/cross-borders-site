@@ -154,7 +154,7 @@ const pillars = {
   discipleship: {
     title: "Discipleship",
     subtitle: "Building deep roots for lasting fruit in the local church.",
-    image: "./images/Discipleship/IMG-20250721-WA0007.jpg",
+    image: "./images/Discipleship/IMG_2260.jpeg",
     images: [
       "./images/Discipleship/IMG-20250721-WA0007.jpg",
       "./images/Discipleship/IMG-20250722-WA0002.jpg",
