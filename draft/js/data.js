@@ -272,7 +272,7 @@ const missionaryFamilies = [
     id: "neufeld",
     name: "John and Susie Neufeld",
     role: "Core Team - Discipleship & Training",
-    image: "./images/Scenic/IMG_7404.jpg",
+    image: "./images/Scenic/IMG_7417.jpg",
     bio: "John and Susie focus on our discipleship and pastoral training programs, working closely with local believers to ensure deep roots in the faith."
   }
 ];
@@ -280,16 +280,16 @@ const missionaryFamilies = [
 const missionaryUpdates = [
   {
     familyId: "knelsen",
-    title: "Breakthrough in the Highlands",
-    date: "April 24, 2026",
-    content: "We recently established a new route into a previously inaccessible village. The elders were incredibly welcoming, and we were able to deliver 50 Bibles in their native dialect.",
-    image: "./images/Bible Distribution/DSC02278.jpg"
+    title: "First Steps in the Field",
+    date: "April 2026",
+    content: "We have officially settled into our new home base in Thailand! Our first few weeks have been focused on setting up the core logistics for Bible distribution. We've already met with three local couriers who are eager to help us reach the most remote highland villages. It's a joy to see how God is preparing the way for the Word to go forth.",
+    image: "./images/Missionaries/IMG-20250909-WA0013.jpg"
   },
   {
     familyId: "neufeld",
-    title: "Training Next Generation Leaders",
-    date: "April 15, 2026",
-    content: "Our latest pastoral training session saw 12 young leaders from three different provinces. Their hunger for the Word is inspiring.",
+    title: "Building Foundations for Faith",
+    date: "April 2026",
+    content: "Our first pastoral training cycle has begun! We met with a group of six local church leaders who have a deep hunger for sound doctrine. We spent the week diving into the book of Romans and discussing how to effectively mentor new believers in their own cultural context. The journey is just beginning, and our hearts are full.",
     image: "./images/Discipleship/IMG_1974.jpeg"
   }
 ];
