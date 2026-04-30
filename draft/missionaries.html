@@ -38,6 +38,7 @@
   .detail-body { font-size: 1.1rem; line-height: 1.8; color: var(--text); }
   .detail-body p { margin-bottom: 24px; }
   .back-btn { display: inline-flex; align-items: center; gap: 8px; color: var(--primary); font-weight: 600; margin-bottom: 32px; cursor: pointer; text-decoration: none; }
+  @media (max-width: 768px) { .detail-img { height: 300px; } }
 </style>
 </head>
 <body>
@@ -85,7 +86,6 @@
 
     <section style="padding: 80px 0;">
       <div class="container">
-        <h2 style="text-align: center; margin-bottom: 40px; font-family: 'Lora', serif;">Our Families</h2>
         <div id="family-profiles-container" class="family-profiles">
           <!-- Populated by JS -->
         </div>
@@ -126,13 +126,13 @@
       <div>
         <h4>Our Pillars</h4>
         <ul>
-          <li><span class="letter">B</span>ible Distribution</li>
-          <li><span class="letter">O</span>rphans</li>
-          <li><span class="letter">R</span>efugees</li>
-          <li><span class="letter">D</span>iscipleship</li>
-          <li><span class="letter">E</span>vangelism</li>
-          <li><span class="letter">R</span>elief</li>
-          <li><span class="letter">S</span>chooling</li>
+          <li><a href="pillars/bible.html"><span class="letter">B</span>ible Distribution</a></li>
+          <li><a href="pillars/orphans.html"><span class="letter">O</span>rphans</a></li>
+          <li><a href="pillars/refugees.html"><span class="letter">R</span>efugees</a></li>
+          <li><a href="pillars/discipleship.html"><span class="letter">D</span>iscipleship</a></li>
+          <li><a href="pillars/evangelism.html"><span class="letter">E</span>vangelism</a></li>
+          <li><a href="pillars/relief.html"><span class="letter">R</span>elief <span style="font-size:0.7rem;opacity:0.6;">(Vision)</span></a></li>
+          <li><a href="pillars/schooling.html"><span class="letter">S</span>chooling <span style="font-size:0.7rem;opacity:0.6;">(Vision)</span></a></li>
         </ul>
       </div>
       <div>
@@ -198,10 +198,12 @@
     if (familiesContainer && typeof missionaryFamilies !== 'undefined') {
       familiesContainer.innerHTML = missionaryFamilies.map(f => `
         <a href="missionaries.html?family=${f.id}" class="family-card">
+          <div class="info" style="padding: 24px 24px 16px;">
+            <h3>${f.name}</h3>
+            <div class="role">${f.role}</div>
+          </div>
           <img src="${f.image}" alt="${f.name}" loading="lazy" />
           <div class="info">
-            <div class="role">${f.role}</div>
-            <h3>${f.name}</h3>
             <p class="bio">${f.bio}</p>
           </div>
         </a>

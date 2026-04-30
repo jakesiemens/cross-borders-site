@@ -114,6 +114,7 @@ nav.desktop a.btn-primary:hover { color: #fff; }
 .mobile-nav {
   display: none; flex-direction: column; padding: 16px 24px 24px;
   background: var(--card); border-bottom: 1px solid var(--border);
+  position: fixed; top: 121px; left: 0; right: 0; z-index: 99;
 }
 .mobile-nav a {
   padding: 12px 0; font-size: 1.05rem; font-weight: 500;
