@@ -91,10 +91,10 @@ header {
 }
 .nav-inner {
   display: flex; align-items: center; justify-content: space-between;
-  height: 100px;
+  height: 120px;
 }
 .logo { display: flex; align-items: center; }
-.logo img { height: 120px; width: auto; display: block; object-fit: contain; } 
+.logo img { height: 150px; width: auto; display: block; object-fit: contain; } 
 
 nav.desktop { display: flex; align-items: center; gap: 32px; }
 nav.desktop a {
@@ -533,8 +533,8 @@ img.inline-img { width: 100%; border-radius: 16px; margin: 32px 0; box-shadow: v
   .pillar-row { gap: 48px; }
 }
 @media (max-width: 768px) {
-  .nav-inner { height: 80px; }
-  .logo img { height: 80px; }
+  .nav-inner { height: 100px; }
+  .logo img { height: 120px; }
   .contact-layout { grid-template-columns: 1fr; gap: 32px; }
   nav.desktop { display: none; }
   .hamburger { display: block; }
@@ -564,6 +564,6 @@ img.inline-img { width: 100%; border-radius: 16px; margin: 32px 0; box-shadow: v
   .hero-btns { flex-direction: column; }
   .hero-btns .btn { width: 100%; }
   .impact-grid { grid-template-columns: 1fr; }
-  .nav-inner { height: 70px; }
-  .logo img { height: 70px; }
+  .nav-inner { height: 90px; }
+  .logo img { height: 100px; }
 }
