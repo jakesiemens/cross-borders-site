@@ -272,7 +272,7 @@ const missionaryFamilies = [
     id: "neufeld",
     name: "John and Susie Neufeld",
     role: "Core Team - Discipleship & Training",
-    image: "./images/Scenic/IMG_7417.jpg",
+    image: "./images/Missionaries/john-susie.jpg",
     bio: "John and Susie focus on our discipleship and pastoral training programs, working closely with local believers to ensure deep roots in the faith."
   }
 ];
