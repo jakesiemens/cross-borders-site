@@ -7,8 +7,8 @@ for f in files:
         content = file.read()
     
     # Add cache buster to script tags
-    content = content.replace('js/data.js', 'js/data.js?v=1.1')
-    content = content.replace('js/main.js', 'js/main.js?v=1.1')
+    content = content.replace('js/data.js', 'js/data.js?v=1.5')
+    content = content.replace('js/main.js', 'js/main.js?v=1.5')
     
     with open(f, 'w', encoding='utf-8') as file:
         file.write(content)
