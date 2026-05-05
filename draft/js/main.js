@@ -92,14 +92,14 @@ function renderPillarHTML(slug) {
         <h3 style="margin-bottom: 24px; color: var(--primary);">Stories from this Pillar</h3>
         <div class="updates-grid">
           ${relatedPosts.map(p => `
-            <div class="post-card" onclick="window.location.href=basePath + 'field-updates.html?post=${p.id}'">
+            <a href="${basePath}field-updates.html?post=${p.id}" class="post-card">
               <div class="thumb"><img src="${p.image.replace('./', basePath)}" alt="${p.title}" /><span class="cat-tag">${p.category}</span></div>
               <div class="body">
                 <div class="meta">${p.date} &nbsp;•&nbsp; ${p.author}</div>
                 <h4 style="margin: 8px 0; font-size: 1.1rem; color: var(--text);">${p.title}</h4>
                 <div class="read-link">Read Update →</div>
               </div>
-            </div>
+            </a>
           `).join('')}
         </div>
       </div>
@@ -117,7 +117,7 @@ function renderPillarHTML(slug) {
     </div>
     <section class="pillar-content">
       <div class="container-sm">
-        <a href="#" class="back-link" onclick="window.location.href=basePath + 'borders.html'">← Back to All Pillars</a>
+        <a href="${basePath}borders.html" class="back-link">← Back to All Pillars</a>
         <div class="stats-grid">
           <div class="stat-box primary-tint"><div class="num">${d.stat1}</div><div class="lbl">${d.stat1Label}</div></div>
           <div class="stat-box green-tint"><div class="num">${d.stat2}</div><div class="lbl">${d.stat2Label}</div></div>
@@ -130,7 +130,7 @@ function renderPillarHTML(slug) {
             <h3>${ctaText}</h3>
             <p>Every dollar goes directly to the field to support the BORDERS mission.</p>
             <div class="cta-btns">
-              <a href="#" onclick="window.location.href=basePath + 'donate.html'" class="btn btn-primary btn-lg">${btnText}</a>
+              <a href="${basePath}donate.html" class="btn btn-primary btn-lg">${btnText}</a>
             </div>
           </div>
         </div>
@@ -161,7 +161,7 @@ function renderPostHTML(id) {
     </div>
     <section class="post-detail">
       <div class="container-sm">
-        <a href="#" class="back-link" onclick="window.location.href=basePath + 'field-updates.html'">← Back to Updates</a>
+        <a href="${basePath}field-updates.html" class="back-link">← Back to Updates</a>
         <div class="post-body">${p.content}</div>
         ${p.images ? renderSlideshowHTML(p.images, id) : ''}
       </div>
@@ -181,7 +181,7 @@ function renderFuGrid(cat) {
   const grid = document.getElementById('fu-grid');
   if (!grid) return;
   grid.innerHTML = filtered.map(p => `
-    <div class="post-card" onclick="window.location.href=basePath + 'field-updates.html?post=${p.id}'">
+    <a href="${basePath}field-updates.html?post=${p.id}" class="post-card">
       <div class="thumb"><img src="${p.image.replace('./', basePath)}" alt="${p.title}" /><span class="cat-tag">${p.category}</span></div>
       <div class="body">
         <div class="meta">${p.date} &nbsp;•&nbsp; ${p.author}</div>
@@ -189,7 +189,7 @@ function renderFuGrid(cat) {
         <p>${p.excerpt}</p>
         <div class="read-link">Read Story →</div>
       </div>
-    </div>
+    </a>
   `).join('');
 }
 
@@ -201,7 +201,41 @@ function filterCat(btn, cat) {
 
 function toggleMobile() { document.getElementById('mobile-nav').classList.toggle('open'); }
 function closeMobile() { document.getElementById('mobile-nav').classList.remove('open'); }
-function handleSubscribe(e) { e.preventDefault(); e.target.reset(); }
+
+function handleSubscribe(e) {
+  e.preventDefault();
+  const form = e.target;
+  form.innerHTML = '<p style="color:rgba(255,255,255,0.9);font-size:0.95rem;padding:8px 0;">Thank you! We\'ll be in touch with updates and prayer requests from the field.</p>';
+}
+
+async function handleContactForm(e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn = form.querySelector('button[type="submit"]');
+  const originalText = btn.textContent;
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
+  try {
+    const res = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      form.parentElement.innerHTML = '<p style="text-align:center;padding:48px 0;color:var(--secondary);font-size:1.1rem;line-height:1.6;">Thank you for reaching out!<br>We’ll get back to you soon.</p>';
+    } else {
+      throw new Error();
+    }
+  } catch {
+    btn.textContent = originalText;
+    btn.disabled = false;
+    const err = form.querySelector('.form-error') || document.createElement('p');
+    err.className = 'form-error';
+    err.style.cssText = 'color:#c0392b;font-size:.875rem;margin-top:-8px;';
+    err.textContent = 'Something went wrong. Please email info@crossbordersministries.org directly.';
+    if (!form.querySelector('.form-error')) form.appendChild(err);
+  }
+}
 
 function openLightbox(src) {
   const modal = document.getElementById('lightbox-modal');

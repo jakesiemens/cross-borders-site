@@ -272,7 +272,7 @@ const missionaryFamilies = [
     id: "neufeld",
     name: "John and Susie Neufeld",
     role: "Core Team - Discipleship & Training",
-    image: "./images/Missionaries/john-susie.jpg",
+    image: "./images/Missionaries/John and Susie.jpg",
     bio: "John and Susie focus on our discipleship and pastoral training programs, working closely with local believers to ensure deep roots in the faith."
   }
 ];
@@ -303,7 +303,7 @@ const posts = [
     excerpt: "After months of prayer, a team delivered Scripture portions to a remote highland community.",
     content: "<p>'When we arrived, the village elder held the small booklet and wept.' Praise God for this breakthrough.</p>",
     category: "Bible",
-    author: "Missionary A",
+    author: "Field Worker",
     date: "March 19, 2026",
     image: "./images/Bible Distribution/DSC02278.jpg",
     images: [
@@ -335,7 +335,7 @@ const posts = [
     excerpt: "This week, we welcomed 12 new local leaders into our intensive discipleship program.",
     content: "<p>These faithful men and women traveled for days to reach our training center. Over the next month, they will dive deep into sound doctrine before returning to lead their house churches.</p>",
     category: "Discipleship",
-    author: "Missionary B",
+    author: "Field Worker",
     date: "March 16, 2026",
     image: "./images/Discipleship/IMG_9930.jpeg",
     images: [
@@ -381,12 +381,3 @@ const posts = [
   }
 ];
 
-function showPage(page) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.getElementById('page-' + page).classList.add('active');
-  document.querySelectorAll('nav.desktop a').forEach(a => a.classList.remove('active'));
-  const navEl = document.getElementById('nav-' + page);
-  if (navEl) navEl.classList.add('active');
-  window.scrollTo(0, 0);
-  if (page === 'field-updates') renderFuGrid('All');
-}

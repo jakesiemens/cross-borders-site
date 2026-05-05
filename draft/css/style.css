@@ -210,7 +210,7 @@ footer ul li .letter { color: var(--primary); font-weight: 700; margin-right: 4p
   display: inline-flex; align-items: center; gap: 6px;
   padding: 8px 16px; border-radius: var(--radius-full);
   border: 1px solid var(--border); cursor: pointer; transition: all .15s;
-  font-size: .82rem; color: var(--muted);
+  font-size: .82rem; color: var(--muted); text-decoration: none;
 }
 .pill:hover { border-color: var(--primary); background: rgba(211,87,34,.05); color: var(--fg); }
 .pill .letter { font-family: 'Lora', serif; font-weight: 700; color: var(--primary); font-size: 1.05rem; line-height: 1; }
@@ -233,6 +233,7 @@ footer ul li .letter { color: var(--primary); font-weight: 700; margin-right: 4p
   transition: box-shadow .3s, transform .3s;
   will-change: transform, box-shadow;
   content-visibility: auto;
+  display: block; text-decoration: none;
 }
 .pillar-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
 .pillar-card img {
@@ -288,6 +289,7 @@ footer ul li .letter { color: var(--primary); font-weight: 700; margin-right: 4p
   will-change: transform, box-shadow;
   content-visibility: auto;
   contain-intrinsic-size: 400px;
+  text-decoration: none; color: inherit;
 }
 .post-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
 .post-card .thumb {
@@ -518,7 +520,7 @@ img.inline-img { width: 100%; border-radius: 16px; margin: 32px 0; box-shadow: v
 .lightbox-prev { left: 5%; }
 .lightbox-prev:hover, .lightbox-next:hover { background-color: rgba(0,0,0,0.8); }
 @keyframes zoom { from {transform:scale(0)} to {transform:scale(1)} }
-.lightbox-close { position: absolute; top: 20px; right: 40px; color: #fff; font-size: 40px; font-weight: bold; transition: 0.3s; cursor: pointer; z-index: 10000; }
+.lightbox-close { position: absolute; top: 20px; right: 40px; color: #fff; font-size: 40px; font-weight: bold; transition: 0.3s; cursor: pointer; z-index: 10000; background: none; border: none; padding: 0; line-height: 1; }
 .lightbox-close:hover { color: var(--primary); }
 
 /* ─── RESPONSIVE ─────────────────────────────────────────────────── */
