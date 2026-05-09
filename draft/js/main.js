@@ -201,7 +201,30 @@ function filterCat(btn, cat) {
 
 function toggleMobile() { document.getElementById('mobile-nav').classList.toggle('open'); }
 function closeMobile() { document.getElementById('mobile-nav').classList.remove('open'); }
-function handleSubscribe(e) { e.preventDefault(); e.target.reset(); }
+async function handleSubscribe(e) {
+  e.preventDefault();
+  const form = e.target;
+  const inputs = form.querySelectorAll('input');
+  const data = new FormData();
+  data.append('FormType', 'Prayer Team Subscription');
+  inputs.forEach(i => { if (i.value) data.append(i.placeholder || i.name, i.value); });
+  
+  try {
+    const response = await fetch('https://formspree.io/f/xzdokegp', {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+    if (response.ok) {
+      form.reset();
+      alert('Thank you for joining our prayer team!');
+    } else {
+      alert('There was a problem submitting your request. Please try again.');
+    }
+  } catch (error) {
+    alert('There was a problem submitting your request. Please check your connection.');
+  }
+}
 
 function openLightbox(src) {
   const modal = document.getElementById('lightbox-modal');
