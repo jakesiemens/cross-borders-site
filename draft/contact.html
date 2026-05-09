@@ -57,14 +57,6 @@
           <p style="margin-bottom: 24px; color: var(--muted); line-height:1.6;">Whether you have a question about our pillars, want to join our prayer list, or want to partner with us financially, we'd love to hear from you.</p>
           
           <div style="margin-bottom: 24px; display:flex; align-items:flex-start; gap:16px;">
-            <svg style="color:var(--primary); margin-top:4px;" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
-            <div>
-              <strong style="display:block; color:var(--text);">Email</strong>
-              <a href="mailto:info@crossbordersministries.org" style="color:var(--muted); text-decoration:none;">Send us an email</a>
-            </div>
-          </div>
-
-          <div style="margin-bottom: 24px; display:flex; align-items:flex-start; gap:16px;">
             <svg style="color:var(--primary); margin-top:4px;" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             <div>
               <strong style="display:block; color:var(--text);">Field Headquarters</strong>
@@ -75,7 +67,12 @@
         
         <div class="contact-form-wrap" style="background:#fff; padding:32px; border-radius:12px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); border: 1px solid var(--border);">
           <h3 style="margin-bottom: 24px;">Send a Message</h3>
-          <form action="mailto:info@crossbordersministries.org" method="POST" enctype="text/plain" style="display:flex; flex-direction:column; gap:16px;">
+          <!-- 
+            ACTION REQUIRED: 
+            To make this form work, create a free account at Formspree.io, 
+            create a new form, and paste your unique endpoint URL into the 'action' attribute below.
+          -->
+          <form action="https://formspree.io/f/YOUR_ENDPOINT_HERE" method="POST" style="display:flex; flex-direction:column; gap:16px;">
             <div class="grid-2">
               <input type="text" name="First Name" placeholder="First Name" required style="padding:14px 16px; border:1px solid var(--border); border-radius:8px; width:100%; font-family:inherit; outline:none;"/>
               <input type="text" name="Last Name" placeholder="Last Name" style="padding:14px 16px; border:1px solid var(--border); border-radius:8px; width:100%; font-family:inherit; outline:none;"/>
