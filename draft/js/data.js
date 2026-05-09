@@ -266,18 +266,19 @@ const missionaryFamilies = [
     name: "Henry and Lyna Knelsen",
     role: "Core Team - Logistics & Outreach",
     image: "./images/Missionaries/IMG-20250909-WA0013.jpg",
-    bio: "Henry and Lyna lead our core logistical operations on the ground in Thailand. Their hearts for the unreached and their dedication to the local community are the backbone of the BORDERS mission."
+    bio: "Serving as missionaries with Cross Borders Ministries."
   },
   {
     id: "neufeld",
     name: "John and Susie Neufeld",
     role: "Core Team - Discipleship & Training",
     image: "./images/Missionaries/john-susie.jpg",
-    bio: "John and Susie focus on our discipleship and pastoral training programs, working closely with local believers to ensure deep roots in the faith."
+    bio: "Serving as missionaries with Cross Borders Ministries."
   }
 ];
 
 const missionaryUpdates = [
+  /*
   {
     id: "knelsen-first-steps",
     familyId: "knelsen",
@@ -294,9 +295,11 @@ const missionaryUpdates = [
     content: "Our first pastoral training cycle has begun! We met with a group of six local church leaders who have a deep hunger for sound doctrine. We spent the week diving into the book of Romans and discussing how to effectively mentor new believers in their own cultural context. The journey is just beginning, and our hearts are full.",
     image: "./images/Discipleship/IMG_1974.jpeg"
   }
+  */
 ];
 
 const posts = [
+  /*
   {
     id: "bibles-village",
     title: "Light in the Darkness: Bibles Reach Remote Village",
@@ -362,6 +365,7 @@ const posts = [
       "./images/Refugees/IMG_7141.jpeg"
     ]
   },
+  */
   {
     id: "orphan-care-growth",
     title: "Our time at the orphanage was life changing",
