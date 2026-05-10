@@ -27,9 +27,7 @@ const pillars = {
     stat1: "12+", stat1Label: "Language groups reached",
     stat2: "4,000+", stat2Label: "Scriptures distributed",
     content: [
-      "Many of the people groups we serve have never held a book in their own language, let alone the living Word of God.",
-      "We work with local translators and couriers to bring Scriptures deep into restricted territories.",
-      "Your support ensures the Word of God reaches every tribe and tongue."
+      "Detailed stories and updates regarding this pillar are coming soon. In the meantime, please view our photo gallery below or partner with us to support this work."
     ]
   },
   orphans: {
@@ -61,9 +59,7 @@ const pillars = {
     stat1: "600+", stat1Label: "Children in care",
     stat2: "3", stat2Label: "Safe houses operating",
     content: [
-      "Conflict and poverty leave many children without parents. We help provide real care, and the truth that they are seen by God.",
-      "Local house parents create family environments where children can heal and grow.",
-      "Help us welcome more children and build secure futures."
+      "Detailed stories and updates regarding this pillar are coming soon. In the meantime, please view our photo gallery below or partner with us to support this work."
     ]
   },
   refugees: {
@@ -146,9 +142,7 @@ const pillars = {
     stat1: "Active", stat1Label: "Border Deployments",
     stat2: "Relief", stat2Label: "Food & Shelter",
     content: [
-      "As families flee conflict and cross into safe territory, many arrive with absolutely nothing but the clothes on their backs.",
-      "Our teams are actively deployed along the border to meet them. We distribute emergency food rations, clean water, blankets, and essential medical supplies.",
-      "Beyond physical relief, we take the time to listen, sit with them in their pain, and gently share the peace and love of Christ. Please partner with us so we can multiply these life-saving interventions."
+      "Detailed stories and updates regarding this pillar are coming soon. In the meantime, please view our photo gallery below or partner with us to support this work."
     ]
   },
   discipleship: {
@@ -203,9 +197,7 @@ const pillars = {
     stat1: "30+", stat1Label: "Local leaders trained",
     stat2: "15+", stat2Label: "House churches planted",
     content: [
-      "Evangelism without discipleship leaves believers vulnerable. We invest heavily in long-term mentorship and pastoral training.",
-      "Our model is multiplication: equipping local leaders to pasture and multiply their own communities.",
-      "Invest in the deep roots of the highland church."
+      "Detailed stories and updates regarding this pillar are coming soon. In the meantime, please view our photo gallery below or partner with us to support this work."
     ]
   },
   evangelism: {
@@ -229,9 +221,7 @@ const pillars = {
     stat1: "Active", stat1Label: "Fields of Harvest",
     stat2: "Sending", stat2Label: "Local Evangelists",
     content: [
-      "Our heart burns to deploy dedicated teams to boldly take the Gospel to groups who have never heard the name of Jesus.",
-      "We are actively reaching into restricted and remote areas, engaging unreached people groups with the transformative message of Christ.",
-      "Partner with us as we boldly step through open doors to reach the unreached."
+      "Detailed stories and updates regarding this pillar are coming soon. In the meantime, please view our photo gallery below or partner with us to support this work."
     ]
   },
   relief: {
@@ -241,9 +231,7 @@ const pillars = {
     stat1: "Pray", stat1Label: "For Provision",
     stat2: "Vision", stat2Label: "Future Capability",
     content: [
-      "Disasters can devastate rural communities in hours. While emergency relief is not currently an active branch of our ministry, we are trusting God to help us build this capacity.",
-      "We envision a future where we can maintain supply caches for rapid response, believing that meeting immediate physical needs opens hearts to the message of peace.",
-      "Join us in praying for the resources to make this pillar a reality."
+      "Detailed stories and updates regarding this pillar are coming soon. In the meantime, please view our photo gallery below or partner with us to support this work."
     ]
   },
   schooling: {
@@ -253,9 +241,7 @@ const pillars = {
     stat1: "Pray", stat1Label: "For Teachers",
     stat2: "Vision", stat2Label: "Future Schools",
     content: [
-      "Education is protection against exploitation. As our ministry grows, we pray God will open doors to establish Christian schools and learning centers.",
-      "Our vision is to provide literacy and biblical values to marginalized youth, ensuring the next generation can read the Word of God for themselves.",
-      "Please pray for the foundations of this future pillar."
+      "Detailed stories and updates regarding this pillar are coming soon. In the meantime, please view our photo gallery below or partner with us to support this work."
     ]
   }
 };
@@ -264,14 +250,14 @@ const missionaryFamilies = [
   {
     id: "knelsen",
     name: "Henry and Lyna Knelsen",
-    role: "Core Team - Logistics & Outreach",
+    role: "Core Team",
     image: "./images/Missionaries/IMG-20250909-WA0013.jpg",
     bio: "Serving as missionaries with Cross Borders Ministries."
   },
   {
     id: "neufeld",
     name: "John and Susie Neufeld",
-    role: "Core Team - Discipleship & Training",
+    role: "Core Team",
     image: "./images/Missionaries/john-susie.jpg",
     bio: "Serving as missionaries with Cross Borders Ministries."
   }
