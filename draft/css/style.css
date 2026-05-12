@@ -273,7 +273,7 @@ footer ul li .letter { color: var(--primary); font-weight: 700; margin-right: 4p
 
 /* ─── IMPACT STRIP ───────────────────────────────────────────────── */
 .impact-strip { background: var(--primary); padding: 56px 0; }
-.impact-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; text-align: center; color: #fff; }
+.impact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; text-align: center; color: #fff; }
 .impact-grid .number { font-family: 'Lora', serif; font-size: clamp(2.2rem, 5vw, 3.2rem); font-weight: 700; margin-bottom: 8px; }
 .impact-grid .label { font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; opacity: .72; }
 
