@@ -252,7 +252,7 @@ const missionaryFamilies = [
     name: "Henry and Lyna Knelsen",
     role: "Core Team",
     image: "./images/Missionaries/IMG-20250909-WA0013.jpg",
-    bio: "Serving as missionaries with Cross Borders Ministries."
+    bio: "After many years of seeking the will of God and being active in short term ministry trips throughout Asia, we felt the call of God to move to Southeast Asia in 2020.<br><br>The burden for the harvest is what has spurred us on. Millions of people still have not heard or don't know the good news of the Gospel. Our hearts desire is to help build a strong body of believers in southeast Asia where the scriptures is limited and where there is a drought of the understanding of God's word.<br><br>We have spent the last several years engrossing ourselves in language and culture studies and we are entering into a place where I am teaching the scriptures in the local language in regular bibles studies and conferences.<br><br>Henry, Lyna along with our 5 children, Seth, Madison, Hudson, Lillian and Hosea and baby number 6 coming September 2026."
   },
   {
     id: "neufeld",
