@@ -24,7 +24,7 @@ const pillars = {
       "./images/Bible Distribution/c35edbd1-d116-401b-8b0e-f3baeb282691.jpg",
       "./images/Bible Distribution/f907f119-12a0-4a88-94c2-283e310a5ebc.jpg"
     ],
-    stat1: "12+", stat1Label: "Language groups reached",
+    stat1: "2", stat1Label: "Language groups reached",
     stat2: "4,000+", stat2Label: "Scriptures distributed",
     content: [
       "Detailed stories and updates regarding this pillar are coming soon. In the meantime, please view our photo gallery below or partner with us to support this work."
