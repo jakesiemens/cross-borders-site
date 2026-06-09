@@ -275,6 +275,80 @@ const missionaryUpdates = [
 ];
 
 const posts = [
+  {
+    id: "june-2026-update",
+    title: "Thailand June 2026 Update",
+    excerpt: "Our latest monthly newsletter: updates from our weekly Bible studies, family conferences, Bible distribution reports, and orphan care highlights.",
+    content: `<div style="display: flex; gap: 16px; align-items: center; margin-bottom: 32px; background: var(--card); padding: 18px 24px; border-radius: 12px; border: 1px solid var(--border);">
+  <div style="font-size: 1.5rem; color: var(--primary);">📄</div>
+  <div style="flex-grow: 1;">
+    <h4 style="margin: 0; font-size: 1.05rem; font-family: 'Lora', serif; font-weight: 700;">June 2026 Newsletter (PDF)</h4>
+    <p style="margin: 0; font-size: 0.85rem; color: var(--muted); line-height: 1.4;">Download the original print-ready designed PDF to share or read offline.</p>
+  </div>
+  <a href="./Newsletters/CBM_news_letter.pdf" target="_blank" class="btn btn-primary btn-sm" style="margin-top: 0; border-radius: 8px;">Download PDF</a>
+</div>
+
+<h2 style="font-family: 'Lora', serif; font-size: 1.8rem; margin-top: 40px; margin-bottom: 16px; color: var(--fg); border-bottom: 2px solid var(--primary); padding-bottom: 8px;">Together We Grow: Studying God’s Word</h2>
+<p><strong>"We are family"</strong>, <strong>"I just don't want to leave"</strong>, <strong>"this is my church"</strong>, are the comments heard during these beautiful times as we gather together. These weekly Bible studies are times where we pray together, study God's Word, share testimonies and fellowship around snacks. One university student shared how God has used the word spoken to renew courage in her heart to openly share the gospel again. The pain of rejection from a friend she had shared with in the past had caused her to stop sharing. Hearing the words "don't be afraid" were life giving to her soul.</p>
+<p>Testimonies like these bring us great joy and spur us on in the work for the Kingdom.</p>
+<img class="inline-img" src="./images/Newsletters/bible_study_june_2026.png" alt="Bible Study Group" />
+
+<div style="background: rgba(211,87,34,0.04); border-left: 4px solid var(--primary); padding: 24px; border-radius: 0 12px 12px 0; margin: 32px 0;">
+  <h3 style="margin-top: 0; margin-bottom: 12px; color: var(--primary); font-family: 'Lora', serif; font-weight: 700;">Family Conference</h3>
+  <div style="display: flex; gap: 24px; align-items: center; flex-wrap: wrap;">
+    <img src="./images/Newsletters/family_conference_june_2026.png" alt="Family Conference Group" style="max-width: 240px; border-radius: 8px; box-shadow: var(--shadow); width: 100%;" />
+    <p style="margin: 0; flex: 1; min-width: 200px; line-height: 1.7;">Recently we held yet another family conference in a local church. Topics like child training, marriage, and family life are much needed and appreciated. We hope to continue these conferences locally and abroad.</p>
+  </div>
+</div>
+
+<h2 style="font-family: 'Lora', serif; font-size: 1.8rem; margin-top: 40px; margin-bottom: 16px; color: var(--fg); border-bottom: 2px solid var(--primary); padding-bottom: 8px;">Team Spotlight & Prayer Focus</h2>
+<div style="display: flex; gap: 32px; margin: 32px 0; align-items: flex-start; flex-wrap: wrap;">
+  <div style="flex: 1; min-width: 280px;">
+    <h3 style="color: var(--secondary); margin-bottom: 16px; font-family: 'Lora', serif; font-weight: 700;">Please Pray With Us:</h3>
+    <ul style="list-style: none; padding-left: 0;">
+      <li style="margin-bottom: 20px; position: relative; padding-left: 28px; line-height: 1.7;">
+        <span style="position: absolute; left: 0; top: 2px; color: var(--primary); font-weight: bold;">✓</span>
+        <strong>For Henry and Lyna Knelsen:</strong> Please pray for the adoption process of Hosea. After a lot of time, money and rejection from their lawyer, they continue to trust God to make a way.
+      </li>
+      <li style="margin-bottom: 20px; position: relative; padding-left: 28px; line-height: 1.7;">
+        <span style="position: absolute; left: 0; top: 2px; color: var(--primary); font-weight: bold;">✓</span>
+        <strong>For John and Susie Neufeld:</strong> Please pray as they study to learn the Thai language.
+      </li>
+    </ul>
+  </div>
+  <div style="text-align: center; max-width: 220px; margin: 0 auto;">
+    <img src="./images/Newsletters/orphan_boy_june_2026.png" alt="Little boy Hosea" style="border-radius: 12px; box-shadow: var(--shadow); width: 100%; margin-bottom: 8px;" />
+    <small style="color: var(--muted); font-style: italic;">Pray for the adoption of Hosea</small>
+  </div>
+</div>
+
+<h2 style="font-family: 'Lora', serif; font-size: 1.8rem; margin-top: 40px; margin-bottom: 16px; color: var(--fg); border-bottom: 2px solid var(--primary); padding-bottom: 8px;">From Brother to Brother: God’s Word Goes Forth</h2>
+<div style="background: rgba(45,80,22,0.04); border-left: 4px solid var(--secondary); padding: 20px 24px; border-radius: 8px; margin-bottom: 24px; font-style: italic; font-family: 'Lora', serif; line-height: 1.7;">
+  "Strengthen ye the weak hands, and confirm the feeble knees." — Isaiah 35:3
+</div>
+<p><strong>"I have waited years for this moment"</strong> came the heartfelt words of the Asian believer that now held a Bible in his hands for the first time.</p>
+<p>This is the case for so many, and we praise God for the thousands of Bibles that we have been able to distribute to those hungering to read God's Word. In the past two months alone we have distributed just over 700 Bibles to believers.</p>
+<img class="inline-img" src="./images/Newsletters/bible_distribution_june_2026.png" alt="Bible Distribution" />
+<p>Behind the scenes, we have teams from all over the world leaving the comforts of their homes and countries, purchasing tickets and making many an hour flight to come help us make these distributions possible. We express heartfelt gratitude for all the hands that labored with us in this ministry.</p>
+<p>As a result of believers around the world making these sacrifices, thousands who otherwise did not have a copy of the Bible can now read it. And we pray the end result would be much fruit and more souls for the Kingdom of God.</p>
+
+<h2 style="font-family: 'Lora', serif; font-size: 1.8rem; margin-top: 40px; margin-bottom: 16px; color: var(--fg); border-bottom: 2px solid var(--primary); padding-bottom: 8px;">Community Spotlight: Suffer the Little Children to Come Unto Me</h2>
+<div style="background: rgba(196,154,44,0.08); border-left: 4px solid var(--accent); padding: 20px 24px; border-radius: 8px; margin-bottom: 24px; font-style: italic; font-family: 'Lora', serif; font-weight: 700; color: #8a6b1a; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.95rem; line-height: 1.7;">
+  "A father to the fatherless, and a judge of the widows, is God in his holy habitation." — Psalm 68:8
+</div>
+<div style="display: flex; gap: 32px; margin: 32px 0; align-items: center; flex-wrap: wrap;">
+  <img src="./images/Newsletters/orphan_care_june_2026.png" alt="Orphan Care Volunteers" style="flex: 1; max-width: 320px; min-width: 250px; border-radius: 12px; box-shadow: var(--shadow); width: 100%;" />
+  <div style="flex: 1.5; min-width: 280px;">
+    <p style="margin-bottom: 16px;">Thanks to the help of many willing hands, hundreds of orphans have received much needed care. Volunteers came from far and sacrificed greatly as they poured out the love of Jesus on these dear little ones.</p>
+    <p style="margin-bottom: 0;">With hundreds of orphan children and not enough staff, scabies and lice were running rampant. It was not an easy task but our volunteers labored, scrubbing dirty bathrooms, performing lice treatments and manually washing blankets. Their love brought light into the darkened eyes of little children. May the Lord reward you richly.</p>
+  </div>
+</div>`,
+    category: "Newsletters",
+    author: "Cross Borders Ministries",
+    date: "June 2026",
+    image: "./images/Newsletters/bible_study_june_2026.png",
+    images: []
+  },
   /*
   {
     id: "bibles-village",
