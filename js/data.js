@@ -239,10 +239,10 @@ const pillars = {
 const missionaryFamilies = [
   {
     id: "knelsen",
-    name: "Henry and Lyna Knelsen",
+    name: "Henry and Lena Knelsen",
     role: "Core Team",
     image: "./images/Missionaries/Henry and Lyna Knelsen Family.jpeg",
-    bio: "After many years of seeking the will of God and being active in short term ministry trips throughout Asia, we felt the call of God to move to Southeast Asia in 2020.<br><br>The burden for the harvest is what has spurred us on. Millions of people still have not heard or don't know the good news of the Gospel. Our hearts desire is to help build a strong body of believers in southeast Asia where the scriptures is limited and where there is a drought of the understanding of God's word.<br><br>We have spent the last several years engrossing ourselves in language and culture studies and we are entering into a place where I am teaching the scriptures in the local language in regular bibles studies and conferences.<br><br>Henry, Lyna along with our 5 children, Seth, Madison, Hudson, Lillian and Hosea and baby number 6 coming September 2026."
+    bio: "After many years of seeking the will of God and being active in short term ministry trips throughout Asia, we felt the call of God to move to Southeast Asia in 2020.<br><br>The burden for the harvest is what has spurred us on. Millions of people still have not heard or don't know the good news of the Gospel. Our hearts desire is to help build a strong body of believers in southeast Asia where the scriptures is limited and where there is a drought of the understanding of God's word.<br><br>We have spent the last several years engrossing ourselves in language and culture studies and we are entering into a place where I am teaching the scriptures in the local language in regular bibles studies and conferences.<br><br>Henry, Lena along with our 5 children, Seth, Madison, Hudson, Lillian and Hosea and baby number 6 coming September 2026."
   },
   {
     id: "neufeld",
@@ -259,7 +259,7 @@ const missionaryUpdates = [
     familyId: "knelsen",
     title: "Slowing Down and Walking with Believers",
     date: "July 2026",
-    excerpt: "An update from Henry and Lyna Knelsen on family life, Hosea starting school, scripture distribution, personal discipleship, and preparing for church planting in Thailand.",
+    excerpt: "An update from Henry and Lena Knelsen on family life, Hosea starting school, scripture distribution, personal discipleship, and preparing for church planting in Thailand.",
     content: `<p class="lead" style="font-size: 1.15rem; line-height: 1.8; color: var(--fg); margin-bottom: 24px;"><strong>Over the last few months our schedule has slowed down somewhat.</strong> We’re thankful for that time for a few different reasons. With Hosea starting school a couple of months ago, it has created extra challenges for us. We have had a lot of emotional things to deal with that we did not feel necessarily qualified for, so that slower pace was helpful. Also, Lena, now being seven months pregnant, has felt more tired and she is needing time to prepare herself for the baby.</p>
 
 <div style="background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 20px; margin: 32px 0; box-shadow: var(--shadow);">
@@ -294,7 +294,7 @@ const missionaryUpdates = [
 
 <h2 style="font-family: 'Lora', serif; font-size: 1.8rem; margin-top: 40px; margin-bottom: 16px; color: var(--fg); border-bottom: 2px solid var(--primary); padding-bottom: 8px;">Raising Up Shepherds & Preparing for Church Planting</h2>
 <div style="display: flex; gap: 24px; align-items: center; flex-wrap: wrap; margin: 24px 0;">
-  <img src="./images/Updates/WhatsApp Image 2026-07-24 at 12.54.39 AM.jpeg" alt="Rod and Naree with Henry and Lyna" style="flex: 1; min-width: 260px; max-width: 380px; border-radius: 16px; box-shadow: var(--shadow); width: 100%; cursor: zoom-in;" onclick="openLightbox(this.src)" />
+  <img src="./images/Updates/WhatsApp Image 2026-07-24 at 12.54.39 AM.jpeg" alt="Rod and Naree with Henry and Lena" style="flex: 1; min-width: 260px; max-width: 380px; border-radius: 16px; box-shadow: var(--shadow); width: 100%; cursor: zoom-in;" onclick="openLightbox(this.src)" />
   <div style="flex: 1.2; min-width: 280px;">
     <p style="margin-top: 0;"><strong>Rod and Naree</strong>, have been our dear friends for many years. I see in him the heart of a shepherd. Would you pray with us that the Lord would work out circumstances so he can prepare himself for that? He has expressed many times a desire to see a true church raised up, and he wants to be a part of it. I believe the Lord is preparing him to be a pastor.</p>
     <p style="margin-bottom: 0;">The topic of starting a church has also been coming up more often here as of late. In many ways, we don't feel quite ready, especially with the upcoming baby in two months and adopting Hosea, but we feel inclined to prepare ourselves, especially since some of these believers are looking to us. We would appreciate prayers to know how to navigate that.</p>
@@ -356,7 +356,7 @@ const posts = [
   {
     id: "knelsen-july-2026-update",
     title: "Slowing Down and Walking with Believers: Field & Family Update",
-    excerpt: "An update from Henry and Lyna Knelsen on family life, Hosea starting school, scripture distribution, personal discipleship, and preparing for church planting in Thailand.",
+    excerpt: "An update from Henry and Lena Knelsen on family life, Hosea starting school, scripture distribution, personal discipleship, and preparing for church planting in Thailand.",
     content: `<p class="lead" style="font-size: 1.15rem; line-height: 1.8; color: var(--fg); margin-bottom: 24px;"><strong>Over the last few months our schedule has slowed down somewhat.</strong> We’re thankful for that time for a few different reasons. With Hosea starting school a couple of months ago, it has created extra challenges for us. We have had a lot of emotional things to deal with that we did not feel necessarily qualified for, so that slower pace was helpful. Also, Lena, now being seven months pregnant, has felt more tired and she is needing time to prepare herself for the baby.</p>
 
 <div style="background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 20px; margin: 32px 0; box-shadow: var(--shadow);">
@@ -391,7 +391,7 @@ const posts = [
 
 <h2 style="font-family: 'Lora', serif; font-size: 1.8rem; margin-top: 40px; margin-bottom: 16px; color: var(--fg); border-bottom: 2px solid var(--primary); padding-bottom: 8px;">Raising Up Shepherds & Preparing for Church Planting</h2>
 <div style="display: flex; gap: 24px; align-items: center; flex-wrap: wrap; margin: 24px 0;">
-  <img src="./images/Updates/WhatsApp Image 2026-07-24 at 12.54.39 AM.jpeg" alt="Rod and Naree with Henry and Lyna" style="flex: 1; min-width: 260px; max-width: 380px; border-radius: 16px; box-shadow: var(--shadow); width: 100%; cursor: zoom-in;" onclick="openLightbox(this.src)" />
+  <img src="./images/Updates/WhatsApp Image 2026-07-24 at 12.54.39 AM.jpeg" alt="Rod and Naree with Henry and Lena" style="flex: 1; min-width: 260px; max-width: 380px; border-radius: 16px; box-shadow: var(--shadow); width: 100%; cursor: zoom-in;" onclick="openLightbox(this.src)" />
   <div style="flex: 1.2; min-width: 280px;">
     <p style="margin-top: 0;"><strong>Rod and Naree</strong>, have been our dear friends for many years. I see in him the heart of a shepherd. Would you pray with us that the Lord would work out circumstances so he can prepare himself for that? He has expressed many times a desire to see a true church raised up, and he wants to be a part of it. I believe the Lord is preparing him to be a pastor.</p>
     <p style="margin-bottom: 0;">The topic of starting a church has also been coming up more often here as of late. In many ways, we don't feel quite ready, especially with the upcoming baby in two months and adopting Hosea, but we feel inclined to prepare ourselves, especially since some of these believers are looking to us. We would appreciate prayers to know how to navigate that.</p>
@@ -446,7 +446,7 @@ const posts = [
   We are grateful to the Lord for the opportunity to serve Him here. Thank you for standing with us in this ministry — every prayer offered, and every word of encouragement is helping to sustain us.
 </p>`,
     category: "Discipleship",
-    author: "Henry & Lyna Knelsen",
+    author: "Henry & Lena Knelsen",
     date: "July 2026",
     image: "./images/Updates/WhatsApp Image 2026-07-24 at 12.54.39 AM.jpeg",
     images: [
@@ -495,7 +495,7 @@ const posts = [
     <ul style="list-style: none; padding-left: 0;">
       <li style="margin-bottom: 20px; position: relative; padding-left: 28px; line-height: 1.7;">
         <span style="position: absolute; left: 0; top: 2px; color: var(--primary); font-weight: bold;">✓</span>
-        <strong>For Henry and Lyna Knelsen:</strong> Please pray for the adoption process of Hosea. After a lot of time, money and rejection from their lawyer, they continue to trust God to make a way.
+        <strong>For Henry and Lena Knelsen:</strong> Please pray for the adoption process of Hosea. After a lot of time, money and rejection from their lawyer, they continue to trust God to make a way.
       </li>
       <li style="margin-bottom: 20px; position: relative; padding-left: 28px; line-height: 1.7;">
         <span style="position: absolute; left: 0; top: 2px; color: var(--primary); font-weight: bold;">✓</span>
