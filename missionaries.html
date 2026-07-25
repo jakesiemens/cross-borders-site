@@ -225,9 +225,15 @@
       `).join('');
     }
 
-    if (updatesContainer && typeof missionaryUpdates !== 'undefined') {
+    if (updatesContainer && typeof missionaryUpdates !== 'undefined' && missionaryUpdates.length > 0) {
+      updatesContainer.style.display = 'block';
+      const comingSoonMsg = updatesContainer.previousElementSibling;
+      if (comingSoonMsg && comingSoonMsg.tagName === 'P') {
+        comingSoonMsg.style.display = 'none';
+      }
       updatesContainer.innerHTML = missionaryUpdates.map(u => {
         const family = missionaryFamilies.find(f => f.id === u.familyId);
+        const excerptText = u.excerpt || u.content.replace(/<[^>]*>/g, '').substring(0, 150) + '...';
         return `
           <a href="missionaries.html?update=${u.id}" class="update-item">
             <img src="${u.image}" alt="${u.title}" loading="lazy" />
@@ -235,7 +241,7 @@
               <div class="family-tag">From the ${family ? family.name.split(' ').pop() : 'Missionary'} Family</div>
               <div class="date">${u.date}</div>
               <h2>${u.title}</h2>
-              <p>${u.content.substring(0, 150)}...</p>
+              <p>${excerptText}</p>
             </div>
           </a>
         `;
@@ -269,7 +275,7 @@
               <div class="content">
                 <div class="date">${u.date}</div>
                 <h2>${u.title}</h2>
-                <p>${u.content.substring(0, 150)}...</p>
+                <p>${u.excerpt || u.content.replace(/<[^>]*>/g, '').substring(0, 150)}...</p>
               </div>
             </a>
           `).join('') : '<p>No updates yet. Check back soon!</p>'}

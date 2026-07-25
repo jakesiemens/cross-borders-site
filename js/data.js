@@ -241,7 +241,7 @@ const missionaryFamilies = [
     id: "knelsen",
     name: "Henry and Lyna Knelsen",
     role: "Core Team",
-    image: "./images/Missionaries/IMG-20250909-WA0013.jpg",
+    image: "./images/Missionaries/Henry and Lyna Knelsen Family.jpeg",
     bio: "After many years of seeking the will of God and being active in short term ministry trips throughout Asia, we felt the call of God to move to Southeast Asia in 2020.<br><br>The burden for the harvest is what has spurred us on. Millions of people still have not heard or don't know the good news of the Gospel. Our hearts desire is to help build a strong body of believers in southeast Asia where the scriptures is limited and where there is a drought of the understanding of God's word.<br><br>We have spent the last several years engrossing ourselves in language and culture studies and we are entering into a place where I am teaching the scriptures in the local language in regular bibles studies and conferences.<br><br>Henry, Lyna along with our 5 children, Seth, Madison, Hudson, Lillian and Hosea and baby number 6 coming September 2026."
   },
   {
@@ -254,27 +254,214 @@ const missionaryFamilies = [
 ];
 
 const missionaryUpdates = [
-  /*
   {
-    id: "knelsen-first-steps",
+    id: "knelsen-july-2026-update",
     familyId: "knelsen",
-    title: "First Steps in the Field",
-    date: "April 2026",
-    content: "We have officially settled into our new home base in Thailand! Our first few weeks have been focused on setting up the core logistics for Bible distribution. We've already met with three local couriers who are eager to help us reach the most remote highland villages. It's a joy to see how God is preparing the way for the Word to go forth.",
-    image: "./images/Missionaries/IMG-20250909-WA0013.jpg"
-  },
-  {
-    id: "neufeld-foundations",
-    familyId: "neufeld",
-    title: "Building Foundations for Faith",
-    date: "April 2026",
-    content: "Our first pastoral training cycle has begun! We met with a group of six local church leaders who have a deep hunger for sound doctrine. We spent the week diving into the book of Romans and discussing how to effectively mentor new believers in their own cultural context. The journey is just beginning, and our hearts are full.",
-    image: "./images/Discipleship/IMG_1974.jpeg"
+    title: "Slowing Down and Walking with Believers",
+    date: "July 2026",
+    excerpt: "An update from Henry and Lyna Knelsen on family life, Hosea starting school, scripture distribution, personal discipleship, and preparing for church planting in Thailand.",
+    content: `<p class="lead" style="font-size: 1.15rem; line-height: 1.8; color: var(--fg); margin-bottom: 24px;"><strong>Over the last few months our schedule has slowed down somewhat.</strong> We’re thankful for that time for a few different reasons. With Hosea starting school a couple of months ago, it has created extra challenges for us. We have had a lot of emotional things to deal with that we did not feel necessarily qualified for, so that slower pace was helpful. Also, Lena, now being seven months pregnant, has felt more tired and she is needing time to prepare herself for the baby.</p>
+
+<div style="background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 20px; margin: 32px 0; box-shadow: var(--shadow);">
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-bottom: 12px;">
+    <img src="./images/Updates/WhatsApp Image 2026-07-24 at 12.57.38 AM.jpeg" alt="Hosea coloring at school" style="width: 100%; border-radius: 12px; object-fit: cover; aspect-ratio: 4/3; cursor: zoom-in;" onclick="openLightbox(this.src)" />
+    <img src="./images/Updates/WhatsApp Image 2026-07-24 at 12.57.39 AM.jpeg" alt="Hosea with classmates at Thai school" style="width: 100%; border-radius: 12px; object-fit: cover; aspect-ratio: 4/3; cursor: zoom-in;" onclick="openLightbox(this.src)" />
+  </div>
+  <p style="margin: 0; font-size: 0.9rem; color: var(--muted); font-style: italic; text-align: center;">"Hosea is starting to enjoy school. Since he has lived with foreigners for a while, he doesn’t really speak Thai. That is starting to change now that he’s in a Thai school."</p>
+</div>
+
+<h2 style="font-family: 'Lora', serif; font-size: 1.8rem; margin-top: 40px; margin-bottom: 16px; color: var(--fg); border-bottom: 2px solid var(--primary); padding-bottom: 8px;">Literature & Scripture Distribution</h2>
+<p>Although things have been a little bit slower, the work still goes on. Every month we have a team coming to help bring literature to difficult places for those who need it. Some of those teams require more direction while others are more independent. Hundreds of scripture portions have been distributed to believers over the last few months alone. Please pray for protection for the locals who receive these supplies and for the teams to go unhindered.</p>
+
+<div style="background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 20px; margin: 32px 0; text-align: center; box-shadow: var(--shadow);">
+  <img src="./images/Updates/WhatsApp Image 2026-07-24 at 1.00.54 AM.jpeg" alt="Load of literature and bibles delivered" style="max-width: 500px; width: 100%; border-radius: 12px; margin-bottom: 12px; cursor: zoom-in;" onclick="openLightbox(this.src)" />
+  <p style="margin: 0; font-size: 0.9rem; color: var(--muted); font-style: italic;">"Another load of bread delivered" — bringing spiritual nourishment and God’s Word to hungry souls.</p>
+</div>
+
+<h2 style="font-family: 'Lora', serif; font-size: 1.8rem; margin-top: 40px; margin-bottom: 16px; color: var(--fg); border-bottom: 2px solid var(--primary); padding-bottom: 8px;">Personal Discipleship & Life Together</h2>
+<p>We have had more time to do personal discipleship with some from our Bible study. One couple, Adam and Meaw (he’s British and she’s Thai), are both new Christians, and newly married. With that comes a lot of basic discipleship. We're beginning to realize that it is so much more than teaching the scriptures; it is walking with them in life and showing them how to live it out. Meaw has expressed a desire to learn to be a homemaker, so she has been looking to Lena for help.</p>
+
+<div style="background: rgba(211,87,34,0.05); border-left: 4px solid var(--primary); padding: 24px; border-radius: 0 16px 16px 0; margin: 32px 0;">
+  <p style="margin: 0; font-family: 'Lora', serif; font-size: 1.05rem; line-height: 1.7; font-style: italic; color: var(--fg);">
+    "What do you do when you are preparing to host over 20 people on Sunday and it is Saturday afternoon, you are in the middle of cleaning and food preparation, and this couple stops in? Do you say, 'sorry now's not the best time', or do you invite them in, bring out the coffee and cookies and spend the next few hours with them? We said in our hearts, <strong>'Lord this is for you, and this is why we are here'</strong>, so we did just that."
+  </p>
+</div>
+
+<div style="background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 20px; margin: 32px 0; text-align: center; box-shadow: var(--shadow);">
+  <img src="./images/Updates/WhatsApp Image 2026-07-24 at 12.55.58 AM.jpeg" alt="Sunday fellowship group" style="max-width: 600px; width: 100%; border-radius: 12px; margin-bottom: 12px; cursor: zoom-in;" onclick="openLightbox(this.src)" />
+  <p style="margin: 0; font-size: 0.9rem; color: var(--muted); font-style: italic;">"Our Sunday fellowship, so thankful for our children to have good friends."</p>
+</div>
+
+<h2 style="font-family: 'Lora', serif; font-size: 1.8rem; margin-top: 40px; margin-bottom: 16px; color: var(--fg); border-bottom: 2px solid var(--primary); padding-bottom: 8px;">Raising Up Shepherds & Preparing for Church Planting</h2>
+<div style="display: flex; gap: 24px; align-items: center; flex-wrap: wrap; margin: 24px 0;">
+  <img src="./images/Updates/WhatsApp Image 2026-07-24 at 12.54.39 AM.jpeg" alt="Rod and Naree with Henry and Lyna" style="flex: 1; min-width: 260px; max-width: 380px; border-radius: 16px; box-shadow: var(--shadow); width: 100%; cursor: zoom-in;" onclick="openLightbox(this.src)" />
+  <div style="flex: 1.2; min-width: 280px;">
+    <p style="margin-top: 0;"><strong>Rod and Naree</strong>, have been our dear friends for many years. I see in him the heart of a shepherd. Would you pray with us that the Lord would work out circumstances so he can prepare himself for that? He has expressed many times a desire to see a true church raised up, and he wants to be a part of it. I believe the Lord is preparing him to be a pastor.</p>
+    <p style="margin-bottom: 0;">The topic of starting a church has also been coming up more often here as of late. In many ways, we don't feel quite ready, especially with the upcoming baby in two months and adopting Hosea, but we feel inclined to prepare ourselves, especially since some of these believers are looking to us. We would appreciate prayers to know how to navigate that.</p>
+  </div>
+</div>
+
+<h2 style="font-family: 'Lora', serif; font-size: 1.8rem; margin-top: 40px; margin-bottom: 16px; color: var(--fg); border-bottom: 2px solid var(--primary); padding-bottom: 8px;">Preaching, Conferences, & Word of God</h2>
+<p>Alongside the regular Bible study, two weeks ago, I preached at a church a couple of hours away from home. I'm also preaching at a local Thai church this coming week. And I will be helping at another small conference next month. Partnering with other brothers, we have been talking of doing a small seminar/conference every other month. I would appreciate prayers for these times of teaching and preaching.</p>
+
+<div style="background: rgba(45,80,22,0.05); border-left: 4px solid var(--secondary); padding: 20px 24px; border-radius: 0 12px 12px 0; margin: 28px 0;">
+  <p style="margin: 0 0 8px 0; font-family: 'Lora', serif; font-size: 1.05rem; font-style: italic; line-height: 1.7; color: var(--fg);">
+    "The Lord GOD has given me<br>
+    the tongue of those who are taught,<br>
+    that I may know how to sustain with a word<br>
+    him who is weary.<br>
+    Morning by morning he awakens;<br>
+    he awakens my ear<br>
+    to hear as those who are taught."
+  </p>
+  <small style="color: var(--secondary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">— Isaiah 50:4</small>
+</div>
+
+<h2 style="font-family: 'Lora', serif; font-size: 1.8rem; margin-top: 40px; margin-bottom: 16px; color: var(--fg); border-bottom: 2px solid var(--primary); padding-bottom: 8px;">Family & Ministry Snapshots</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin: 32px 0;">
+  
+  <div style="background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 16px; box-shadow: var(--shadow); text-align: center;">
+    <img src="./images/Updates/WhatsApp Image 2026-07-24 at 1.08.43 AM.jpeg" alt="Sukothai 700 year old temple" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 12px; margin-bottom: 12px; cursor: zoom-in;" onclick="openLightbox(this.src)" />
+    <p style="margin: 0; font-size: 0.85rem; color: var(--muted); font-style: italic;">"Recently we visited a 700 year old temple in another province call Sukothai, it shows how ancient and deeply rooted Buddhism is in Thailand."</p>
+  </div>
+
+  <div style="background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 16px; box-shadow: var(--shadow); text-align: center;">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px;">
+      <img src="./images/Updates/WhatsApp Image 2026-07-24 at 12.59.51 AM.jpeg" alt="Boys fishing" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px; cursor: zoom-in;" onclick="openLightbox(this.src)" />
+      <img src="./images/Updates/WhatsApp Image 2026-07-24 at 12.59.52 AM.jpeg" alt="Younger boy with fishing rod" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px; cursor: zoom-in;" onclick="openLightbox(this.src)" />
+    </div>
+    <p style="margin: 0; font-size: 0.85rem; color: var(--muted); font-style: italic;">"The boys have started having an interest in fishing, not catching a whole lot but having fun!"</p>
+  </div>
+
+  <div style="background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 16px; box-shadow: var(--shadow); text-align: center;">
+    <img src="./images/Updates/WhatsApp Image 2026-07-24 at 1.00.18 AM.jpeg" alt="Date with Madison" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 12px; margin-bottom: 12px; cursor: zoom-in;" onclick="openLightbox(this.src)" />
+    <p style="margin: 0; font-size: 0.85rem; color: var(--muted); font-style: italic;">"Date with Madison, the kids sure are growing up!"</p>
+  </div>
+
+  <div style="background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 16px; box-shadow: var(--shadow); text-align: center;">
+    <img src="./images/Updates/WhatsApp Image 2026-07-24 at 1.03.05 AM.jpeg" alt="Lilly making new friends" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 12px; margin-bottom: 12px; cursor: zoom-in;" onclick="openLightbox(this.src)" />
+    <p style="margin: 0; font-size: 0.85rem; color: var(--muted); font-style: italic;">"Lilly making new friends, not hard to make friends with that cuteness."</p>
+  </div>
+
+</div>
+
+<p style="font-size: 1.1rem; line-height: 1.8; margin-top: 40px; text-align: center; font-family: 'Lora', serif; color: var(--fg); border-top: 1px solid var(--border); padding-top: 32px;">
+  We are grateful to the Lord for the opportunity to serve Him here. Thank you for standing with us in this ministry — every prayer offered, and every word of encouragement is helping to sustain us.
+</p>`,
+    image: "./images/Updates/WhatsApp Image 2026-07-24 at 12.54.39 AM.jpeg"
   }
-  */
 ];
 
 const posts = [
+  {
+    id: "knelsen-july-2026-update",
+    title: "Slowing Down and Walking with Believers: Field & Family Update",
+    excerpt: "An update from Henry and Lyna Knelsen on family life, Hosea starting school, scripture distribution, personal discipleship, and preparing for church planting in Thailand.",
+    content: `<p class="lead" style="font-size: 1.15rem; line-height: 1.8; color: var(--fg); margin-bottom: 24px;"><strong>Over the last few months our schedule has slowed down somewhat.</strong> We’re thankful for that time for a few different reasons. With Hosea starting school a couple of months ago, it has created extra challenges for us. We have had a lot of emotional things to deal with that we did not feel necessarily qualified for, so that slower pace was helpful. Also, Lena, now being seven months pregnant, has felt more tired and she is needing time to prepare herself for the baby.</p>
+
+<div style="background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 20px; margin: 32px 0; box-shadow: var(--shadow);">
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-bottom: 12px;">
+    <img src="./images/Updates/WhatsApp Image 2026-07-24 at 12.57.38 AM.jpeg" alt="Hosea coloring at school" style="width: 100%; border-radius: 12px; object-fit: cover; aspect-ratio: 4/3; cursor: zoom-in;" onclick="openLightbox(this.src)" />
+    <img src="./images/Updates/WhatsApp Image 2026-07-24 at 12.57.39 AM.jpeg" alt="Hosea with classmates at Thai school" style="width: 100%; border-radius: 12px; object-fit: cover; aspect-ratio: 4/3; cursor: zoom-in;" onclick="openLightbox(this.src)" />
+  </div>
+  <p style="margin: 0; font-size: 0.9rem; color: var(--muted); font-style: italic; text-align: center;">"Hosea is starting to enjoy school. Since he has lived with foreigners for a while, he doesn’t really speak Thai. That is starting to change now that he’s in a Thai school."</p>
+</div>
+
+<h2 style="font-family: 'Lora', serif; font-size: 1.8rem; margin-top: 40px; margin-bottom: 16px; color: var(--fg); border-bottom: 2px solid var(--primary); padding-bottom: 8px;">Literature & Scripture Distribution</h2>
+<p>Although things have been a little bit slower, the work still goes on. Every month we have a team coming to help bring literature to difficult places for those who need it. Some of those teams require more direction while others are more independent. Hundreds of scripture portions have been distributed to believers over the last few months alone. Please pray for protection for the locals who receive these supplies and for the teams to go unhindered.</p>
+
+<div style="background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 20px; margin: 32px 0; text-align: center; box-shadow: var(--shadow);">
+  <img src="./images/Updates/WhatsApp Image 2026-07-24 at 1.00.54 AM.jpeg" alt="Load of literature and bibles delivered" style="max-width: 500px; width: 100%; border-radius: 12px; margin-bottom: 12px; cursor: zoom-in;" onclick="openLightbox(this.src)" />
+  <p style="margin: 0; font-size: 0.9rem; color: var(--muted); font-style: italic;">"Another load of bread delivered" — bringing spiritual nourishment and God’s Word to hungry souls.</p>
+</div>
+
+<h2 style="font-family: 'Lora', serif; font-size: 1.8rem; margin-top: 40px; margin-bottom: 16px; color: var(--fg); border-bottom: 2px solid var(--primary); padding-bottom: 8px;">Personal Discipleship & Life Together</h2>
+<p>We have had more time to do personal discipleship with some from our Bible study. One couple, Adam and Meaw (he’s British and she’s Thai), are both new Christians, and newly married. With that comes a lot of basic discipleship. We're beginning to realize that it is so much more than teaching the scriptures; it is walking with them in life and showing them how to live it out. Meaw has expressed a desire to learn to be a homemaker, so she has been looking to Lena for help.</p>
+
+<div style="background: rgba(211,87,34,0.05); border-left: 4px solid var(--primary); padding: 24px; border-radius: 0 16px 16px 0; margin: 32px 0;">
+  <p style="margin: 0; font-family: 'Lora', serif; font-size: 1.05rem; line-height: 1.7; font-style: italic; color: var(--fg);">
+    "What do you do when you are preparing to host over 20 people on Sunday and it is Saturday afternoon, you are in the middle of cleaning and food preparation, and this couple stops in? Do you say, 'sorry now's not the best time', or do you invite them in, bring out the coffee and cookies and spend the next few hours with them? We said in our hearts, <strong>'Lord this is for you, and this is why we are here'</strong>, so we did just that."
+  </p>
+</div>
+
+<div style="background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 20px; margin: 32px 0; text-align: center; box-shadow: var(--shadow);">
+  <img src="./images/Updates/WhatsApp Image 2026-07-24 at 12.55.58 AM.jpeg" alt="Sunday fellowship group" style="max-width: 600px; width: 100%; border-radius: 12px; margin-bottom: 12px; cursor: zoom-in;" onclick="openLightbox(this.src)" />
+  <p style="margin: 0; font-size: 0.9rem; color: var(--muted); font-style: italic;">"Our Sunday fellowship, so thankful for our children to have good friends."</p>
+</div>
+
+<h2 style="font-family: 'Lora', serif; font-size: 1.8rem; margin-top: 40px; margin-bottom: 16px; color: var(--fg); border-bottom: 2px solid var(--primary); padding-bottom: 8px;">Raising Up Shepherds & Preparing for Church Planting</h2>
+<div style="display: flex; gap: 24px; align-items: center; flex-wrap: wrap; margin: 24px 0;">
+  <img src="./images/Updates/WhatsApp Image 2026-07-24 at 12.54.39 AM.jpeg" alt="Rod and Naree with Henry and Lyna" style="flex: 1; min-width: 260px; max-width: 380px; border-radius: 16px; box-shadow: var(--shadow); width: 100%; cursor: zoom-in;" onclick="openLightbox(this.src)" />
+  <div style="flex: 1.2; min-width: 280px;">
+    <p style="margin-top: 0;"><strong>Rod and Naree</strong>, have been our dear friends for many years. I see in him the heart of a shepherd. Would you pray with us that the Lord would work out circumstances so he can prepare himself for that? He has expressed many times a desire to see a true church raised up, and he wants to be a part of it. I believe the Lord is preparing him to be a pastor.</p>
+    <p style="margin-bottom: 0;">The topic of starting a church has also been coming up more often here as of late. In many ways, we don't feel quite ready, especially with the upcoming baby in two months and adopting Hosea, but we feel inclined to prepare ourselves, especially since some of these believers are looking to us. We would appreciate prayers to know how to navigate that.</p>
+  </div>
+</div>
+
+<h2 style="font-family: 'Lora', serif; font-size: 1.8rem; margin-top: 40px; margin-bottom: 16px; color: var(--fg); border-bottom: 2px solid var(--primary); padding-bottom: 8px;">Preaching, Conferences, & Word of God</h2>
+<p>Alongside the regular Bible study, two weeks ago, I preached at a church a couple of hours away from home. I'm also preaching at a local Thai church this coming week. And I will be helping at another small conference next month. Partnering with other brothers, we have been talking of doing a small seminar/conference every other month. I would appreciate prayers for these times of teaching and preaching.</p>
+
+<div style="background: rgba(45,80,22,0.05); border-left: 4px solid var(--secondary); padding: 20px 24px; border-radius: 0 12px 12px 0; margin: 28px 0;">
+  <p style="margin: 0 0 8px 0; font-family: 'Lora', serif; font-size: 1.05rem; font-style: italic; line-height: 1.7; color: var(--fg);">
+    "The Lord GOD has given me<br>
+    the tongue of those who are taught,<br>
+    that I may know how to sustain with a word<br>
+    him who is weary.<br>
+    Morning by morning he awakens;<br>
+    he awakens my ear<br>
+    to hear as those who are taught."
+  </p>
+  <small style="color: var(--secondary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">— Isaiah 50:4</small>
+</div>
+
+<h2 style="font-family: 'Lora', serif; font-size: 1.8rem; margin-top: 40px; margin-bottom: 16px; color: var(--fg); border-bottom: 2px solid var(--primary); padding-bottom: 8px;">Family & Ministry Snapshots</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin: 32px 0;">
+  
+  <div style="background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 16px; box-shadow: var(--shadow); text-align: center;">
+    <img src="./images/Updates/WhatsApp Image 2026-07-24 at 1.08.43 AM.jpeg" alt="Sukothai 700 year old temple" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 12px; margin-bottom: 12px; cursor: zoom-in;" onclick="openLightbox(this.src)" />
+    <p style="margin: 0; font-size: 0.85rem; color: var(--muted); font-style: italic;">"Recently we visited a 700 year old temple in another province call Sukothai, it shows how ancient and deeply rooted Buddhism is in Thailand."</p>
+  </div>
+
+  <div style="background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 16px; box-shadow: var(--shadow); text-align: center;">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px;">
+      <img src="./images/Updates/WhatsApp Image 2026-07-24 at 12.59.51 AM.jpeg" alt="Boys fishing" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px; cursor: zoom-in;" onclick="openLightbox(this.src)" />
+      <img src="./images/Updates/WhatsApp Image 2026-07-24 at 12.59.52 AM.jpeg" alt="Younger boy with fishing rod" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px; cursor: zoom-in;" onclick="openLightbox(this.src)" />
+    </div>
+    <p style="margin: 0; font-size: 0.85rem; color: var(--muted); font-style: italic;">"The boys have started having an interest in fishing, not catching a whole lot but having fun!"</p>
+  </div>
+
+  <div style="background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 16px; box-shadow: var(--shadow); text-align: center;">
+    <img src="./images/Updates/WhatsApp Image 2026-07-24 at 1.00.18 AM.jpeg" alt="Date with Madison" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 12px; margin-bottom: 12px; cursor: zoom-in;" onclick="openLightbox(this.src)" />
+    <p style="margin: 0; font-size: 0.85rem; color: var(--muted); font-style: italic;">"Date with Madison, the kids sure are growing up!"</p>
+  </div>
+
+  <div style="background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 16px; box-shadow: var(--shadow); text-align: center;">
+    <img src="./images/Updates/WhatsApp Image 2026-07-24 at 1.03.05 AM.jpeg" alt="Lilly making new friends" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 12px; margin-bottom: 12px; cursor: zoom-in;" onclick="openLightbox(this.src)" />
+    <p style="margin: 0; font-size: 0.85rem; color: var(--muted); font-style: italic;">"Lilly making new friends, not hard to make friends with that cuteness."</p>
+  </div>
+
+</div>
+
+<p style="font-size: 1.1rem; line-height: 1.8; margin-top: 40px; text-align: center; font-family: 'Lora', serif; color: var(--fg); border-top: 1px solid var(--border); padding-top: 32px;">
+  We are grateful to the Lord for the opportunity to serve Him here. Thank you for standing with us in this ministry — every prayer offered, and every word of encouragement is helping to sustain us.
+</p>`,
+    category: "Discipleship",
+    author: "Henry & Lyna Knelsen",
+    date: "July 2026",
+    image: "./images/Updates/WhatsApp Image 2026-07-24 at 12.54.39 AM.jpeg",
+    images: [
+      "./images/Updates/WhatsApp Image 2026-07-24 at 12.57.38 AM.jpeg",
+      "./images/Updates/WhatsApp Image 2026-07-24 at 12.57.39 AM.jpeg",
+      "./images/Updates/WhatsApp Image 2026-07-24 at 1.00.54 AM.jpeg",
+      "./images/Updates/WhatsApp Image 2026-07-24 at 12.54.39 AM.jpeg",
+      "./images/Updates/WhatsApp Image 2026-07-24 at 12.55.58 AM.jpeg",
+      "./images/Updates/WhatsApp Image 2026-07-24 at 12.59.51 AM.jpeg",
+      "./images/Updates/WhatsApp Image 2026-07-24 at 12.59.52 AM.jpeg",
+      "./images/Updates/WhatsApp Image 2026-07-24 at 1.00.18 AM.jpeg",
+      "./images/Updates/WhatsApp Image 2026-07-24 at 1.03.05 AM.jpeg",
+      "./images/Updates/WhatsApp Image 2026-07-24 at 1.08.43 AM.jpeg"
+    ]
+  },
   {
     id: "june-2026-update",
     title: "Thailand June 2026 Update",
