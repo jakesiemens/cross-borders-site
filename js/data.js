@@ -242,6 +242,7 @@ const missionaryFamilies = [
     name: "Henry and Lena Knelsen",
     role: "Core Team",
     image: "./images/Missionaries/Henry and Lyna Knelsen Family.jpeg",
+    objectPosition: "center 65%",
     bio: "After many years of seeking the will of God and being active in short term ministry trips throughout Asia, we felt the call of God to move to Southeast Asia in 2020.<br><br>The burden for the harvest is what has spurred us on. Millions of people still have not heard or don't know the good news of the Gospel. Our hearts desire is to help build a strong body of believers in southeast Asia where the scriptures is limited and where there is a drought of the understanding of God's word.<br><br>We have spent the last several years engrossing ourselves in language and culture studies and we are entering into a place where I am teaching the scriptures in the local language in regular bibles studies and conferences.<br><br>Henry, Lena along with our 5 children, Seth, Madison, Hudson, Lillian and Hosea and baby number 6 coming September 2026."
   },
   {
@@ -249,6 +250,7 @@ const missionaryFamilies = [
     name: "John and Susie Neufeld",
     role: "Core Team",
     image: "./images/Missionaries/John and Susie Nefeld Family.jpeg",
+    objectPosition: "center 38%",
     bio: "My wife, Susie, and I along with our 4 children, Israel 13, Chloe 11, Destiny 6 and Carter 3, are new to the field. Originally from Ontario, Canada, we are currently based in Chiang Mai, Thailand.<br><br>We are excited as we embark on this new journey serving the people of Thailand and surrounding countries.<br><br>We are blessed to meet local believers and excited to walk alongside them as they learn more about the Jesus way.<br><br>Our hearts are saddened by the growing number of orphaned children due to neglect and neighbouring war. We are thankful to be able to reach out to orphanages and help them with food provisions and meet practical needs.<br><br>Our mission is to share the love and power of Jesus with the Thai community by living with them in the daily grind. Teaching and discipling new believers. And getting God’s word into the hands of hungry Christians. To the glory of God and the furtherance of His Kingdom.<br><br>John and Susie Neufeld"
   }
 ];

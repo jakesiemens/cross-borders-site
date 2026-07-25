@@ -217,7 +217,7 @@
             <h3>${f.name}</h3>
             <div class="role">${f.role}</div>
           </div>
-          <img src="${f.image}" alt="${f.name}" loading="lazy" />
+          <img src="${f.image}" alt="${f.name}" loading="lazy" style="${f.objectPosition ? 'object-position:' + f.objectPosition + ';' : ''}" />
           <div class="info">
             <p class="bio">${f.bio}</p>
           </div>
@@ -264,7 +264,7 @@
         <span class="section-tag">${family.role}</span>
         <h1>The ${family.name} Family</h1>
       </div>
-      <img src="${family.image}" class="detail-img" alt="${family.name}" />
+      <img src="${family.image}" class="detail-img" alt="${family.name}" style="${family.objectPosition ? 'object-position:' + family.objectPosition + ';' : ''}" />
       <div class="detail-body">
         <p>${family.bio}</p>
         <h2 style="margin-top: 64px; margin-bottom: 32px; font-family: 'Lora', serif;">Recent Updates from ${family.name.split(' ')[0]}</h2>
