@@ -356,6 +356,72 @@ const missionaryUpdates = [
 
 const posts = [
   {
+    id: "august-2026-update",
+    title: "Thailand August 2026 Update",
+    excerpt: "Our latest monthly update: 700+ Bibles distributed, voices from local pastors on the receiving end, upcoming teaching conferences, and an update on the Neufeld family.",
+    content: `<div style="display: flex; gap: 16px; align-items: center; margin-bottom: 32px; background: var(--card); padding: 18px 24px; border-radius: 12px; border: 1px solid var(--border);">
+  <div style="font-size: 1.5rem; color: var(--primary);">📄</div>
+  <div style="flex-grow: 1;">
+    <h4 style="margin: 0; font-size: 1.05rem; font-family: 'Lora', serif; font-weight: 700;">August 2026 Newsletter (PDF)</h4>
+    <p style="margin: 0; font-size: 0.85rem; color: var(--muted); line-height: 1.4;">Download the original print-ready designed PDF to share or read offline.</p>
+  </div>
+  <a href="./Newsletters/CBM_august_2026_newsletter.pdf" target="_blank" class="btn btn-primary btn-sm" style="margin-top: 0; border-radius: 8px;">Download PDF</a>
+</div>
+
+<h2 style="font-family: 'Lora', serif; font-size: 1.8rem; margin-top: 40px; margin-bottom: 16px; color: var(--fg); border-bottom: 2px solid var(--primary); padding-bottom: 8px;">How Beautiful Upon the Mountains Are the Feet of Him That Bringeth Good Tidings</h2>
+<p>We rejoice greatly as, in the past two months, we were able to distribute over <strong>700 copies of God's Word</strong> in hard to reach places. Although many Bibles go out regularly, the need is still very great.</p>
+<p>We have teams coming from many different parts of the world every month to make these distributions possible. Please pray for God's hand of protection over our local contacts and for the safety of our teams, so this work may continue unhindered.</p>
+<img class="inline-img" src="./images/Newsletters/bible_distribution_august_2026.png" alt="Bible Distribution Team" />
+
+<h2 style="font-family: 'Lora', serif; font-size: 1.8rem; margin-top: 40px; margin-bottom: 16px; color: var(--fg); border-bottom: 2px solid var(--primary); padding-bottom: 8px;">Voices On The Receiving End</h2>
+<div style="display: flex; gap: 32px; margin: 32px 0; align-items: center; flex-wrap: wrap;">
+  <div style="flex: 1.5; min-width: 280px;">
+    <div style="background: rgba(211,87,34,0.04); border-left: 4px solid var(--primary); padding: 16px 20px; border-radius: 0 8px 8px 0; margin-bottom: 16px; font-style: italic;">
+      "The Bibles (we are receiving) are all for the new believers. Most of the families only have one Bible, which is just for the new believers. The other families in this church don't have any yet." — <strong>Local Pastor</strong>
+    </div>
+    <div style="background: rgba(45,80,22,0.04); border-left: 4px solid var(--secondary); padding: 16px 20px; border-radius: 0 8px 8px 0; margin-bottom: 16px; font-style: italic;">
+      "In this region that I'm from, we need about one thousand Bibles. This is just a small branch." — <strong>Pastor receiving Bibles</strong>
+    </div>
+    <div style="background: rgba(196,154,44,0.08); border-left: 4px solid var(--accent); padding: 16px 20px; border-radius: 0 8px 8px 0; font-style: italic;">
+      "Pray for the Bibles that we need for the believers and new believers in the village. We are just simple people and simple farmers. And please pray for the new church I planted. We are in need of Bibles. One Bible is shared between two and three people." — <strong>Village Pastor</strong>
+    </div>
+  </div>
+  <img src="./images/Newsletters/pastors_bibles_august_2026.png" alt="Pastors receiving Bibles" style="flex: 1; max-width: 320px; min-width: 240px; border-radius: 12px; box-shadow: var(--shadow); width: 100%;" />
+</div>
+
+<h2 style="font-family: 'Lora', serif; font-size: 1.8rem; margin-top: 40px; margin-bottom: 16px; color: var(--fg); border-bottom: 2px solid var(--primary); padding-bottom: 8px;">Go Ye Therefore and Teach All Nations</h2>
+<div style="display: flex; gap: 32px; margin: 32px 0; align-items: flex-start; flex-wrap: wrap;">
+  <img src="./images/Newsletters/teaching_conference_august_2026.jpeg" alt="Teaching Conference" style="flex: 1; max-width: 340px; min-width: 250px; border-radius: 12px; box-shadow: var(--shadow); width: 100%;" />
+  <div style="flex: 1.2; min-width: 280px; background: rgba(45,80,22,0.04); padding: 24px; border-radius: 12px; border: 1px solid var(--border);">
+    <h3 style="color: var(--secondary); margin-top: 0; margin-bottom: 16px; font-family: 'Lora', serif; font-weight: 700;">Please Pray For...</h3>
+    <ul style="list-style: none; padding-left: 0;">
+      <li style="margin-bottom: 16px; position: relative; padding-left: 28px; line-height: 1.6;">
+        <span style="position: absolute; left: 0; top: 2px; color: var(--primary); font-weight: bold;">✓</span>
+        <strong>Upcoming Conference:</strong> Teaching the people about the Holy Spirit in the lives of Christians.
+      </li>
+      <li style="margin-bottom: 0; position: relative; padding-left: 28px; line-height: 1.6;">
+        <span style="position: absolute; left: 0; top: 2px; color: var(--primary); font-weight: bold;">✓</span>
+        <strong>Outreach Trip:</strong> Our upcoming trip to a Buddhist government school to share a Gospel message and hand out Bible story books.
+      </li>
+    </ul>
+  </div>
+</div>
+
+<h2 style="font-family: 'Lora', serif; font-size: 1.8rem; margin-top: 40px; margin-bottom: 16px; color: var(--fg); border-bottom: 2px solid var(--primary); padding-bottom: 8px;">Workers On The Field: The New Team Members</h2>
+<div style="display: flex; gap: 32px; margin: 32px 0; align-items: center; flex-wrap: wrap;">
+  <div style="flex: 1.5; min-width: 280px;">
+    <p style="margin-bottom: 16px;"><strong>John and Susie Neufeld</strong> along with their children have been serving alongside Henry and Lena Knelsen in Thailand for 5 months now. We are thankful for how well they have adapted to the culture and hot tropical climate.</p>
+    <p style="margin-bottom: 0;">One of the main focuses for them right now, along with Bible distribution and connecting with our local Thai Bible study group, is language study. They are currently enrolled in <em>Thai immersion classes</em>. Please pray for them in that, as the Thai language is very difficult to learn, being a tonal language, along with many other challenging aspects.</p>
+  </div>
+  <img src="./images/Newsletters/neufeld_family_august_2026.jpeg" alt="John and Susie Neufeld Family" style="flex: 1; max-width: 300px; min-width: 220px; border-radius: 12px; box-shadow: var(--shadow); width: 100%;" />
+</div>`,
+    category: "Newsletters",
+    author: "Cross Borders Ministries",
+    date: "August 2026",
+    image: "./images/Newsletters/bible_distribution_august_2026.png",
+    images: []
+  },
+  {
     id: "knelsen-july-2026-update",
     title: "Slowing Down and Walking with Believers: Field & Family Update",
     excerpt: "An update from Henry and Lena Knelsen on family life, Hosea starting school, scripture distribution, personal discipleship, and preparing for church planting in Thailand.",
