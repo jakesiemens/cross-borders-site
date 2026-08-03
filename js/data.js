@@ -419,7 +419,14 @@ const posts = [
     author: "Cross Borders Ministries",
     date: "August 2026",
     image: "./images/Newsletters/bible_distribution_august_2026.png",
-    images: []
+    images: [
+      "./images/Newsletters/august_gallery/august_misc_1.jpg",
+      "./images/Newsletters/august_gallery/august_misc_2.jpg",
+      "./images/Newsletters/august_gallery/august_misc_3.jpg",
+      "./images/Newsletters/august_gallery/august_misc_4.jpg",
+      "./images/Newsletters/august_gallery/august_misc_5.jpg",
+      "./images/Newsletters/august_gallery/august_misc_6.jpg"
+    ]
   },
   {
     id: "knelsen-july-2026-update",
