@@ -201,29 +201,79 @@ function filterCat(btn, cat) {
 
 function toggleMobile() { document.getElementById('mobile-nav').classList.toggle('open'); }
 function closeMobile() { document.getElementById('mobile-nav').classList.remove('open'); }
+// ==========================================
+// Form Submission Backend (Google Sheets Web App)
+// ==========================================
+const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwnAj_SwaWyOMUruDvEfO6fFbK9eRXzEiRwEeif0Egz5ab6VeZVlBpmVEmgnSIT_Gjk5A/exec';
+
+async function submitFormData(payload, form, successMsg, submitBtn) {
+  const originalBtnText = submitBtn ? submitBtn.innerText : '';
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.innerText = 'Submitting...';
+  }
+
+  try {
+    if (!FORM_ENDPOINT || FORM_ENDPOINT.includes('GOOGLE_SHEET_WEB_APP_URL')) {
+      console.warn("Google Sheet Web App URL is not yet set in FORM_ENDPOINT.");
+    }
+
+    await fetch(FORM_ENDPOINT, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(payload)
+    });
+
+    form.reset();
+    alert(successMsg);
+  } catch (error) {
+    console.error("Submission error:", error);
+    alert('There was a problem submitting your request. Please try again.');
+  } finally {
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.innerText = originalBtnText;
+    }
+  }
+}
+
 async function handleSubscribe(e) {
   e.preventDefault();
   const form = e.target;
+  const submitBtn = form.querySelector('button[type="submit"]');
   const inputs = form.querySelectorAll('input');
-  const data = new FormData();
-  data.append('FormType', 'Prayer Team Subscription');
-  inputs.forEach(i => { if (i.value) data.append(i.placeholder || i.name, i.value); });
   
-  try {
-    const response = await fetch('https://formspree.io/f/xzdokegp', {
-      method: 'POST',
-      body: data,
-      headers: { 'Accept': 'application/json' }
-    });
-    if (response.ok) {
-      form.reset();
-      alert('Thank you for joining our prayer team!');
-    } else {
-      alert('There was a problem submitting your request. Please try again.');
-    }
-  } catch (error) {
-    alert('There was a problem submitting your request. Please check your connection.');
-  }
+  const payload = {
+    FormType: 'Prayer Team Subscription',
+    Timestamp: new Date().toISOString()
+  };
+  
+  inputs.forEach(i => {
+    const key = i.placeholder || i.name || 'field';
+    if (i.value) payload[key] = i.value;
+  });
+  
+  await submitFormData(payload, form, 'Thank you for joining our prayer team!', submitBtn);
+}
+
+async function handleContactSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const inputs = form.querySelectorAll('input, textarea');
+  
+  const payload = {
+    FormType: 'Contact Form Message',
+    Timestamp: new Date().toISOString()
+  };
+  
+  inputs.forEach(i => {
+    const key = i.name || i.placeholder || 'field';
+    if (i.value) payload[key] = i.value;
+  });
+  
+  await submitFormData(payload, form, 'Thank you! Your message has been sent successfully.', submitBtn);
 }
 
 function openLightbox(src) {
