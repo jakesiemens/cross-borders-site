@@ -216,12 +216,18 @@ const pillars = {
   },
   relief: {
     title: "Emergency Relief",
-    subtitle: "Our prayerful goal to respond to crises with God's love.",
-    image: "./images/Scenic/IMG_7404.jpg",
-    stat1: "Pray", stat1Label: "For Provision",
-    stat2: "Vision", stat2Label: "Future Capability",
+    subtitle: "Responding to acute humanitarian crises and natural disasters as the hands and feet of Jesus Christ.",
+    image: "./images/Relief/nepal_valley_overview.jpg",
+    images: [
+      "./images/Relief/rasuwa_bazar_before_after.jpg",
+      "./images/Relief/nepal_surge_wave.jpg",
+      "./images/Relief/nepal_valley_overview.jpg"
+    ],
+    stat1: "Active", stat1Label: "Disaster Deployment",
+    stat2: "Relief", stat2Label: "Ground Relief Fund",
     content: [
-      "Detailed stories and updates regarding this pillar are coming soon. In the meantime, please view our photo gallery below or partner with us to support this work."
+      "When disaster strikes vulnerable communities across Asia, Cross Borders Ministries partners with trusted local churches and indigenous missionary networks on the ground to provide immediate, life-saving aid and gospel hope.",
+      "Our current emergency response is directed to the recent catastrophic glacier collapse and flash flooding in Nepal and the Nepal-Tibet border region, where over 1,100 people have died, thousands are missing, and 9 local churches have been heavily damaged or destroyed. All support goes directly to trusted local pastors and ministry workers in Nepal who will disperse the funds where the greatest needs are as the situation develops."
     ]
   },
   schooling: {
@@ -355,6 +361,124 @@ const missionaryUpdates = [
 ];
 
 const posts = [
+  {
+    id: "nepal-glacier-flood-relief-2026",
+    title: "Catastrophic Glacier Flood in Nepal: Eyewitness Report & Urgent Relief Appeal",
+    excerpt: "A massive glacier collapse triggered devastating flash floods along the Nepal-Tibet border. Over 1,127 dead, 4,858 missing, and 9 churches damaged. Read an eyewitness report from the field and find out how you can pray and support relief.",
+    content: `<div style="background: rgba(194,65,12,0.08); border-left: 4px solid var(--primary); padding: 20px 24px; border-radius: 0 12px 12px 0; margin-bottom: 32px;">
+  <span style="display: inline-block; background: #c2410c; color: #fff; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; padding: 3px 8px; border-radius: 4px; margin-bottom: 8px;">Urgent Emergency Appeal</span>
+  <h3 style="margin: 4px 0 8px; font-family: 'Lora', serif; font-size: 1.4rem; color: #9a3412;">Standing with Stricken Believers & Communities in Nepal and Tibet</h3>
+  <p style="margin: 0; color: #431407; line-height: 1.6;">A catastrophic flash flood triggered by a massive glacier collapse in Nepal's high Himalayas has devastated border valley settlements including Rasuwa Bazar, Timure, and Syabrubesi. Cross Borders Ministries is coordinating with frontline workers and ministry partners to mobilize emergency aid and pastoral care.</p>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; margin: 28px 0;">
+  <div style="background: #fff; border: 1px solid #fed7aa; border-radius: 12px; padding: 14px; text-align: center; box-shadow: var(--shadow);">
+    <div style="font-size: 1.6rem; font-weight: 800; color: #c2410c; font-family: 'Lora', serif;">1,127+</div>
+    <div style="font-size: 0.72rem; font-weight: 600; color: var(--muted); text-transform: uppercase;">Confirmed Deaths</div>
+  </div>
+  <div style="background: #fff; border: 1px solid #fed7aa; border-radius: 12px; padding: 14px; text-align: center; box-shadow: var(--shadow);">
+    <div style="font-size: 1.6rem; font-weight: 800; color: #c2410c; font-family: 'Lora', serif;">4,858</div>
+    <div style="font-size: 0.72rem; font-weight: 600; color: var(--muted); text-transform: uppercase;">Missing</div>
+  </div>
+  <div style="background: #fff; border: 1px solid #fed7aa; border-radius: 12px; padding: 14px; text-align: center; box-shadow: var(--shadow);">
+    <div style="font-size: 1.6rem; font-weight: 800; color: #2D5016; font-family: 'Lora', serif;">11,993</div>
+    <div style="font-size: 0.72rem; font-weight: 600; color: var(--muted); text-transform: uppercase;">Rescued</div>
+  </div>
+  <div style="background: #fff; border: 1px solid #fed7aa; border-radius: 12px; padding: 14px; text-align: center; box-shadow: var(--shadow);">
+    <div style="font-size: 1.6rem; font-weight: 800; color: #c2410c; font-family: 'Lora', serif;">9</div>
+    <div style="font-size: 0.72rem; font-weight: 600; color: var(--muted); text-transform: uppercase;">Churches Damaged</div>
+  </div>
+  <div style="background: #fff; border: 1px solid #fed7aa; border-radius: 12px; padding: 14px; text-align: center; box-shadow: var(--shadow);">
+    <div style="font-size: 1.6rem; font-weight: 800; color: #c2410c; font-family: 'Lora', serif;">200+</div>
+    <div style="font-size: 0.72rem; font-weight: 600; color: var(--muted); text-transform: uppercase;">Believers Missing</div>
+  </div>
+</div>
+
+<h2 style="font-family: 'Lora', serif; font-size: 1.8rem; margin-top: 36px; margin-bottom: 16px; color: var(--fg); border-bottom: 2px solid var(--primary); padding-bottom: 8px;">Eyewitness Account: Report from the Field</h2>
+<p>A trusted ministry contact, who has personally visited and ministered in this border valley area several times, sent this urgent report directly from the field:</p>
+
+<div style="background: #fdfbf7; border-left: 4px solid #c2410c; padding: 24px; border-radius: 0 12px 12px 0; margin: 24px 0; font-family: 'Lora', serif; font-style: italic; line-height: 1.8; color: #1c1917; box-shadow: var(--shadow);">
+  <p style="margin-bottom: 16px;">"Some of you may have heard about the flooding in Nepal this week.</p>
+  <p style="margin-bottom: 16px;">There was a massive flash flood that swept down the valley near a border area I have visited several times. Villages and towns were devastated and hundreds of people have died, around 2,500 people are still missing.</p>
+  <p style="margin-bottom: 16px;">This is a great tragedy for numerous people we know who have lost family and neighbours. A friend of mine had to go the hospital today to help identify bodies of people who perished in the flood and mudslides.</p>
+  <p style="margin-bottom: 16px;">Please pray for the people of Nepal and Tibet. Many people have died in Tibet as well, but not much information is being shared from across the border.</p>
+  <p style="margin-bottom: 0;">Pray that the mercy and kindness of God would be made known through His church in this time. We know of several people who are preparing to go and provide aid and minister in this place as soon as the government allows people to enter the area."</p>
+  <div style="font-style: normal; margin-top: 16px; font-weight: 700; color: #c2410c; font-size: 0.9rem; font-family: 'Inter', sans-serif;">— Trusted Ministry Contact (Name withheld for security)</div>
+</div>
+
+<img class="inline-img" src="./images/Relief/rasuwa_bazar_before_after.jpg" alt="Rasuwa Bazar Before and After the Flood" style="cursor: zoom-in;" onclick="openLightbox(this.src)" />
+<p style="text-align: center; font-size: 0.85rem; color: var(--muted); font-style: italic; margin-top: -12px; margin-bottom: 32px;">Before and after comparison of Rasuwa Bazar: communities and roads along the Trishuli River were inundated by mud, glacial rocks, and raging water.</p>
+
+<h2 style="font-family: 'Lora', serif; font-size: 1.8rem; margin-top: 40px; margin-bottom: 16px; color: var(--fg); border-bottom: 2px solid var(--primary); padding-bottom: 8px;">The Impact on the Church & Rescue Efforts</h2>
+<p>Reports confirmed by MTM and frontline church networks indicate that the local Christian community has been hit heavily:</p>
+<ul style="list-style: none; padding-left: 0; margin: 20px 0;">
+  <li style="margin-bottom: 14px; position: relative; padding-left: 28px; line-height: 1.6;">
+    <span style="position: absolute; left: 0; top: 2px; color: #c2410c; font-weight: bold;">✕</span>
+    <strong>9 churches damaged or destroyed:</strong> Modest church structures and meeting places throughout the affected valley have been submerged or carried away by the torrent.
+  </li>
+  <li style="margin-bottom: 14px; position: relative; padding-left: 28px; line-height: 1.6;">
+    <span style="position: absolute; left: 0; top: 2px; color: #c2410c; font-weight: bold;">✕</span>
+    <strong>200+ church members missing:</strong> Congregations and pastors are searching through the mud and wreckage for their loved ones and believers.
+  </li>
+  <li style="margin-bottom: 14px; position: relative; padding-left: 28px; line-height: 1.6;">
+    <span style="position: absolute; left: 0; top: 2px; color: #2D5016; font-weight: bold;">✓</span>
+    <strong>11,993 Rescues:</strong> While our hearts break over the loss of life, we thank God that rescue numbers are climbing as volunteers and emergency crews work tirelessly!
+  </li>
+</ul>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin: 32px 0;">
+  <div style="text-align: center;">
+    <img src="./images/Relief/nepal_surge_wave.jpg" alt="Massive Flood Surge Wave" style="width: 100%; border-radius: 12px; box-shadow: var(--shadow); aspect-ratio: 4/3; object-fit: cover; cursor: zoom-in;" onclick="openLightbox(this.src)" />
+    <small style="color: var(--muted); font-style: italic; display: block; margin-top: 8px;">The wall of muddy glacial floodwaters rushing down the mountain valley</small>
+  </div>
+  <div style="text-align: center;">
+    <img src="./images/Relief/nepal_valley_overview.jpg" alt="Flooded Mountain Valley" style="width: 100%; border-radius: 12px; box-shadow: var(--shadow); aspect-ratio: 4/3; object-fit: cover; cursor: zoom-in;" onclick="openLightbox(this.src)" />
+    <small style="color: var(--muted); font-style: italic; display: block; margin-top: 8px;">Submerged settlements and destroyed hillside infrastructure</small>
+  </div>
+</div>
+
+<h2 style="font-family: 'Lora', serif; font-size: 1.8rem; margin-top: 40px; margin-bottom: 16px; color: var(--fg); border-bottom: 2px solid var(--primary); padding-bottom: 8px;">How We Are Responding & How You Can Help</h2>
+<p>All funds given toward this emergency will go directly to our trusted contacts on the ground in Nepal — local ministry workers and pastors who will disperse the money directly where the greatest needs are.</p>
+<p>These are trusted sources, but because access to the affected valleys remains heavily restricted and conditions are still unfolding, our contacts are actively evaluating where the greatest needs are so every dollar is deployed effectively.</p>
+
+<div style="background: rgba(45,80,22,0.06); border: 1px solid rgba(45,80,22,0.2); border-radius: 16px; padding: 24px; margin: 32px 0;">
+  <h3 style="color: var(--secondary); margin-top: 0; margin-bottom: 16px; font-family: 'Lora', serif;">Please Stand With Us in Prayer:</h3>
+  <ul style="list-style: none; padding-left: 0;">
+    <li style="margin-bottom: 12px; position: relative; padding-left: 28px; line-height: 1.6;">
+      <span style="position: absolute; left: 0; top: 2px; color: var(--secondary); font-weight: bold;">🙏</span>
+      Comfort for families who have lost loved ones.
+    </li>
+    <li style="margin-bottom: 12px; position: relative; padding-left: 28px; line-height: 1.6;">
+      <span style="position: absolute; left: 0; top: 2px; color: var(--secondary); font-weight: bold;">🙏</span>
+      Continue to pray for the missing, and that rescue workers would be able to find any survivors.
+    </li>
+    <li style="margin-bottom: 12px; position: relative; padding-left: 28px; line-height: 1.6;">
+      <span style="position: absolute; left: 0; top: 2px; color: var(--secondary); font-weight: bold;">🙏</span>
+      Pray that the church would continue to shine the light of Christ in this dark hour.
+    </li>
+    <li style="margin-bottom: 0; position: relative; padding-left: 28px; line-height: 1.6;">
+      <span style="position: absolute; left: 0; top: 2px; color: var(--secondary); font-weight: bold;">🙏</span>
+      Pray that relief teams will be able to get government clearance to travel into the area.
+    </li>
+  </ul>
+</div>
+
+<div style="text-align: center; margin: 40px 0; background: #fff7ed; border: 2px solid #fed7aa; border-radius: 16px; padding: 32px;">
+  <h3 style="color: #9a3412; font-family: 'Lora', serif; font-size: 1.5rem; margin-bottom: 12px;">Support Nepal Emergency Relief</h3>
+  <p style="color: #431407; max-width: 600px; margin: 0 auto 24px; font-size: 1rem;">100% of designated gifts go directly to trusted ministry workers and pastors in Nepal to disperse where needs are greatest.</p>
+  <a href="./donate.html#nepal-relief" class="btn btn-emergency btn-lg" style="box-shadow: 0 4px 14px rgba(194,65,12,0.35);">Donate to Nepal Relief Now →</a>
+  <p style="font-size: 0.82rem; color: var(--muted); margin-top: 14px; margin-bottom: 0;">(On the donation page, please write <strong>"Nepal Relief"</strong> in the donation memo/comment box)</p>
+</div>`,
+    category: "Relief",
+    author: "Cross Borders Ministries & Field Partners",
+    date: "September 2026",
+    image: "./images/Relief/rasuwa_bazar_before_after.jpg",
+    images: [
+      "./images/Relief/rasuwa_bazar_before_after.jpg",
+      "./images/Relief/nepal_surge_wave.jpg",
+      "./images/Relief/nepal_valley_overview.jpg"
+    ]
+  },
   {
     id: "august-2026-update",
     title: "Thailand August 2026 Update",
