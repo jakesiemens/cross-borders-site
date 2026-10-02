@@ -362,6 +362,67 @@ const missionaryUpdates = [
 
 const posts = [
   {
+    id: "october-2026-update",
+    title: "Thailand October 2026 Update",
+    excerpt: "Our latest monthly newsletter: English Camp at a Buddhist school, 850+ Bibles distributed in hard-to-reach places, the \"Behind the Seams\" sewing ministry, and the Holy Spirit Conference.",
+    content: `<div style="display: flex; gap: 16px; align-items: center; margin-bottom: 32px; background: var(--card); padding: 18px 24px; border-radius: 12px; border: 1px solid var(--border);">
+  <div style="font-size: 1.5rem; color: var(--primary);">📄</div>
+  <div style="flex-grow: 1;">
+    <h4 style="margin: 0; font-size: 1.05rem; font-family: 'Lora', serif; font-weight: 700;">October 2026 Newsletter (PDF)</h4>
+    <p style="margin: 0; font-size: 0.85rem; color: var(--muted); line-height: 1.4;">Download the original print-ready designed PDF to share or read offline.</p>
+  </div>
+  <a href="./Newsletters/CBM_october_2026_newsletter.pdf" target="_blank" class="btn btn-primary btn-sm" style="margin-top: 0; border-radius: 8px;">Download PDF</a>
+</div>
+
+<h2 style="font-family: 'Lora', serif; font-size: 1.8rem; margin-top: 40px; margin-bottom: 16px; color: var(--fg); border-bottom: 2px solid var(--primary); padding-bottom: 8px;">God’s Word in Their Hands</h2>
+<div style="background: rgba(45,80,22,0.04); border-left: 4px solid var(--secondary); padding: 20px 24px; border-radius: 8px; margin-bottom: 24px; font-style: italic; font-family: 'Lora', serif; line-height: 1.7;">
+  "For as the rain cometh down and the snow from heaven and returneth not hither...so shall my word be that goeth forth out of my mouth." — Isaiah 55:10, 11
+</div>
+<p>With English Camp in progress at a Buddhist government school, we took the opportunity to share the gospel with about <strong>350 children</strong>. We shared class by class using a 5 colour Gospel presentation. For most of these children it was the first time they had ever heard the Gospel.</p>
+<img class="inline-img" src="./images/Newsletters/english_camp_october_2026.jpeg" alt="English Camp at Buddhist Government School" />
+<p>We also took the opportunity to hand out hundreds of <em>101 Bible Story</em> books, watching children read with great interest. In addition, we had the privilege of handing out these Bible story books at a local orphanage. We praise God for these wonderful opportunities.</p>
+<div style="text-align: center; margin: 32px 0;">
+  <img src="./images/Newsletters/kids_reading_bibles_october_2026.jpeg" alt="Children reading Bible story books" style="max-width: 480px; width: 100%; border-radius: 12px; box-shadow: var(--shadow);" />
+  <p style="margin-top: 8px; font-size: 0.85rem; color: var(--muted); font-style: italic;">Children eagerly reading their new Bible story books.</p>
+</div>
+
+<h2 style="font-family: 'Lora', serif; font-size: 1.8rem; margin-top: 40px; margin-bottom: 16px; color: var(--fg); border-bottom: 2px solid var(--primary); padding-bottom: 8px;">Hard to Reach Places</h2>
+<div style="display: flex; gap: 32px; margin: 32px 0; align-items: center; flex-wrap: wrap;">
+  <div style="flex: 1.5; min-width: 280px;">
+    <p style="margin-bottom: 16px;">With <strong>over 850 Bibles distributed</strong> in the last two months in difficult to reach places, we have a great awareness of the continuing need.</p>
+    <p style="margin-bottom: 0;">Persecution in these places is very real. Christians face fears of being caught in Christian activity and being seen with foreign believers. Despite their fears, they continue obeying God’s Word and following His ways. <em>Please pray for our persecuted brothers and sisters.</em></p>
+  </div>
+  <img src="./images/Newsletters/hard_to_reach_bibles_october_2026.jpeg" alt="Believers receiving Bibles" style="flex: 1; max-width: 320px; min-width: 240px; border-radius: 12px; box-shadow: var(--shadow); width: 100%;" />
+</div>
+
+<h2 style="font-family: 'Lora', serif; font-size: 1.8rem; margin-top: 40px; margin-bottom: 16px; color: var(--fg); border-bottom: 2px solid var(--primary); padding-bottom: 8px;">What’s Happening Behind the Seams</h2>
+<div style="display: flex; gap: 32px; margin: 32px 0; align-items: center; flex-wrap: wrap;">
+  <img src="./images/Newsletters/behind_the_seams_october_2026.jpeg" alt="Behind the Seams Sewing Ministry" style="flex: 1; max-width: 340px; min-width: 250px; border-radius: 12px; box-shadow: var(--shadow); width: 100%;" />
+  <div style="flex: 1.5; min-width: 280px;">
+    <p style="margin-bottom: 16px;">This beautiful ministry was born through the need of local village women to help provide an income for their families, since the father is either no longer in the picture or else an alcoholic. Right now, we are teaching the basics of sewing and with time the women will sew products to sell for an income.</p>
+    <p style="margin-bottom: 16px;">In our last class, we made pillows as a multi-purpose project, learning basic seams and a wonderful take home, as poverty left some without even a pillow. Two of the women have begun attending church as a result of our time together, for which we greatly rejoice.</p>
+    <div style="background: rgba(211,87,34,0.04); border-left: 4px solid var(--primary); padding: 16px 20px; border-radius: 0 8px 8px 0; font-style: italic;">
+      "I have never been treated like this before," said Noi,* as she wept. Please pray for the salvation of each of these women and their husbands.
+    </div>
+    <small style="display: block; margin-top: 8px; color: var(--muted); font-style: italic;">*Names changed for privacy reasons</small>
+  </div>
+</div>
+
+<h2 style="font-family: 'Lora', serif; font-size: 1.8rem; margin-top: 40px; margin-bottom: 16px; color: var(--fg); border-bottom: 2px solid var(--primary); padding-bottom: 8px;">Holy Spirit Conference</h2>
+<div style="display: flex; gap: 32px; margin: 32px 0; align-items: center; flex-wrap: wrap;">
+  <div style="flex: 1.5; min-width: 280px;">
+    <p style="margin-bottom: 16px;">We were privileged to host a conference on the topic of the Holy Spirit. This being a topic of much controversy here in Thailand.</p>
+    <p style="margin-bottom: 0;">Pastors from local churches attended, as well as students from a local Bible school.</p>
+  </div>
+  <img src="./images/Newsletters/holy_spirit_conference_october_2026.jpeg" alt="Holy Spirit Conference Attendees" style="flex: 1; max-width: 340px; min-width: 250px; border-radius: 12px; box-shadow: var(--shadow); width: 100%;" />
+</div>`,
+    category: "Newsletters",
+    author: "Cross Borders Ministries",
+    date: "October 2026",
+    image: "./images/Newsletters/english_camp_october_2026.jpeg",
+    images: []
+  },
+  {
     id: "nepal-glacier-flood-relief-2026",
     title: "Catastrophic Glacier Flood in Nepal: Eyewitness Field Report",
     excerpt: "A massive glacier collapse triggered devastating flash floods along the Nepal-Tibet border. Over 1,127 dead, 4,858 missing, and 9 churches damaged. Read an eyewitness report from the field and prayer updates from the ground.",
