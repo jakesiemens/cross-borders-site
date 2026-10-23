@@ -362,6 +362,93 @@ const missionaryUpdates = [
 
 const posts = [
   {
+    id: "sierra-leone-winter-mission-2026",
+    title: "Stepping Forward in Faith: New Mission Base & Winter Outreach in Lunsar, Sierra Leone",
+    excerpt: "A team of five is preparing to spend three months in Lunsar, Sierra Leone this winter to renovate the mission base property, build relationships, and witness the love of Jesus.",
+    content: `<p class="lead" style="font-size: 1.15rem; line-height: 1.8; color: var(--fg); margin-bottom: 24px;"><strong>Greetings to all!</strong> It’s been a while since we shared an update, and we want to thank you for your continued support in prayer. God has been good and is faithfully revealing His will as we step forward in faith.</p>
+
+<h2 style="font-family: 'Lora', serif; font-size: 1.8rem; margin-top: 40px; margin-bottom: 16px; color: var(--fg); border-bottom: 2px solid var(--primary); padding-bottom: 8px;">Meet the Winter Team</h2>
+<p>We are excited to share that there is a group of people planning to go to Sierra Leone this winter, Lord willing: two young couples, <strong>Matt &amp; Hannah Wall</strong> and <strong>Marcus &amp; Delena Janzen</strong>, and a single brother, <strong>Conroy Plett</strong>.</p>
+<p>They plan to be there for approximately three months. <strong>Kenton &amp; Bethany Plett</strong> also plan to go with them for the first few weeks to help them get started.</p>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin: 32px 0;">
+  <div style="background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 16px; box-shadow: var(--shadow); text-align: center;">
+    <img src="./images/Updates/matt_and_hannah_wall.jpg" alt="Matt and Hannah Wall" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; object-position: center 35%; border-radius: 12px; margin-bottom: 12px; cursor: zoom-in;" onclick="openLightbox(this.src)" />
+    <h4 style="margin: 0 0 4px 0; font-family: 'Lora', serif; font-size: 1.1rem; color: var(--fg);">Matt &amp; Hannah Wall</h4>
+    <p style="margin: 0; font-size: 0.85rem; color: var(--muted); font-style: italic;">Committed to serving in Sierra Leone this winter</p>
+  </div>
+
+  <div style="background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 16px; box-shadow: var(--shadow); text-align: center;">
+    <img src="./images/Updates/marcus_and_delena_janzen.jpg" alt="Marcus and Delena Janzen" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; object-position: center 20%; border-radius: 12px; margin-bottom: 12px; cursor: zoom-in;" onclick="openLightbox(this.src)" />
+    <h4 style="margin: 0 0 4px 0; font-family: 'Lora', serif; font-size: 1.1rem; color: var(--fg);">Marcus &amp; Delena Janzen</h4>
+    <p style="margin: 0; font-size: 0.85rem; color: var(--muted); font-style: italic;">Committed to serving in Sierra Leone this winter</p>
+  </div>
+
+  <div style="background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 16px; box-shadow: var(--shadow); text-align: center;">
+    <img src="./images/Updates/conroy_plett.jpg" alt="Conroy Plett" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; object-position: center 25%; border-radius: 12px; margin-bottom: 12px; cursor: zoom-in;" onclick="openLightbox(this.src)" />
+    <h4 style="margin: 0 0 4px 0; font-family: 'Lora', serif; font-size: 1.1rem; color: var(--fg);">Conroy Plett</h4>
+    <p style="margin: 0; font-size: 0.85rem; color: var(--muted); font-style: italic;">Committed to serving in Sierra Leone this winter</p>
+  </div>
+</div>
+
+<h2 style="font-family: 'Lora', serif; font-size: 1.8rem; margin-top: 40px; margin-bottom: 16px; color: var(--fg); border-bottom: 2px solid var(--primary); padding-bottom: 8px;">The Mission in Lunsar: Physical Work &amp; Eternal Purpose</h2>
+<p>On the physical side, the team’s main objective is to make the house there livable. It is in serious need of repair—requiring a <strong>new roof, new windows, new wiring, new plumbing</strong>, and general restoration.</p>
+
+<div style="background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 20px; margin: 32px 0; text-align: center; box-shadow: var(--shadow);">
+  <img src="./images/Updates/sierra_leone_mission_house.jpg" alt="Mission Base House in Lunsar, Sierra Leone" style="max-width: 720px; width: 100%; border-radius: 12px; margin-bottom: 12px; cursor: zoom-in;" onclick="openLightbox(this.src)" />
+  <p style="margin: 0; font-size: 0.9rem; color: var(--muted); font-style: italic;">The house in Lunsar that will undergo major repairs this winter—intended to serve as a base for the mission in Sierra Leone in the future.</p>
+</div>
+
+<div style="background: rgba(211,87,34,0.05); border-left: 4px solid var(--primary); padding: 24px; border-radius: 0 16px 16px 0; margin: 32px 0;">
+  <p style="margin: 0; font-family: 'Lora', serif; font-size: 1.1rem; line-height: 1.7; font-style: italic; color: var(--fg);">
+    "So that will be the physical work planned. But beyond that, and more importantly, they are looking forward to <strong>establishing relationships with the people of Lunsar and witnessing the love of Jesus to them.</strong>"
+  </p>
+</div>
+
+<h2 style="font-family: 'Lora', serif; font-size: 1.8rem; margin-top: 40px; margin-bottom: 16px; color: var(--fg); border-bottom: 2px solid var(--primary); padding-bottom: 8px;">A Vision for the Future (As the Lord Leads)</h2>
+<p>This property is intended to serve as a long-term base for the mission in Sierra Leone in the future. While everything is still in the very early stages and nothing is confirmed yet, the team will also be exploring opportunities for further outreach efforts as God directs—with a prayerful hope that in time, as the Lord leads, this compound may be used to establish a local church, and potentially help with schooling children and caring for orphans.</p>
+
+<div style="background: rgba(45,80,22,0.06); border: 1px solid rgba(45,80,22,0.2); border-radius: 16px; padding: 24px; margin: 32px 0;">
+  <h3 style="color: var(--secondary); margin-top: 0; margin-bottom: 12px; font-family: 'Lora', serif;">Blanket Sierra Leone in Prayer</h3>
+  <p style="color: var(--fg); line-height: 1.6; margin-bottom: 16px;">Please pray for them as they plan for this winter. No doubt Satan has other plans and your prayers would be much appreciated. Sierra Leone is a dark place. Let's blanket these people in our prayers:</p>
+  <ul style="list-style: none; padding-left: 0; margin: 0;">
+    <li style="margin-bottom: 12px; position: relative; padding-left: 28px; line-height: 1.6;">
+      <span style="position: absolute; left: 0; top: 2px; color: var(--secondary); font-weight: bold;">🙏</span>
+      <strong>Spiritual Protection &amp; Unity:</strong> For God's covering over the team as they prepare and step into a spiritually dark place.
+    </li>
+    <li style="margin-bottom: 12px; position: relative; padding-left: 28px; line-height: 1.6;">
+      <span style="position: absolute; left: 0; top: 2px; color: var(--secondary); font-weight: bold;">🙏</span>
+      <strong>Relationships in Lunsar:</strong> For open doors and receptive hearts as they witness the love of Jesus to the community.
+    </li>
+    <li style="margin-bottom: 12px; position: relative; padding-left: 28px; line-height: 1.6;">
+      <span style="position: absolute; left: 0; top: 2px; color: var(--secondary); font-weight: bold;">🙏</span>
+      <strong>Renovation &amp; Safety:</strong> For the extensive repair work on the mission house (roof, windows, wiring, and plumbing).
+    </li>
+    <li style="margin-bottom: 0; position: relative; padding-left: 28px; line-height: 1.6;">
+      <span style="position: absolute; left: 0; top: 2px; color: var(--secondary); font-weight: bold;">🙏</span>
+      <strong>God's Direction:</strong> For wisdom and discernment as they explore future outreach opportunities as the Lord leads.
+    </li>
+  </ul>
+</div>
+
+<div style="text-align: center; margin: 40px 0; background: rgba(211,87,34,0.05); border: 1px solid rgba(211,87,34,0.25); border-radius: 16px; padding: 32px;">
+  <h3 style="color: var(--primary); font-family: 'Lora', serif; font-size: 1.4rem; margin-bottom: 12px;">Partner With the Work in Sierra Leone</h3>
+  <p style="color: var(--fg); max-width: 620px; margin: 0 auto 16px; font-size: 1rem; line-height: 1.6;">There will be many expenses this winter—including flights, construction materials, and living expenses. If you feel led to contribute to this work, please use the link below.</p>
+  <p style="color: var(--secondary); font-weight: 600; max-width: 580px; margin: 0 auto 24px; font-size: 0.95rem; background: #fff; padding: 10px 16px; border-radius: 8px; border: 1px solid var(--border);">📌 <em>In the comments section of the donation form, please specify that your donation is for the work in <strong>Sierra Leone</strong>.</em></p>
+  <a href="./donate.html" class="btn btn-primary btn-lg">Give to Sierra Leone Mission →</a>
+</div>`,
+    category: "Evangelism",
+    author: "Kenton Plett",
+    date: "October 2026",
+    image: "./images/Updates/sierra_leone_mission_house.jpg",
+    images: [
+      "./images/Updates/sierra_leone_mission_house.jpg",
+      "./images/Updates/matt_and_hannah_wall.jpg",
+      "./images/Updates/marcus_and_delena_janzen.jpg",
+      "./images/Updates/conroy_plett.jpg"
+    ]
+  },
+  {
     id: "october-2026-update",
     title: "Thailand October 2026 Update",
     excerpt: "Our latest monthly newsletter: English Camp at a Buddhist school, 850+ Bibles distributed in hard-to-reach places, the \"Behind the Seams\" sewing ministry, and the Holy Spirit Conference.",
