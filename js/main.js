@@ -276,6 +276,144 @@ async function handleContactSubmit(e) {
   await submitFormData(payload, form, 'Thank you! Your message has been sent successfully.', submitBtn);
 }
 
+// ==========================================
+// Donate Page: e-Transfer & Tab Helpers
+// ==========================================
+function switchDonateTab(method) {
+  const tabs = document.querySelectorAll('.method-tab');
+  const panels = document.querySelectorAll('.donate-panel');
+  if (!tabs.length || !panels.length) return;
+
+  tabs.forEach(t => {
+    const isActive = t.dataset.method === method;
+    t.classList.toggle('active', isActive);
+    t.setAttribute('aria-selected', isActive ? 'true' : 'false');
+  });
+
+  panels.forEach(p => {
+    const isActive = p.id === `panel-${method}`;
+    p.classList.toggle('active', isActive);
+  });
+}
+
+function copyEtransferEmail(btn) {
+  const email = 'info@cbministries.ca';
+  const originalHTML = btn.dataset.originalHtml || btn.innerHTML;
+  btn.dataset.originalHtml = originalHTML;
+
+  const markCopied = () => {
+    btn.classList.add('copied');
+    btn.innerHTML = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Copied!';
+    clearTimeout(btn._copyTimer);
+    btn._copyTimer = setTimeout(() => {
+      btn.classList.remove('copied');
+      btn.innerHTML = originalHTML;
+    }, 2400);
+  };
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(email).then(markCopied).catch(() => fallbackCopyText(email, markCopied));
+  } else {
+    fallbackCopyText(email, markCopied);
+  }
+}
+
+function fallbackCopyText(text, onSuccess) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  try {
+    document.execCommand('copy');
+    if (onSuccess) onSuccess();
+  } catch (err) {
+    console.error('Copy failed:', err);
+  }
+  document.body.removeChild(ta);
+}
+
+async function handleEtransferSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const originalBtnText = submitBtn ? submitBtn.innerText : '';
+
+  const firstName = (form.querySelector('[name="First Name"]')?.value || '').trim();
+  const lastName = (form.querySelector('[name="Last Name"]')?.value || '').trim();
+  const email = (form.querySelector('[name="Email Address"]')?.value || '').trim();
+  const street = (form.querySelector('[name="Street Address"]')?.value || '').trim();
+  const city = (form.querySelector('[name="City"]')?.value || '').trim();
+  const province = (form.querySelector('[name="Province"]')?.value || '').trim();
+  const postal = (form.querySelector('[name="Postal Code"]')?.value || '').trim().toUpperCase();
+  const amount = (form.querySelector('[name="Gift Amount"]')?.value || '').trim();
+  const note = (form.querySelector('[name="Designation Note"]')?.value || '').trim();
+
+  const fullAddress = `${street}, ${city}, ${province} ${postal}`.trim();
+  const summaryParts = [
+    'e-Transfer Receipt Registration',
+    `Address: ${fullAddress}`,
+    amount ? `Amount: $${amount}` : null,
+    note ? `Note/Designation: ${note}` : 'Note/Designation: Where Most Needed (General Fund)'
+  ].filter(Boolean);
+
+  const payload = {
+    FormType: 'e-Transfer Receipt Info',
+    Timestamp: new Date().toISOString(),
+    'First Name': firstName,
+    'Last Name': lastName,
+    'Email Address': email,
+    'Street Address': street,
+    'City': city,
+    'Province': province,
+    'Postal Code': postal,
+    'Full Address': fullAddress,
+    'Gift Amount': amount || 'Not specified',
+    'Designation Note': note || 'Where Most Needed',
+    'Message': summaryParts.join(' | ')
+  };
+
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.innerText = 'Saving Receipt Info...';
+  }
+
+  try {
+    await fetch(FORM_ENDPOINT, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(payload)
+    });
+
+    form.reset();
+    form.style.display = 'none';
+    const successBox = document.getElementById('etransfer-success');
+    const nameSpan = document.getElementById('etransfer-success-name');
+    if (nameSpan && firstName) nameSpan.textContent = firstName;
+    if (successBox) {
+      successBox.classList.add('show');
+      successBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  } catch (error) {
+    console.error('e-Transfer receipt form error:', error);
+    alert('There was a problem saving your receipt details. Please email your name and mailing address directly to info@cbministries.ca.');
+  } finally {
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.innerText = originalBtnText;
+    }
+  }
+}
+
+function resetEtransferForm() {
+  const form = document.getElementById('etransfer-receipt-form');
+  const successBox = document.getElementById('etransfer-success');
+  if (successBox) successBox.classList.remove('show');
+  if (form) form.style.display = 'flex';
+}
+
 function openLightbox(src) {
   const modal = document.getElementById('lightbox-modal');
   const modalImg = document.getElementById('lightbox-img');
@@ -332,6 +470,12 @@ document.addEventListener('DOMContentLoaded', () => {
     renderPostHTML(post_id);
   } else if (document.getElementById('fu-grid')) {
     renderFuGrid('All');
+  }
+
+  // Support deep linking directly to card or etransfer tab on donate.html
+  const methodParam = urlParams.get('method') || window.location.hash.replace('#', '');
+  if (methodParam === 'card' || methodParam === 'etransfer') {
+    switchDonateTab(methodParam);
   }
   
   // Keyboard support for lightbox
