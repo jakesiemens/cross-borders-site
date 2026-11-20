@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="css/style.css?v=1.8" />
+<link rel="stylesheet" href="css/style.css?v=1.9" />
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-04BW1GEP50"></script>
 <script>
@@ -178,7 +178,7 @@
                   <div><strong>Already donated with us before?</strong> If we already have your name and mailing address on file from a past Donorbox or e-Transfer gift, you're all set—no need to fill out the form below again!</div>
                 </div>
 
-                <form id="etransfer-receipt-form" class="etransfer-receipt-form" onsubmit="handleEtransferSubmit(event)">
+                <form id="etransfer-receipt-form" class="etransfer-receipt-form" autocomplete="on" onsubmit="handleEtransferSubmit(event)">
                   <div>
                     <div class="etransfer-form-title">First-Time e-Transfer Donor? Share Your Receipt Details Once</div>
                     <p style="font-size: .84rem; margin-top: 2px;">Banks don't include your mailing address on e-Transfers. Fill this out once so we can email your official receipt.</p>
@@ -187,32 +187,33 @@
                   <div class="form-row-2">
                     <div class="field-group">
                       <label for="et-first">First Name *</label>
-                      <input id="et-first" type="text" name="First Name" placeholder="Legal first name" required />
+                      <input id="et-first" type="text" name="First Name" autocomplete="given-name" placeholder="Legal first name" required />
                     </div>
                     <div class="field-group">
                       <label for="et-last">Last Name *</label>
-                      <input id="et-last" type="text" name="Last Name" placeholder="Legal last name" required />
+                      <input id="et-last" type="text" name="Last Name" autocomplete="family-name" placeholder="Legal last name" required />
                     </div>
                   </div>
 
                   <div class="field-group">
                     <label for="et-email">Email Address (for receipt delivery) *</label>
-                    <input id="et-email" type="email" name="Email Address" placeholder="you@example.com" required />
+                    <input id="et-email" type="email" name="Email Address" autocomplete="email" placeholder="you@example.com" required />
                   </div>
 
-                  <div class="field-group">
-                    <label for="et-street">Mailing Address *</label>
-                    <input id="et-street" type="text" name="Street Address" placeholder="123 Main Street, Apt 4" required />
+                  <div class="field-group address-autocomplete-wrap">
+                    <label for="et-street">Mailing Address * <span class="opt">(start typing to autofill)</span></label>
+                    <input id="et-street" type="text" name="Street Address" autocomplete="street-address" placeholder="123 Main Street, Apt 4" aria-autocomplete="list" aria-controls="et-address-suggestions" required />
+                    <div id="et-address-suggestions" class="address-suggestions" role="listbox" aria-label="Canadian address suggestions"></div>
                   </div>
 
                   <div class="form-row-3">
                     <div class="field-group">
                       <label for="et-city">City *</label>
-                      <input id="et-city" type="text" name="City" placeholder="City" required />
+                      <input id="et-city" type="text" name="City" autocomplete="address-level2" placeholder="City" required />
                     </div>
                     <div class="field-group">
                       <label for="et-prov">Province *</label>
-                      <select id="et-prov" name="Province" required>
+                      <select id="et-prov" name="Province" autocomplete="address-level1" required>
                         <option value="" disabled selected>Select...</option>
                         <option value="AB">Alberta (AB)</option>
                         <option value="BC">British Columbia (BC)</option>
@@ -231,7 +232,7 @@
                     </div>
                     <div class="field-group">
                       <label for="et-postal">Postal Code *</label>
-                      <input id="et-postal" type="text" name="Postal Code" placeholder="A1A 1A1" required />
+                      <input id="et-postal" type="text" name="Postal Code" autocomplete="postal-code" autocapitalize="characters" placeholder="A1A 1A1" required />
                     </div>
                   </div>
 
@@ -371,7 +372,7 @@
   <img loading="lazy" class="lightbox-content" id="lightbox-img" />
   <a class="lightbox-next" onclick="changeLightbox(1, event)">&#10095;</a>
 </div>
-<script src="js/data.js?v=1.8"></script>
-<script src="js/main.js?v=1.8"></script>
+<script src="js/data.js?v=1.9"></script>
+<script src="js/main.js?v=1.9"></script>
 </body>
 </html>

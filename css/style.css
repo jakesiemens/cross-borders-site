@@ -836,6 +836,59 @@ footer ul li .letter { color: var(--primary); font-weight: 700; margin-right: 4p
   border-color: var(--secondary);
   box-shadow: 0 0 0 3px rgba(45,80,22,.12);
 }
+
+/* Live Canadian Address Autocomplete Dropdown */
+.address-autocomplete-wrap {
+  position: relative;
+}
+.address-suggestions {
+  display: none;
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid #d5cab9;
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(28,26,24,.14);
+  z-index: 50;
+  overflow: hidden;
+  max-height: 260px;
+  overflow-y: auto;
+}
+.address-suggestions.open {
+  display: block;
+}
+.address-suggestion-item {
+  width: 100%;
+  text-align: left;
+  background: #fff;
+  border: none;
+  border-bottom: 1px solid #f2ece3;
+  padding: 11px 14px;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  transition: background .12s ease;
+}
+.address-suggestion-item:last-child {
+  border-bottom: none;
+}
+.address-suggestion-item:hover,
+.address-suggestion-item.active {
+  background: rgba(45,80,22,.07);
+}
+.address-suggestion-main {
+  font-size: .9rem;
+  font-weight: 600;
+  color: var(--fg);
+}
+.address-suggestion-sub {
+  font-size: .78rem;
+  color: var(--muted);
+}
 .btn-secondary-solid {
   background: var(--secondary);
   color: #fff;

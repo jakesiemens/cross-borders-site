@@ -414,6 +414,153 @@ function resetEtransferForm() {
   if (form) form.style.display = 'flex';
 }
 
+// ==========================================
+// Canadian Address Type-Ahead Autofill
+// ==========================================
+const CA_PROVINCE_MAP = {
+  'alberta': 'AB', 'ab': 'AB',
+  'british columbia': 'BC', 'colombie-britannique': 'BC', 'bc': 'BC',
+  'manitoba': 'MB', 'mb': 'MB',
+  'new brunswick': 'NB', 'nouveau-brunswick': 'NB', 'nb': 'NB',
+  'newfoundland and labrador': 'NL', 'terre-neuve-et-labrador': 'NL', 'nl': 'NL',
+  'nova scotia': 'NS', 'nouvelle-écosse': 'NS', 'ns': 'NS',
+  'northwest territories': 'NT', 'territoires du nord-ouest': 'NT', 'nt': 'NT',
+  'nunavut': 'NU', 'nu': 'NU',
+  'ontario': 'ON', 'on': 'ON',
+  'prince edward island': 'PE', 'île-du-prince-édouard': 'PE', 'pe': 'PE', 'pei': 'PE',
+  'quebec': 'QC', 'québec': 'QC', 'qc': 'QC',
+  'saskatchewan': 'SK', 'sk': 'SK',
+  'yukon': 'YT', 'yt': 'YT'
+};
+
+function initAddressAutocomplete() {
+  const streetInput = document.getElementById('et-street');
+  const listEl = document.getElementById('et-address-suggestions');
+  const cityInput = document.getElementById('et-city');
+  const provSelect = document.getElementById('et-prov');
+  const postalInput = document.getElementById('et-postal');
+  if (!streetInput || !listEl) return;
+
+  let debounceTimer = null;
+  let controller = null;
+  let activeIndex = -1;
+  let currentItems = [];
+
+  function closeList() {
+    listEl.classList.remove('open');
+    listEl.innerHTML = '';
+    activeIndex = -1;
+    currentItems = [];
+  }
+
+  function applySuggestion(item) {
+    if (!item) return;
+    if (item.street) streetInput.value = item.street;
+    if (item.city && cityInput) cityInput.value = item.city;
+    if (item.provinceCode && provSelect) provSelect.value = item.provinceCode;
+    if (item.postcode && postalInput) postalInput.value = item.postcode.toUpperCase();
+    closeList();
+  }
+
+  function highlightItem(idx) {
+    const buttons = listEl.querySelectorAll('.address-suggestion-item');
+    buttons.forEach((b, i) => b.classList.toggle('active', i === idx));
+  }
+
+  streetInput.addEventListener('input', () => {
+    const q = streetInput.value.trim();
+    clearTimeout(debounceTimer);
+    if (q.length < 4) {
+      closeList();
+      return;
+    }
+
+    debounceTimer = setTimeout(async () => {
+      if (controller) controller.abort();
+      controller = new AbortController();
+
+      try {
+        // Canada bounding box to prioritize Canadian addresses
+        const url = `https://photon.komoot.io/api/?q=${encodeURIComponent(q)}&limit=6&bbox=-141.0,41.7,-52.6,83.1&lang=en`;
+        const res = await fetch(url, { signal: controller.signal });
+        if (!res.ok) return;
+        const json = await res.json();
+        const features = (json.features || []).filter(f => {
+          const p = f.properties || {};
+          return !p.countrycode || p.countrycode.toUpperCase() === 'CA';
+        });
+
+        const parsed = [];
+        const seen = new Set();
+        for (const f of features) {
+          const p = f.properties || {};
+          const streetLine = [p.housenumber, p.street || p.name].filter(Boolean).join(' ').trim();
+          const city = p.city || p.town || p.village || p.municipality || p.locality || '';
+          const stateRaw = (p.state || '').toLowerCase().trim();
+          const provinceCode = CA_PROVINCE_MAP[stateRaw] || '';
+          const postcode = (p.postcode || '').trim().toUpperCase();
+          if (!streetLine) continue;
+
+          const subLine = [city, provinceCode, postcode].filter(Boolean).join(', ');
+          const dedupeKey = `${streetLine}|${subLine}`.toLowerCase();
+          if (seen.has(dedupeKey)) continue;
+          seen.add(dedupeKey);
+
+          parsed.push({ street: streetLine, city, provinceCode, postcode, subLine });
+          if (parsed.length >= 5) break;
+        }
+
+        if (!parsed.length) {
+          closeList();
+          return;
+        }
+
+        currentItems = parsed;
+        activeIndex = -1;
+        listEl.innerHTML = parsed.map((item, idx) => `
+          <button type="button" class="address-suggestion-item" role="option" data-idx="${idx}">
+            <span class="address-suggestion-main">${item.street.replace(/</g, '&lt;')}</span>
+            ${item.subLine ? `<span class="address-suggestion-sub">${item.subLine.replace(/</g, '&lt;')}</span>` : ''}
+          </button>
+        `).join('');
+
+        listEl.querySelectorAll('.address-suggestion-item').forEach(btn => {
+          btn.addEventListener('mousedown', (ev) => {
+            ev.preventDefault();
+            applySuggestion(currentItems[Number(btn.dataset.idx)]);
+          });
+        });
+
+        listEl.classList.add('open');
+      } catch (err) {
+        if (err.name !== 'AbortError') closeList();
+      }
+    }, 350);
+  });
+
+  streetInput.addEventListener('keydown', (ev) => {
+    if (!listEl.classList.contains('open') || !currentItems.length) return;
+    if (ev.key === 'ArrowDown') {
+      ev.preventDefault();
+      activeIndex = (activeIndex + 1) % currentItems.length;
+      highlightItem(activeIndex);
+    } else if (ev.key === 'ArrowUp') {
+      ev.preventDefault();
+      activeIndex = (activeIndex - 1 + currentItems.length) % currentItems.length;
+      highlightItem(activeIndex);
+    } else if (ev.key === 'Enter' && activeIndex >= 0) {
+      ev.preventDefault();
+      applySuggestion(currentItems[activeIndex]);
+    } else if (ev.key === 'Escape') {
+      closeList();
+    }
+  });
+
+  document.addEventListener('click', (ev) => {
+    if (!ev.target.closest('.address-autocomplete-wrap')) closeList();
+  });
+}
+
 function openLightbox(src) {
   const modal = document.getElementById('lightbox-modal');
   const modalImg = document.getElementById('lightbox-img');
@@ -477,6 +624,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (methodParam === 'card' || methodParam === 'etransfer') {
     switchDonateTab(methodParam);
   }
+
+  initAddressAutocomplete();
   
   // Keyboard support for lightbox
   document.addEventListener('keydown', (e) => {
