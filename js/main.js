@@ -388,13 +388,21 @@ async function handleEtransferSubmit(e) {
     });
 
     form.reset();
-    form.style.display = 'none';
+    const firstTimeWrap = document.getElementById('et-first-time-wrap');
+    const bankWrap = document.getElementById('et-bank-details-wrap');
+    const returningBanner = document.getElementById('et-returning-banner');
+    const bankStepNum = document.getElementById('et-bank-step-num');
     const successBox = document.getElementById('etransfer-success');
     const nameSpan = document.getElementById('etransfer-success-name');
+
     if (nameSpan && firstName) nameSpan.textContent = firstName;
+    if (firstTimeWrap) firstTimeWrap.style.display = 'none';
+    if (returningBanner) returningBanner.style.display = 'none';
+    if (bankStepNum) bankStepNum.textContent = '2';
+    if (bankWrap) bankWrap.style.display = 'block';
     if (successBox) {
       successBox.classList.add('show');
-      successBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      bankWrap.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
   } catch (error) {
     console.error('e-Transfer receipt form error:', error);
@@ -407,11 +415,36 @@ async function handleEtransferSubmit(e) {
   }
 }
 
-function resetEtransferForm() {
-  const form = document.getElementById('etransfer-receipt-form');
+function switchDonorMode(mode) {
+  const btns = document.querySelectorAll('.donor-toggle-btn');
+  btns.forEach(b => {
+    const isActive = b.dataset.donorMode === mode;
+    b.classList.toggle('active', isActive);
+    b.setAttribute('aria-selected', isActive ? 'true' : 'false');
+  });
+
+  const firstTimeWrap = document.getElementById('et-first-time-wrap');
+  const bankWrap = document.getElementById('et-bank-details-wrap');
+  const returningBanner = document.getElementById('et-returning-banner');
   const successBox = document.getElementById('etransfer-success');
-  if (successBox) successBox.classList.remove('show');
-  if (form) form.style.display = 'flex';
+  const bankStepNum = document.getElementById('et-bank-step-num');
+
+  if (mode === 'returning') {
+    if (firstTimeWrap) firstTimeWrap.style.display = 'none';
+    if (successBox) successBox.classList.remove('show');
+    if (returningBanner) returningBanner.style.display = 'flex';
+    if (bankStepNum) bankStepNum.textContent = '1';
+    if (bankWrap) bankWrap.style.display = 'block';
+  } else {
+    if (bankWrap) bankWrap.style.display = 'none';
+    if (successBox) successBox.classList.remove('show');
+    if (returningBanner) returningBanner.style.display = 'none';
+    if (firstTimeWrap) firstTimeWrap.style.display = 'block';
+  }
+}
+
+function resetEtransferForm() {
+  switchDonorMode('first-time');
 }
 
 // ==========================================

@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="css/style.css?v=1.9" />
+<link rel="stylesheet" href="css/style.css?v=2.0" />
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-04BW1GEP50"></script>
 <script>
@@ -119,144 +119,144 @@
           </div>
 
           <div class="etransfer-body">
-            <!-- Step 1 -->
-            <div class="etransfer-step">
-              <div class="step-num">1</div>
-              <div class="step-content">
-                <h4>Open Your Canadian Banking App</h4>
-                <p>Log into your online banking or mobile app and choose <strong>Send an Interac e-Transfer</strong>. <em>(Tip: Most Canadian banks also let you schedule automatic monthly e-Transfers right in your app!)</em></p>
+            <!-- First-Time vs Returning Donor Toggle -->
+            <div class="donor-status-toggle" role="tablist" aria-label="Have you donated by e-Transfer before?">
+              <button type="button" class="donor-toggle-btn active" data-donor-mode="first-time" role="tab" aria-selected="true" onclick="switchDonorMode('first-time')">
+                First-Time e-Transfer Donor
+              </button>
+              <button type="button" class="donor-toggle-btn" data-donor-mode="returning" role="tab" aria-selected="false" onclick="switchDonorMode('returning')">
+                Returning Donor (Already on File)
+              </button>
+            </div>
+
+            <!-- Step 1: Receipt Info First (Default for First-Time Donors) -->
+            <div id="et-first-time-wrap">
+              <div class="etransfer-step" style="border-bottom: none; padding-bottom: 0; margin-bottom: 0;">
+                <div class="step-num">1</div>
+                <div class="step-content">
+                  <h4>Share Your Receipt Details First <span style="font-weight:400; color:var(--muted); font-size:.9rem;">(One-Time Setup)</span></h4>
+                  <p style="margin-bottom: 16px;">Canadian banks don't include your email or mailing address on e-Transfers. Fill this out once using the <strong>same name that appears on your bank account</strong> (or business name if giving from a company account), and we'll reveal our e-Transfer details right away.</p>
+
+                  <form id="etransfer-receipt-form" class="etransfer-receipt-form" autocomplete="on" onsubmit="handleEtransferSubmit(event)">
+                    <div class="form-row-2">
+                      <div class="field-group">
+                        <label for="et-first">First Name (or Business Name) *</label>
+                        <input id="et-first" type="text" name="First Name" autocomplete="given-name" placeholder="Name on your bank account" required />
+                      </div>
+                      <div class="field-group">
+                        <label for="et-last">Last Name <span class="opt">(optional for businesses)</span></label>
+                        <input id="et-last" type="text" name="Last Name" autocomplete="family-name" placeholder="Legal last name" />
+                      </div>
+                    </div>
+
+                    <div class="field-group">
+                      <label for="et-email">Email Address (where your receipt will be sent) *</label>
+                      <input id="et-email" type="email" name="Email Address" autocomplete="email" placeholder="you@example.com" required />
+                    </div>
+
+                    <div class="field-group address-autocomplete-wrap">
+                      <label for="et-street">Mailing Address * <span class="opt">(start typing to autofill)</span></label>
+                      <input id="et-street" type="text" name="Street Address" autocomplete="street-address" placeholder="123 Main Street, Apt 4" aria-autocomplete="list" aria-controls="et-address-suggestions" required />
+                      <div id="et-address-suggestions" class="address-suggestions" role="listbox" aria-label="Canadian address suggestions"></div>
+                    </div>
+
+                    <div class="form-row-3">
+                      <div class="field-group">
+                        <label for="et-city">City *</label>
+                        <input id="et-city" type="text" name="City" autocomplete="address-level2" placeholder="City" required />
+                      </div>
+                      <div class="field-group">
+                        <label for="et-prov">Province *</label>
+                        <select id="et-prov" name="Province" autocomplete="address-level1" required>
+                          <option value="" disabled selected>Select...</option>
+                          <option value="AB">Alberta (AB)</option>
+                          <option value="BC">British Columbia (BC)</option>
+                          <option value="MB">Manitoba (MB)</option>
+                          <option value="NB">New Brunswick (NB)</option>
+                          <option value="NL">Newfoundland &amp; Labrador (NL)</option>
+                          <option value="NS">Nova Scotia (NS)</option>
+                          <option value="NT">Northwest Territories (NT)</option>
+                          <option value="NU">Nunavut (NU)</option>
+                          <option value="ON">Ontario (ON)</option>
+                          <option value="PE">Prince Edward Island (PE)</option>
+                          <option value="QC">Quebec (QC)</option>
+                          <option value="SK">Saskatchewan (SK)</option>
+                          <option value="YT">Yukon (YT)</option>
+                        </select>
+                      </div>
+                      <div class="field-group">
+                        <label for="et-postal">Postal Code *</label>
+                        <input id="et-postal" type="text" name="Postal Code" autocomplete="postal-code" autocapitalize="characters" placeholder="A1A 1A1" required />
+                      </div>
+                    </div>
+
+                    <div class="form-row-2">
+                      <div class="field-group">
+                        <label for="et-amount">Gift Amount (CAD) <span class="opt">(optional)</span></label>
+                        <input id="et-amount" type="number" name="Gift Amount" min="1" step="0.01" placeholder="e.g. 100" />
+                      </div>
+                      <div class="field-group">
+                        <label for="et-note">Mission / Note <span class="opt">(optional)</span></label>
+                        <input id="et-note" type="text" name="Designation Note" placeholder="e.g. General Fund or Sierra Leone" />
+                      </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-secondary-solid" style="margin-top: 4px; width: 100%;">Continue &amp; Reveal e-Transfer Details &rarr;</button>
+                  </form>
+                </div>
               </div>
             </div>
 
-            <!-- Step 2 -->
-            <div class="etransfer-step">
-              <div class="step-num">2</div>
-              <div class="step-content">
-                <h4>Send Your Gift Using These Details</h4>
-                <p>Add Cross Borders Ministries as a recipient using the email below:</p>
-
-                <div class="etransfer-details-box">
-                  <div class="detail-row">
-                    <div>
-                      <span class="detail-label">Send e-Transfer To</span>
-                      <span class="detail-value email-highlight">info@cbministries.ca</span>
-                    </div>
-                    <button type="button" class="copy-btn" onclick="copyEtransferEmail(this)">
-                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-                      Copy Email
-                    </button>
-                  </div>
-
-                  <div class="detail-row">
-                    <div>
-                      <span class="detail-label">Recipient Name</span>
-                      <span class="detail-value">Cross Borders Ministries</span>
-                    </div>
-                    <span class="autodeposit-pill">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
-                      Autodeposit Enabled
-                    </span>
-                  </div>
-                </div>
-
-                <div class="memo-hint">
-                  <strong>No security question needed:</strong> Autodeposit is turned on for <strong>info@cbministries.ca</strong>, so your gift deposits automatically and securely.<br/>
-                  <strong>Optional Message:</strong> Leave blank for our General Fund (Where Most Needed), or note a specific mission (e.g., <em>"For the work in Sierra Leone"</em>).
-                </div>
+            <!-- Step 2: Banking Details (Revealed Immediately for Returning Donors or After Step 1 Submit) -->
+            <div id="et-bank-details-wrap" style="display: none;">
+              <div id="etransfer-success" class="etransfer-success-box" aria-live="polite" style="margin-bottom: 24px;">
+                <h5>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  Thank You, <span id="etransfer-success-name">Friend</span>! Your Receipt Details Are Saved.
+                </h5>
+                <p style="margin-bottom: 8px;">Now finish your gift below—as soon as your Interac e-Transfer deposits into our account, our system will <strong>automatically email your donation receipt</strong> (with a printable PDF attached).</p>
+                <button type="button" class="reset-link" onclick="resetEtransferForm()">Register another donor's receipt details</button>
               </div>
-            </div>
 
-            <!-- Step 3 -->
-            <div class="etransfer-step">
-              <div class="step-num">3</div>
-              <div class="step-content">
-                <h4>Receive Your Donation Receipt Automatically</h4>
-                <p>Once your e-Transfer deposits into our account, our system <strong>automatically emails your donation receipt</strong> (with a printable PDF attached) right to your inbox—just like online card donations.</p>
+              <div id="et-returning-banner" class="returning-donor-note" style="margin-top: 0; margin-bottom: 22px; display: none;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                <div><strong>Welcome back!</strong> Since your name and email are already on file from a past e-Transfer or Donorbox gift, simply send your transfer below—your donation receipt will be emailed automatically!</div>
+              </div>
 
-                <div class="returning-donor-note">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
-                  <div><strong>Already donated by e-Transfer before?</strong> Once your name and email are on file, you're all set—every future one-time or monthly e-Transfer will send your receipt automatically!</div>
-                </div>
+              <div class="etransfer-step" style="border-bottom: none; padding-bottom: 0; margin-bottom: 0;">
+                <div class="step-num" id="et-bank-step-num">2</div>
+                <div class="step-content">
+                  <h4>Send Your Interac e-Transfer from Your Banking App</h4>
+                  <p>Open your Canadian banking app, select <strong>Send an Interac e-Transfer</strong>, and send your gift using these details: <em>(Tip: Most Canadian banks also let you schedule automatic monthly e-Transfers!)</em></p>
 
-                <form id="etransfer-receipt-form" class="etransfer-receipt-form" autocomplete="on" onsubmit="handleEtransferSubmit(event)">
-                  <div>
-                    <div class="etransfer-form-title">First-Time e-Transfer Donor? Share Your Receipt Details Once</div>
-                    <p style="font-size: .84rem; margin-top: 2px;">Use the <strong>same name that appears on your bank account</strong> so our system matches your e-Transfer and emails your receipt automatically.</p>
-                  </div>
-
-                  <div class="form-row-2">
-                    <div class="field-group">
-                      <label for="et-first">First Name *</label>
-                      <input id="et-first" type="text" name="First Name" autocomplete="given-name" placeholder="Legal first name" required />
+                  <div class="etransfer-details-box">
+                    <div class="detail-row">
+                      <div>
+                        <span class="detail-label">Send e-Transfer To</span>
+                        <span class="detail-value email-highlight">info@cbministries.ca</span>
+                      </div>
+                      <button type="button" class="copy-btn" onclick="copyEtransferEmail(this)">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                        Copy Email
+                      </button>
                     </div>
-                    <div class="field-group">
-                      <label for="et-last">Last Name *</label>
-                      <input id="et-last" type="text" name="Last Name" autocomplete="family-name" placeholder="Legal last name" required />
-                    </div>
-                  </div>
 
-                  <div class="field-group">
-                    <label for="et-email">Email Address (for receipt delivery) *</label>
-                    <input id="et-email" type="email" name="Email Address" autocomplete="email" placeholder="you@example.com" required />
-                  </div>
-
-                  <div class="field-group address-autocomplete-wrap">
-                    <label for="et-street">Mailing Address * <span class="opt">(start typing to autofill)</span></label>
-                    <input id="et-street" type="text" name="Street Address" autocomplete="street-address" placeholder="123 Main Street, Apt 4" aria-autocomplete="list" aria-controls="et-address-suggestions" required />
-                    <div id="et-address-suggestions" class="address-suggestions" role="listbox" aria-label="Canadian address suggestions"></div>
-                  </div>
-
-                  <div class="form-row-3">
-                    <div class="field-group">
-                      <label for="et-city">City *</label>
-                      <input id="et-city" type="text" name="City" autocomplete="address-level2" placeholder="City" required />
-                    </div>
-                    <div class="field-group">
-                      <label for="et-prov">Province *</label>
-                      <select id="et-prov" name="Province" autocomplete="address-level1" required>
-                        <option value="" disabled selected>Select...</option>
-                        <option value="AB">Alberta (AB)</option>
-                        <option value="BC">British Columbia (BC)</option>
-                        <option value="MB">Manitoba (MB)</option>
-                        <option value="NB">New Brunswick (NB)</option>
-                        <option value="NL">Newfoundland &amp; Labrador (NL)</option>
-                        <option value="NS">Nova Scotia (NS)</option>
-                        <option value="NT">Northwest Territories (NT)</option>
-                        <option value="NU">Nunavut (NU)</option>
-                        <option value="ON">Ontario (ON)</option>
-                        <option value="PE">Prince Edward Island (PE)</option>
-                        <option value="QC">Quebec (QC)</option>
-                        <option value="SK">Saskatchewan (SK)</option>
-                        <option value="YT">Yukon (YT)</option>
-                      </select>
-                    </div>
-                    <div class="field-group">
-                      <label for="et-postal">Postal Code *</label>
-                      <input id="et-postal" type="text" name="Postal Code" autocomplete="postal-code" autocapitalize="characters" placeholder="A1A 1A1" required />
+                    <div class="detail-row">
+                      <div>
+                        <span class="detail-label">Recipient Name</span>
+                        <span class="detail-value">Cross Borders Ministries</span>
+                      </div>
+                      <span class="autodeposit-pill">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+                        Autodeposit Enabled
+                      </span>
                     </div>
                   </div>
 
-                  <div class="form-row-2">
-                    <div class="field-group">
-                      <label for="et-amount">Gift Amount (CAD) <span class="opt">(optional)</span></label>
-                      <input id="et-amount" type="number" name="Gift Amount" min="1" step="0.01" placeholder="e.g. 100" />
-                    </div>
-                    <div class="field-group">
-                      <label for="et-note">Mission / Note <span class="opt">(optional)</span></label>
-                      <input id="et-note" type="text" name="Designation Note" placeholder="e.g. General Fund or Sierra Leone" />
-                    </div>
+                  <div class="memo-hint">
+                    <strong>No security question needed:</strong> Autodeposit is turned on for <strong>info@cbministries.ca</strong>, so your gift deposits automatically and securely.<br/>
+                    <strong>Optional Message:</strong> Leave blank for our General Fund (Where Most Needed), or note a specific mission (e.g., <em>"For the work in Sierra Leone"</em>).
                   </div>
-
-                  <button type="submit" class="btn btn-secondary-solid" style="margin-top: 4px; width: 100%;">Save My Receipt Details</button>
-                </form>
-
-                <div id="etransfer-success" class="etransfer-success-box" aria-live="polite">
-                  <h5>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                    Thank You, <span id="etransfer-success-name">Friend</span>! Your Receipt Details Are Saved.
-                  </h5>
-                  <p>As soon as your Interac e-Transfer to <strong>info@cbministries.ca</strong> arrives in our account, we will record your gift and email your official donation receipt directly to you. Thank you for helping 100% of your generosity reach the mission field!</p>
-                  <button type="button" class="reset-link" onclick="resetEtransferForm()">Submit details for another donor</button>
                 </div>
               </div>
             </div>
@@ -372,7 +372,7 @@
   <img loading="lazy" class="lightbox-content" id="lightbox-img" />
   <a class="lightbox-next" onclick="changeLightbox(1, event)">&#10095;</a>
 </div>
-<script src="js/data.js?v=1.9"></script>
-<script src="js/main.js?v=1.9"></script>
+<script src="js/data.js?v=2.0"></script>
+<script src="js/main.js?v=2.0"></script>
 </body>
 </html>

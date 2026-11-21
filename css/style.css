@@ -631,6 +631,36 @@ footer ul li .letter { color: var(--primary); font-weight: 700; margin-right: 4p
 .etransfer-body {
   padding: 32px;
 }
+.donor-status-toggle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 5px;
+  margin-bottom: 26px;
+}
+.donor-toggle-btn {
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  font-family: 'Inter', sans-serif;
+  font-size: .88rem;
+  font-weight: 600;
+  padding: 11px 14px;
+  border-radius: 9px;
+  cursor: pointer;
+  transition: all .18s ease;
+}
+.donor-toggle-btn:hover {
+  color: var(--fg);
+}
+.donor-toggle-btn.active {
+  background: #fff;
+  color: var(--secondary);
+  box-shadow: 0 2px 8px rgba(28,26,24,.08);
+}
 .etransfer-step {
   display: flex;
   gap: 18px;
