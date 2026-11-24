@@ -388,6 +388,7 @@ async function handleEtransferSubmit(e) {
     });
 
     form.reset();
+    try { localStorage.setItem('cbm_etransfer_registered', '1'); } catch (_) {}
     const firstTimeWrap = document.getElementById('et-first-time-wrap');
     const bankWrap = document.getElementById('et-bank-details-wrap');
     const returningBanner = document.getElementById('et-returning-banner');
@@ -488,7 +489,15 @@ function initAddressAutocomplete() {
 
   function applySuggestion(item) {
     if (!item) return;
-    if (item.street) streetInput.value = item.street;
+    if (item.street) {
+      const typed = streetInput.value.trim();
+      const numMatch = typed.match(/^(\d+[A-Za-z0-9\-\/]*)\s+/);
+      if (numMatch && !/^\d/.test(item.street)) {
+        streetInput.value = `${numMatch[1]} ${item.street}`;
+      } else {
+        streetInput.value = item.street;
+      }
+    }
     if (item.city && cityInput) cityInput.value = item.city;
     if (item.provinceCode && provSelect) provSelect.value = item.provinceCode;
     if (item.postcode && postalInput) postalInput.value = item.postcode.toUpperCase();
@@ -659,6 +668,14 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   initAddressAutocomplete();
+
+  // Remember returning e-Transfer donors on this device so they see info@cbministries.ca right away
+  if (document.getElementById('et-first-time-wrap')) {
+    const isReturning = (() => {
+      try { return localStorage.getItem('cbm_etransfer_registered') === '1'; } catch (_) { return false; }
+    })();
+    if (isReturning) switchDonorMode('returning');
+  }
   
   // Keyboard support for lightbox
   document.addEventListener('keydown', (e) => {
