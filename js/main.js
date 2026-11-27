@@ -476,32 +476,84 @@ function initAddressAutocomplete() {
   if (!streetInput || !listEl) return;
 
   let debounceTimer = null;
-  let controller = null;
+  let requestSeq = 0;
   let activeIndex = -1;
-  let currentItems = [];
+  let currentSuggestions = [];
+  let placesLib = null;
+  let sessionToken = null;
 
   function closeList() {
     listEl.classList.remove('open');
     listEl.innerHTML = '';
     activeIndex = -1;
-    currentItems = [];
+    currentSuggestions = [];
   }
 
-  function applySuggestion(item) {
-    if (!item) return;
-    if (item.street) {
-      const typed = streetInput.value.trim();
-      const numMatch = typed.match(/^(\d+[A-Za-z0-9\-\/]*)\s+/);
-      if (numMatch && !/^\d/.test(item.street)) {
-        streetInput.value = `${numMatch[1]} ${item.street}`;
-      } else {
-        streetInput.value = item.street;
-      }
+  async function ensurePlaces() {
+    if (placesLib && sessionToken) return true;
+    if (typeof google === 'undefined' || !google.maps || !google.maps.importLibrary) return false;
+    try {
+      placesLib = await google.maps.importLibrary('places');
+      if (!placesLib || !placesLib.AutocompleteSuggestion || !placesLib.AutocompleteSessionToken) return false;
+      if (!sessionToken) sessionToken = new placesLib.AutocompleteSessionToken();
+      return true;
+    } catch (_) {
+      return false;
     }
-    if (item.city && cityInput) cityInput.value = item.city;
-    if (item.provinceCode && provSelect) provSelect.value = item.provinceCode;
-    if (item.postcode && postalInput) postalInput.value = item.postcode.toUpperCase();
+  }
+
+  function getAddressPart(components, type, useShort) {
+    const comp = (components || []).find(c => Array.isArray(c.types) && c.types.includes(type));
+    if (!comp) return '';
+    return useShort ? (comp.shortText || comp.longText || '') : (comp.longText || comp.shortText || '');
+  }
+
+  async function applyGoogleSuggestion(suggestion) {
+    if (!suggestion || !suggestion.placePrediction) return;
+    const typed = streetInput.value.trim();
     closeList();
+
+    try {
+      const place = suggestion.placePrediction.toPlace();
+      await place.fetchFields({ fields: ['addressComponents'] });
+      sessionToken = new placesLib.AutocompleteSessionToken();
+
+      const comps = place.addressComponents || [];
+      const streetNum = getAddressPart(comps, 'street_number', false);
+      const route = getAddressPart(comps, 'route', false);
+      const subpremise = getAddressPart(comps, 'subpremise', false);
+      let streetLine = [streetNum, route].filter(Boolean).join(' ').trim();
+      if (subpremise && streetLine) streetLine = `${subpremise}-${streetLine}`;
+
+      if (!streetLine) {
+        streetLine = (suggestion.placePrediction.mainText?.text || '').trim();
+      }
+
+      if (streetLine) {
+        const numMatch = typed.match(/^(\d+[A-Za-z0-9\-\/]*)\s+/);
+        if (numMatch && !/^\d/.test(streetLine)) {
+          streetInput.value = `${numMatch[1]} ${streetLine}`;
+        } else {
+          streetInput.value = streetLine;
+        }
+      }
+
+      const city =
+        getAddressPart(comps, 'locality', false) ||
+        getAddressPart(comps, 'sublocality', false) ||
+        getAddressPart(comps, 'administrative_area_level_3', false);
+      if (city && cityInput) cityInput.value = city;
+
+      const provShort = getAddressPart(comps, 'administrative_area_level_1', true).toUpperCase();
+      const provLong = getAddressPart(comps, 'administrative_area_level_1', false).toLowerCase().trim();
+      const provinceCode = CA_PROVINCE_MAP[provShort.toLowerCase()] || CA_PROVINCE_MAP[provLong] || '';
+      if (provinceCode && provSelect) provSelect.value = provinceCode;
+
+      const postcode = getAddressPart(comps, 'postal_code', false).toUpperCase();
+      if (postcode && postalInput) postalInput.value = postcode;
+    } catch (_) {
+      // Degrade silently so donor can still edit/submit manually
+    }
   }
 
   function highlightItem(idx) {
@@ -509,90 +561,82 @@ function initAddressAutocomplete() {
     buttons.forEach((b, i) => b.classList.toggle('active', i === idx));
   }
 
+  function escapeText(str) {
+    return String(str || '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+  }
+
   streetInput.addEventListener('input', () => {
     const q = streetInput.value.trim();
     clearTimeout(debounceTimer);
-    if (q.length < 4) {
+    if (q.length < 3) {
       closeList();
       return;
     }
 
+    const mySeq = ++requestSeq;
     debounceTimer = setTimeout(async () => {
-      if (controller) controller.abort();
-      controller = new AbortController();
-
       try {
-        // Canada bounding box to prioritize Canadian addresses
-        const url = `https://photon.komoot.io/api/?q=${encodeURIComponent(q)}&limit=6&bbox=-141.0,41.7,-52.6,83.1&lang=en`;
-        const res = await fetch(url, { signal: controller.signal });
-        if (!res.ok) return;
-        const json = await res.json();
-        const features = (json.features || []).filter(f => {
-          const p = f.properties || {};
-          return !p.countrycode || p.countrycode.toUpperCase() === 'CA';
+        const ready = await ensurePlaces();
+        if (!ready || mySeq !== requestSeq) return;
+
+        const { suggestions } = await placesLib.AutocompleteSuggestion.fetchAutocompleteSuggestions({
+          input: q,
+          sessionToken: sessionToken,
+          includedRegionCodes: ['ca']
         });
 
-        const parsed = [];
-        const seen = new Set();
-        for (const f of features) {
-          const p = f.properties || {};
-          const streetLine = [p.housenumber, p.street || p.name].filter(Boolean).join(' ').trim();
-          const city = p.city || p.town || p.village || p.municipality || p.locality || '';
-          const stateRaw = (p.state || '').toLowerCase().trim();
-          const provinceCode = CA_PROVINCE_MAP[stateRaw] || '';
-          const postcode = (p.postcode || '').trim().toUpperCase();
-          if (!streetLine) continue;
+        if (mySeq !== requestSeq) return;
 
-          const subLine = [city, provinceCode, postcode].filter(Boolean).join(', ');
-          const dedupeKey = `${streetLine}|${subLine}`.toLowerCase();
-          if (seen.has(dedupeKey)) continue;
-          seen.add(dedupeKey);
-
-          parsed.push({ street: streetLine, city, provinceCode, postcode, subLine });
-          if (parsed.length >= 5) break;
-        }
-
-        if (!parsed.length) {
+        const list = (suggestions || []).filter(s => s && s.placePrediction).slice(0, 5);
+        if (!list.length) {
           closeList();
           return;
         }
 
-        currentItems = parsed;
+        currentSuggestions = list;
         activeIndex = -1;
-        listEl.innerHTML = parsed.map((item, idx) => `
-          <button type="button" class="address-suggestion-item" role="option" data-idx="${idx}">
-            <span class="address-suggestion-main">${item.street.replace(/</g, '&lt;')}</span>
-            ${item.subLine ? `<span class="address-suggestion-sub">${item.subLine.replace(/</g, '&lt;')}</span>` : ''}
-          </button>
-        `).join('');
+        listEl.innerHTML = list.map((s, idx) => {
+          const pred = s.placePrediction;
+          const mainTxt = pred.mainText?.text || pred.text?.toString() || '';
+          const subTxt = pred.secondaryText?.text || '';
+          return `
+            <button type="button" class="address-suggestion-item" role="option" data-idx="${idx}">
+              <span class="address-suggestion-main">${escapeText(mainTxt)}</span>
+              ${subTxt ? `<span class="address-suggestion-sub">${escapeText(subTxt)}</span>` : ''}
+            </button>
+          `;
+        }).join('');
 
         listEl.querySelectorAll('.address-suggestion-item').forEach(btn => {
           btn.addEventListener('mousedown', (ev) => {
             ev.preventDefault();
-            applySuggestion(currentItems[Number(btn.dataset.idx)]);
+            applyGoogleSuggestion(currentSuggestions[Number(btn.dataset.idx)]);
           });
         });
 
         listEl.classList.add('open');
-      } catch (err) {
-        if (err.name !== 'AbortError') closeList();
+      } catch (_) {
+        closeList();
       }
-    }, 350);
+    }, 250);
   });
 
   streetInput.addEventListener('keydown', (ev) => {
-    if (!listEl.classList.contains('open') || !currentItems.length) return;
+    if (!listEl.classList.contains('open') || !currentSuggestions.length) return;
     if (ev.key === 'ArrowDown') {
       ev.preventDefault();
-      activeIndex = (activeIndex + 1) % currentItems.length;
+      activeIndex = (activeIndex + 1) % currentSuggestions.length;
       highlightItem(activeIndex);
     } else if (ev.key === 'ArrowUp') {
       ev.preventDefault();
-      activeIndex = (activeIndex - 1 + currentItems.length) % currentItems.length;
+      activeIndex = (activeIndex - 1 + currentSuggestions.length) % currentSuggestions.length;
       highlightItem(activeIndex);
     } else if (ev.key === 'Enter' && activeIndex >= 0) {
       ev.preventDefault();
-      applySuggestion(currentItems[activeIndex]);
+      applyGoogleSuggestion(currentSuggestions[activeIndex]);
     } else if (ev.key === 'Escape') {
       closeList();
     }
